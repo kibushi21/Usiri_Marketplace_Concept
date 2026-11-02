@@ -1,0 +1,961 @@
+{
+  "assumptions": {
+    "fx_tzs_per_usd": 2645,
+    "prelaunch_months": 6,
+    "pilot_months": 6,
+    "aov": 75000,
+    "commission_rate": 0.08,
+    "payment_fee_rate": 0.025,
+    "returns_rate": 0.04,
+    "refund_handling_rate": 0.01,
+    "support_cost_per_order": 700,
+    "logistics_fee_per_order": 1000,
+    "logistics_cost_per_order": 500,
+    "supplier_subscriptions_month": 600000,
+    "sponsored_revenue_month": 500000,
+    "fixed_opex_moderate": 5600000,
+    "fixed_opex_lean": 2200000,
+    "fixed_opex_ambitious": 12000000,
+    "pilot_target_orders_month6": 900,
+    "worked_orders": 1000,
+    "monthly_visits_target": 45000,
+    "conversion_target": 0.02,
+    "cac_target": 8000,
+    "repeat_target": 0.2
+  },
+  "startup_items": [
+    {
+      "item": "Company formation, TIN, business licence, basic legal",
+      "lean": 1500000,
+      "moderate": 2500000,
+      "ambitious": 4000000
+    },
+    {
+      "item": "Partner/franchise negotiation and legal due diligence",
+      "lean": 1500000,
+      "moderate": 5000000,
+      "ambitious": 10000000
+    },
+    {
+      "item": "Illustrative initial brand licence/franchise fee (placeholder)",
+      "lean": 0,
+      "moderate": 15000000,
+      "ambitious": 50000000
+    },
+    {
+      "item": "Brand identity and UI/UX design",
+      "lean": 800000,
+      "moderate": 2500000,
+      "ambitious": 6000000
+    },
+    {
+      "item": "MVP development (founder time plus contractors)",
+      "lean": 6000000,
+      "moderate": 18000000,
+      "ambitious": 40000000
+    },
+    {
+      "item": "Payment gateway integration and testing",
+      "lean": 400000,
+      "moderate": 1200000,
+      "ambitious": 3000000
+    },
+    {
+      "item": "Devices, office setup and basic equipment",
+      "lean": 800000,
+      "moderate": 2500000,
+      "ambitious": 7000000
+    },
+    {
+      "item": "Supplier onboarding and catalogue preparation",
+      "lean": 800000,
+      "moderate": 2500000,
+      "ambitious": 6000000
+    },
+    {
+      "item": "Launch marketing and customer acquisition",
+      "lean": 2000000,
+      "moderate": 6000000,
+      "ambitious": 15000000
+    },
+    {
+      "item": "Legal documents: T&Cs, privacy, consumer-contract filing",
+      "lean": 800000,
+      "moderate": 2500000,
+      "ambitious": 5000000
+    }
+  ],
+  "startup_subtotals": {
+    "lean": 14600000,
+    "moderate": 57700000,
+    "ambitious": 146000000
+  },
+  "startup_contingency": {
+    "lean": 2190000,
+    "moderate": 8655000,
+    "ambitious": 21900000
+  },
+  "startup_totals": {
+    "lean": 16790000,
+    "moderate": 66355000,
+    "ambitious": 167900000
+  },
+  "opex_items": [
+    {
+      "item": "Founder/management salaries",
+      "lean": 0,
+      "moderate": 1200000,
+      "ambitious": 3900000
+    },
+    {
+      "item": "Customer support and operations staff",
+      "lean": 650000,
+      "moderate": 1200000,
+      "ambitious": 1400000
+    },
+    {
+      "item": "Development/maintenance contractor",
+      "lean": 0,
+      "moderate": 600000,
+      "ambitious": 1400000
+    },
+    {
+      "item": "Cloud hosting, database and CDN",
+      "lean": 150000,
+      "moderate": 300000,
+      "ambitious": 500000
+    },
+    {
+      "item": "Domain, email, security and backup tools",
+      "lean": 50000,
+      "moderate": 100000,
+      "ambitious": 250000
+    },
+    {
+      "item": "SMS/WhatsApp notifications",
+      "lean": 80000,
+      "moderate": 150000,
+      "ambitious": 250000
+    },
+    {
+      "item": "Payment reconciliation and finance tools",
+      "lean": 50000,
+      "moderate": 80000,
+      "ambitious": 120000
+    },
+    {
+      "item": "Marketing and customer acquisition",
+      "lean": 500000,
+      "moderate": 800000,
+      "ambitious": 2000000
+    },
+    {
+      "item": "Field transport and supplier visits",
+      "lean": 250000,
+      "moderate": 300000,
+      "ambitious": 400000
+    },
+    {
+      "item": "Refund and claims reserve",
+      "lean": 200000,
+      "moderate": 250000,
+      "ambitious": 400000
+    },
+    {
+      "item": "Accounting, payroll and legal retainer",
+      "lean": 200000,
+      "moderate": 300000,
+      "ambitious": 600000
+    },
+    {
+      "item": "Office or co-working space",
+      "lean": 0,
+      "moderate": 200000,
+      "ambitious": 600000
+    },
+    {
+      "item": "Miscellaneous",
+      "lean": 70000,
+      "moderate": 120000,
+      "ambitious": 180000
+    }
+  ],
+  "opex_totals": {
+    "lean": 2200000,
+    "moderate": 5600000,
+    "ambitious": 12000000
+  },
+  "unit_economics": {
+    "aov": 75000,
+    "net_gmv": 72000.0,
+    "commission_rate": 0.08,
+    "commission_tzs": 5760.0,
+    "payment_fee": 1800.0,
+    "refund_handling": 30.0,
+    "support": 700,
+    "logistics_net": 500,
+    "contribution": 3730.0,
+    "contribution_pct_gmv": 0.04973333333333333
+  },
+  "revenue_example": {
+    "orders": 1000,
+    "aov": 75000,
+    "gross_order_value": 75000000,
+    "returns_value": 3000000.0,
+    "net_gmv": 72000000.0,
+    "revenue_lines": {
+      "commission": 5760000.0,
+      "subscriptions": 600000,
+      "logistics_coordination": 1000000,
+      "sponsored": 500000
+    },
+    "revenue_total": 7860000.0,
+    "variable_lines": {
+      "payment_fees": 1800000.0,
+      "refund_handling": 30000.0,
+      "support": 700000,
+      "logistics_coordination_cost": 500000
+    },
+    "variable_total": 3030000.0,
+    "contribution": 4830000.0,
+    "fixed_opex": 5600000,
+    "net_result": -770000.0,
+    "take_rate_gross": 0.1048,
+    "contribution_margin_gross": 0.0644,
+    "memo_customer_delivery_fees": 5000000,
+    "memo_carrier_charges": 5000000,
+    "memo_supplier_goods_value": 72000000.0
+  },
+  "break_even": {
+    "lean": 294.9061662198391,
+    "moderate": 1206.4343163538874,
+    "ambitious": 2922.2520107238606,
+    "ancillary": 1100000,
+    "sensitivity": [
+      {
+        "aov": 50000,
+        "commission_rate": 0.06,
+        "contribution_per_order": 1460.0,
+        "break_even_orders": 3082.1917808219177,
+        "orders_per_day": 102.73972602739725
+      },
+      {
+        "aov": 50000,
+        "commission_rate": 0.08,
+        "contribution_per_order": 2420.0,
+        "break_even_orders": 1859.504132231405,
+        "orders_per_day": 61.98347107438017
+      },
+      {
+        "aov": 50000,
+        "commission_rate": 0.1,
+        "contribution_per_order": 3380.0,
+        "break_even_orders": 1331.3609467455622,
+        "orders_per_day": 44.37869822485207
+      },
+      {
+        "aov": 75000,
+        "commission_rate": 0.06,
+        "contribution_per_order": 2290.0,
+        "break_even_orders": 1965.0655021834061,
+        "orders_per_day": 65.50218340611353
+      },
+      {
+        "aov": 75000,
+        "commission_rate": 0.08,
+        "contribution_per_order": 3730.0,
+        "break_even_orders": 1206.4343163538874,
+        "orders_per_day": 40.21447721179625
+      },
+      {
+        "aov": 75000,
+        "commission_rate": 0.1,
+        "contribution_per_order": 5170.0,
+        "break_even_orders": 870.4061895551257,
+        "orders_per_day": 29.013539651837522
+      },
+      {
+        "aov": 100000,
+        "commission_rate": 0.06,
+        "contribution_per_order": 3120.0,
+        "break_even_orders": 1442.3076923076924,
+        "orders_per_day": 48.07692307692308
+      },
+      {
+        "aov": 100000,
+        "commission_rate": 0.08,
+        "contribution_per_order": 5040.0,
+        "break_even_orders": 892.8571428571429,
+        "orders_per_day": 29.761904761904763
+      },
+      {
+        "aov": 100000,
+        "commission_rate": 0.1,
+        "contribution_per_order": 6960.0,
+        "break_even_orders": 646.551724137931,
+        "orders_per_day": 21.551724137931036
+      }
+    ]
+  },
+  "cash_plans": {
+    "lean": {
+      "monthly": [
+        {
+          "month": 1,
+          "orders": 100,
+          "contribution_and_ancillary": 573000.0,
+          "fixed": 2200000,
+          "net": -1627000.0,
+          "cumulative": -31617000.0
+        },
+        {
+          "month": 2,
+          "orders": 250,
+          "contribution_and_ancillary": 1232500.0,
+          "fixed": 2200000,
+          "net": -967500.0,
+          "cumulative": -32584500.0
+        },
+        {
+          "month": 3,
+          "orders": 450,
+          "contribution_and_ancillary": 2128500.0,
+          "fixed": 2200000,
+          "net": -71500.0,
+          "cumulative": -32656000.0
+        },
+        {
+          "month": 4,
+          "orders": 650,
+          "contribution_and_ancillary": 3024500.0,
+          "fixed": 2200000,
+          "net": 824500.0,
+          "cumulative": -31831500.0
+        },
+        {
+          "month": 5,
+          "orders": 800,
+          "contribution_and_ancillary": 3734000.0,
+          "fixed": 2200000,
+          "net": 1534000.0,
+          "cumulative": -30297500.0
+        },
+        {
+          "month": 6,
+          "orders": 900,
+          "contribution_and_ancillary": 4157000.0,
+          "fixed": 2200000,
+          "net": 1957000.0,
+          "cumulative": -28340500.0
+        }
+      ],
+      "prelaunch_opex": 13200000,
+      "pilot_net": 1649500.0,
+      "funding_requirement_before_buffer": 28340500.0,
+      "buffer_10pct": 2834050,
+      "funding_requirement_with_buffer": 31174550
+    },
+    "moderate": {
+      "monthly": [
+        {
+          "month": 1,
+          "orders": 100,
+          "contribution_and_ancillary": 573000.0,
+          "fixed": 5600000,
+          "net": -5027000.0,
+          "cumulative": -104982000.0
+        },
+        {
+          "month": 2,
+          "orders": 250,
+          "contribution_and_ancillary": 1232500.0,
+          "fixed": 5600000,
+          "net": -4367500.0,
+          "cumulative": -109349500.0
+        },
+        {
+          "month": 3,
+          "orders": 450,
+          "contribution_and_ancillary": 2178500.0,
+          "fixed": 5600000,
+          "net": -3421500.0,
+          "cumulative": -112771000.0
+        },
+        {
+          "month": 4,
+          "orders": 650,
+          "contribution_and_ancillary": 3174500.0,
+          "fixed": 5600000,
+          "net": -2425500.0,
+          "cumulative": -115196500.0
+        },
+        {
+          "month": 5,
+          "orders": 800,
+          "contribution_and_ancillary": 3984000.0,
+          "fixed": 5600000,
+          "net": -1616000.0,
+          "cumulative": -116812500.0
+        },
+        {
+          "month": 6,
+          "orders": 900,
+          "contribution_and_ancillary": 4457000.0,
+          "fixed": 5600000,
+          "net": -1143000.0,
+          "cumulative": -117955500.0
+        }
+      ],
+      "prelaunch_opex": 33600000,
+      "pilot_net": -18000500.0,
+      "funding_requirement_before_buffer": 117955500.0,
+      "buffer_10pct": 11795550,
+      "funding_requirement_with_buffer": 129751050
+    },
+    "ambitious": {
+      "monthly": [
+        {
+          "month": 1,
+          "orders": 100,
+          "contribution_and_ancillary": 573000.0,
+          "fixed": 12000000,
+          "net": -11427000.0,
+          "cumulative": -251327000.0
+        },
+        {
+          "month": 2,
+          "orders": 250,
+          "contribution_and_ancillary": 1232500.0,
+          "fixed": 12000000,
+          "net": -10767500.0,
+          "cumulative": -262094500.0
+        },
+        {
+          "month": 3,
+          "orders": 450,
+          "contribution_and_ancillary": 2278500.0,
+          "fixed": 12000000,
+          "net": -9721500.0,
+          "cumulative": -271816000.0
+        },
+        {
+          "month": 4,
+          "orders": 650,
+          "contribution_and_ancillary": 3324500.0,
+          "fixed": 12000000,
+          "net": -8675500.0,
+          "cumulative": -280491500.0
+        },
+        {
+          "month": 5,
+          "orders": 800,
+          "contribution_and_ancillary": 4284000.0,
+          "fixed": 12000000,
+          "net": -7716000.0,
+          "cumulative": -288207500.0
+        },
+        {
+          "month": 6,
+          "orders": 900,
+          "contribution_and_ancillary": 4857000.0,
+          "fixed": 12000000,
+          "net": -7143000.0,
+          "cumulative": -295350500.0
+        }
+      ],
+      "prelaunch_opex": 72000000,
+      "pilot_net": -55450500.0,
+      "funding_requirement_before_buffer": 295350500.0,
+      "buffer_10pct": 29535050,
+      "funding_requirement_with_buffer": 324885550
+    }
+  },
+  "kpis": [
+    [
+      "Verified suppliers",
+      "Suppliers that passed KYC and have at least one live listing",
+      "40 by month 3; 60 by month 6",
+      "Supplier register",
+      "Weekly"
+    ],
+    [
+      "Active products",
+      "Listings visible, in stock and not suppressed",
+      "600 by month 3; 1,200 by month 6",
+      "Catalogue",
+      "Weekly"
+    ],
+    [
+      "Monthly website visitors",
+      "Unique visitors to web/PWA",
+      "45,000 by month 6",
+      "Analytics",
+      "Weekly"
+    ],
+    [
+      "Conversion rate",
+      "Completed orders / unique visitors",
+      "2.0% by month 6",
+      "Analytics + orders",
+      "Weekly"
+    ],
+    [
+      "Completed orders",
+      "Orders delivered or collected and confirmed",
+      "900 per month by month 6",
+      "Order system",
+      "Daily"
+    ],
+    [
+      "Average order value",
+      "Net GMV / completed orders",
+      "TZS 75,000 (range 50,000-100,000)",
+      "Order system",
+      "Weekly"
+    ],
+    [
+      "Cancellation rate",
+      "Cancelled orders / placed orders",
+      "Below 4%",
+      "Order system",
+      "Weekly"
+    ],
+    [
+      "Return rate",
+      "Returned units / delivered units",
+      "Below 5% (electronics may be higher)",
+      "Returns log",
+      "Weekly"
+    ],
+    [
+      "On-time delivery",
+      "Delivered within promised window",
+      "At least 90%",
+      "Carrier manifest + POD",
+      "Weekly"
+    ],
+    [
+      "Cost per acquired customer",
+      "Marketing spend / first-time buyers",
+      "At most TZS 8,000",
+      "Marketing + orders",
+      "Monthly"
+    ],
+    [
+      "Repeat purchase rate",
+      "Buyers with 2+ orders in 90 days",
+      "At least 20% by month 6",
+      "Order system",
+      "Monthly"
+    ],
+    [
+      "Contribution margin",
+      "Contribution / gross order value",
+      "At least 4% by month 6",
+      "Finance",
+      "Monthly"
+    ],
+    [
+      "Complaints resolved",
+      "Resolved within 48 hours",
+      "At least 90%",
+      "Support system",
+      "Weekly"
+    ],
+    [
+      "Supplier retention",
+      "Suppliers active after 90 days",
+      "At least 80%",
+      "Supplier register",
+      "Quarterly"
+    ],
+    [
+      "Platform uptime",
+      "Availability of checkout and order APIs",
+      "At least 99.5% monthly",
+      "Monitoring",
+      "Monthly"
+    ]
+  ],
+  "risks": [
+    [
+      "R01",
+      "Usiri declines the franchise/brand proposal or negotiations stall",
+      "Strategic/partner",
+      4,
+      5,
+      "Run the project on an independent-brand track in parallel; approach at least two alternative carriers; set a decision deadline before spending on brand-specific assets.",
+      "Founder lead"
+    ],
+    [
+      "R02",
+      "Supplier fraud, counterfeit goods or misrepresentation",
+      "Commercial/trust",
+      3,
+      5,
+      "Business verification, physical shop visits, sample checks, category restrictions, supplier warranties, buyer protection reserve, delisting policy.",
+      "COO"
+    ],
+    [
+      "R03",
+      "Delivery failures, late parcels or damaged goods erode trust",
+      "Operational",
+      4,
+      4,
+      "Written SLA, two-attempt delivery, collection points, parcel photos, goods-in-transit insurance, exception desk, weekly carrier review.",
+      "Ops lead"
+    ],
+    [
+      "R04",
+      "Low demand or high customer acquisition cost",
+      "Commercial",
+      4,
+      4,
+      "Narrow category and geography, pre-launch waiting list, supplier-led demand, referral incentives, stop-loss marketing budget.",
+      "CEO"
+    ],
+    [
+      "R05",
+      "Thin margins make the model unviable at pilot volume",
+      "Financial",
+      4,
+      4,
+      "Test 8-12% commission, supplier subscriptions, delivery coordination fee; keep fixed costs lean; break-even sensitivity reviewed monthly.",
+      "Finance lead"
+    ],
+    [
+      "R06",
+      "Payment fraud, chargebacks or reconciliation gaps",
+      "Financial/technology",
+      3,
+      4,
+      "Licensed gateway, phone/device checks, velocity limits, order-level reconciliation, hold payouts until delivery confirmation, daily exception queue.",
+      "CTO"
+    ],
+    [
+      "R07",
+      "Data breach or non-compliance with PDPA 2022",
+      "Legal/technology",
+      3,
+      5,
+      "Register with PDPC, data map, least-privilege access, encryption, retention policy, breach playbook, cyber insurance, annual review.",
+      "CTO/DPO"
+    ],
+    [
+      "R08",
+      "Consumer-contract or returns policy challenged by FCC or customers",
+      "Legal/reputation",
+      3,
+      3,
+      "Plain-language T&Cs, register standard-form contract with FCC, clear returns and refund rules, complaints log, legal review.",
+      "Legal adviser"
+    ],
+    [
+      "R09",
+      "Jumia or another well-funded marketplace enters or returns",
+      "Competitive",
+      3,
+      5,
+      "Differentiate on verified suppliers, coordinated delivery and local support; avoid competing on loss-making subsidies; build supplier switching costs.",
+      "CEO"
+    ],
+    [
+      "R10",
+      "Over-dependence on one logistics partner",
+      "Operational/strategic",
+      4,
+      3,
+      "Qualify a second carrier before pilot; keep carrier-agnostic adapter layer; standardise SLAs and parcel IDs.",
+      "Ops lead"
+    ],
+    [
+      "R11",
+      "Key-person dependency and unclear founder roles",
+      "Organisational",
+      4,
+      3,
+      "Written roles, equity and vesting agreement, documented processes, cross-training, IP assignment to the company.",
+      "Founders"
+    ],
+    [
+      "R12",
+      "Technology outage or security incident during peak",
+      "Technology",
+      3,
+      4,
+      "Managed hosting, backups tested quarterly, monitoring and alerts, status page, incident runbook, WAF and rate limiting.",
+      "CTO"
+    ],
+    [
+      "R13",
+      "Regulatory change or new tax/e-commerce rules",
+      "Regulatory",
+      3,
+      3,
+      "Quarterly legal/regulatory review, accountant on retainer, flexible contract terms, compliance calendar.",
+      "Legal adviser"
+    ],
+    [
+      "R14",
+      "Currency or inflation pressure on costs and prices",
+      "Financial",
+      3,
+      3,
+      "TZS-denominated pricing, periodic repricing, cost buffers, avoid USD-linked fixed commitments where possible.",
+      "Finance lead"
+    ],
+    [
+      "R15",
+      "Brand or reputational damage from a supplier or delivery incident",
+      "Reputation",
+      2,
+      5,
+      "Brand-use guidelines, rapid response protocol, compensation policy, transparency report, escalation to brand owner.",
+      "CEO"
+    ]
+  ],
+  "decision_criteria": [
+    [
+      "Commercial attractiveness",
+      0.25,
+      "Size and urgency of customer problem; willingness to pay; competitive intensity"
+    ],
+    [
+      "Feasibility",
+      0.2,
+      "Can the team build and operate the MVP with available skills and partners?"
+    ],
+    [
+      "Cost and funding",
+      0.15,
+      "Affordable within the group's means; credible path to break-even"
+    ],
+    [
+      "Risk",
+      0.2,
+      "Downside exposure, partner dependence, regulatory and trust risk"
+    ],
+    [
+      "Strategic fit",
+      0.1,
+      "Fit with founders' skills, network and long-term ambitions"
+    ],
+    [
+      "Evidence quality",
+      0.1,
+      "Strength of interview, survey and quotation evidence before committing"
+    ]
+  ],
+  "roadmap": [
+    [
+      "1. Internal concept review",
+      "2-4 weeks",
+      "Concept document, meeting decision, written go/revise/stop decision",
+      "TZS 0-500k",
+      "Founder availability",
+      "Group agrees to fund Phase 2"
+    ],
+    [
+      "2. Customer, supplier and competitor research",
+      "6-8 weeks",
+      "30 customer interviews, 15 supplier interviews, 8 mystery shops, competitor price check, survey of 150+ respondents",
+      "TZS 2-5m",
+      "Access to suppliers and customers",
+      "Evidence supports a specific segment and value proposition"
+    ],
+    [
+      "3. Partner and franchise feasibility",
+      "4-6 weeks",
+      "Carrier capability assessment, draft term sheet, indicative logistics rates, franchise/legal briefing",
+      "TZS 1-3m",
+      "Willingness of carriers to meet",
+      "A carrier confirms interest in a pilot and rates are workable"
+    ],
+    [
+      "4. Commercial negotiation and legal review",
+      "6-10 weeks",
+      "Heads of terms, brand licence/franchise draft, SLA, data-processing agreement, legal opinion",
+      "TZS 3-8m",
+      "Partner interest; legal counsel",
+      "Terms are affordable and risk allocation is acceptable"
+    ],
+    [
+      "5. MVP build and operational preparation",
+      "8-12 weeks",
+      "Working MVP, supplier handbook, support scripts, finance controls, pilot plan",
+      "TZS 10-30m",
+      "Phase 2-4 findings; team capacity",
+      "MVP passes acceptance tests and 20 suppliers are ready"
+    ],
+    [
+      "6. Controlled pilot",
+      "12 weeks",
+      "Live orders in one city and selected corridors; weekly dashboard; incident log",
+      "TZS 8-20m",
+      "MVP, suppliers, carrier, payment gateway",
+      "KPIs meet agreed thresholds or a clear fix path exists"
+    ],
+    [
+      "7. Evaluation and expansion decision",
+      "4 weeks",
+      "Pilot report, unit economics, decision memo, next-phase budget",
+      "TZS 1-2m",
+      "Pilot data",
+      "Group decides to scale, pivot or stop"
+    ]
+  ],
+  "sources": [
+    [
+      "Usiri Group of Companies",
+      "About",
+      "https://www.usirigroup.co.tz/about",
+      "29 Oct 2026",
+      "Self-reported services, routes, years, customer count",
+      "Company marketing; figures inconsistent across pages"
+    ],
+    [
+      "Usiri Group of Companies",
+      "Transportation",
+      "https://www.usirigroup.co.tz/services/transportation",
+      "29 Oct 2026",
+      "Carriage of goods, parcels, luggage and freight; route list",
+      "No API or rate card published"
+    ],
+    [
+      "Usiri Group of Companies",
+      "Locations",
+      "https://www.usirigroup.co.tz/locations",
+      "29 Oct 2026",
+      "Branch/office list across Dar es Salaam and upcountry",
+      "Self-reported"
+    ],
+    [
+      "Usiri Group of Companies",
+      "Tracking link",
+      "https://www.usirigroup.co.tz/track",
+      "29 Oct 2026",
+      "Link returned HTTP 404 during review",
+      "Indicates no public tracking interface at time of review"
+    ],
+    [
+      "TCRA",
+      "Communications Statistics Report, quarter ending March 2025",
+      "https://www.tcra.go.tz/tcra-tovuti/2025/mamlaka-website/documents/quarterly-statistics/Communication_Statistics_report_for_end_of_March_2025_1744814447_4329fbf17d.pdf",
+      "29 Oct 2026",
+      "Internet subscriptions 49.3m; mobile money accounts 66.5m; smartphone penetration 35.29%; 4G coverage 91%; courier volumes",
+      "Official statistics; Q1 2025"
+    ],
+    [
+      "Bank of Tanzania",
+      "National Payment Systems Annual Report 2025",
+      "https://www.bot.go.tz/Publications/Regular/Annual%20Report/en/2026060211494565.pdf",
+      "29 Oct 2026",
+      "75.78m active mobile money users; 2.79m merchants; P2B 2.30bn transactions worth TZS 37.5trn; 72 licensed non-bank providers",
+      "Official; 2025 data"
+    ],
+    [
+      "International Trade Administration (USA)",
+      "Tanzania Country Commercial Guide - eCommerce",
+      "https://www.trade.gov/country-commercial-guides/tanzania-ecommerce",
+      "29 Oct 2026",
+      "Most online buying via social media; 2025 market estimate USD 693.11m, 7% growth; Facebook/Instagram user estimates",
+      "Government guide; market estimate is third-party and differs from other estimates"
+    ],
+    [
+      "eCommerceDB",
+      "E-Commerce Industry in Tanzania",
+      "https://ecdb.com/resources/sample-data/market/tz/all",
+      "29 Oct 2026",
+      "Alternative 2025 market estimate of USD 536m and 15-20% growth",
+      "Model-based estimate; conflicts with trade.gov figure"
+    ],
+    [
+      "Reuters / Africanews",
+      "Jumia closes Tanzania operations",
+      "https://www.africanews.com/2019/12/03/how-jumia-closed-two-portfolios-in-10-days-from-cameroon-to-tanzania/",
+      "29 Oct 2026",
+      "Jumia ceased Tanzanian e-commerce operations on 27 November 2019",
+      "Historical reporting"
+    ],
+    [
+      "TechCabal",
+      "Jumia considers Tanzania and Angola expansion",
+      "https://techcabal.com/2025/11/18/jumia-considers-tanzania-angola-expansion/",
+      "29 Oct 2026",
+      "Jumia was considering Tanzania as a potential new market; no launch confirmed",
+      "News report; no confirmed date"
+    ],
+    [
+      "TRA",
+      "Value Added Tax",
+      "https://www.tra.go.tz/page/value-added-tax-vat",
+      "29 Oct 2026",
+      "VAT rate 18%; registration threshold TZS 200m (or TZS 100m in six months)",
+      "Official tax guidance; confirm with accountant"
+    ],
+    [
+      "PwC",
+      "Tanzania - Corporate - Taxes on corporate income",
+      "https://taxsummaries.pwc.com/tanzania/corporate/taxes-on-corporate-income",
+      "29 Oct 2026",
+      "Corporate income tax 30% for resident companies",
+      "Professional summary; confirm current Finance Act"
+    ],
+    [
+      "ZATRA",
+      "Franchising Tanzania: Law, Tax and Royalty Guide",
+      "https://www.zatra.co/post/franchising-tanzania",
+      "29 Oct 2026",
+      "No franchise Act; Law of Contract Act Cap. 345; Trade and Service Marks Act Cap. 326; 15% withholding on non-resident royalties",
+      "Law-firm commentary; not legal advice"
+    ],
+    [
+      "DLA Piper",
+      "Data protection laws in Tanzania",
+      "https://www.dlapiperdataprotection.com/?c=TZ&t=l",
+      "29 Oct 2026",
+      "PDPA 2022 obligations; PDPC registration; penalties up to TZS 5bn or 10 years",
+      "Professional summary; verify against the Act"
+    ],
+    [
+      "Rex Attorneys",
+      "PDPC registration deadline",
+      "https://rexattorneys.co.tz/portfolio/reminder-to-clients-final-deadline-for-registration-with-the-personal-data-protection-commission-pdpc/",
+      "29 Oct 2026",
+      "Registration deadline 8 April 2026; enforcement from 9 April 2026; DPO required",
+      "Law-firm update; confirm with PDPC"
+    ],
+    [
+      "Fair Competition Commission",
+      "Standard Form (Consumer Contracts) Regulations 2014",
+      "https://www.fcc.go.tz/attachments/attachment-1719186970334-2762257834.%20Standard%20Form%20CONSUMER%20CONTRACTS%20Regulations%202014.pdf",
+      "29 Oct 2026",
+      "Standard-form consumer contracts must be registered with FCC; application within 21 days; FCC review",
+      "Regulation; confirm filing practice"
+    ],
+    [
+      "TCRA",
+      "Postal services and licensing",
+      "https://www.tcra.go.tz/resources/postal-services",
+      "29 Oct 2026",
+      "Courier licence categories and fees (application TZS 60,000; initial up to TZS 18m)",
+      "Official; confirm applicability to marketplace model"
+    ],
+    [
+      "TCRA",
+      "National Addressing and Postcode",
+      "https://www.tcra.go.tz/services/featured/national-adressing-and-postcode",
+      "29 Oct 2026",
+      "Five-digit postcode system and national addressing programme",
+      "Official; address quality remains a practical constraint"
+    ],
+    [
+      "Electronic Transactions Act 2015 (Cap. 442 R.E. 2022)",
+      "Ministry of Finance",
+      "https://www.mof.go.tz/uploads/documents/en-1676545044-THE%20ELECTRONIC%20TRANSACTIONS%20ACT,%20CAP%20442%20R.E.%202022.pdf",
+      "29 Oct 2026",
+      "Legal recognition of electronic transactions, signatures and records",
+      "Primary legislation"
+    ]
+  ]
+}

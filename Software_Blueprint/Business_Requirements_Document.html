@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Usiri Marketplace — Business Requirements</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="brd.css" />
+</head>
+<body class="doc">
+
+<div class="cover">
+  <div class="kicker">Software blueprint · Phase 2</div>
+  <h1>Business<br/>Requirements</h1>
+  <div class="rule"></div>
+  <div class="subtitle">Objectives, operating model and business requirements for the bounded
+  general merchandise marketplace</div>
+  <div class="working">Working name only — no Usiri affiliation is implied.</div>
+  <div class="meta">
+    <strong>Prepared for:</strong> the founding group<br/>
+    <strong>Document:</strong> UM-BRD-001 &nbsp;·&nbsp; <strong>Version:</strong> 1.0<br/>
+    <strong>Date:</strong> 30 October 2026<br/>
+    <strong>Baseline:</strong> UM-DISC-001 v0.2 &nbsp;·&nbsp; UM-AMD-001 v1.0
+  </div>
+  <div class="status">
+    <strong>DRAFT FOR APPROVAL.</strong> No implementation is authorized. Usiri is a potential
+    logistics and brand partner, not a confirmed one. No API, rate card, franchise term or
+    licence is assumed.
+  </div>
+  <div class="confidential">Confidential — for internal discussion</div>
+</div>
+
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#document-control" id="toc-document-control">0. Document
+control</a></li>
+<li><a href="#executive-summary" id="toc-executive-summary">1. Executive
+summary</a></li>
+<li><a href="#business-context" id="toc-business-context">2. Business
+context</a></li>
+<li><a href="#business-objectives-and-success-measures"
+id="toc-business-objectives-and-success-measures">3. Business objectives
+and success measures</a></li>
+<li><a href="#scope" id="toc-scope">4. Scope</a></li>
+<li><a href="#stakeholders-and-roles" id="toc-stakeholders-and-roles">5.
+Stakeholders and roles</a></li>
+<li><a href="#target-operating-model" id="toc-target-operating-model">6.
+Target operating model</a></li>
+<li><a href="#business-processes" id="toc-business-processes">7.
+Business processes</a></li>
+<li><a href="#business-needs-catalogue"
+id="toc-business-needs-catalogue">8. Business needs catalogue</a></li>
+<li><a href="#business-rules" id="toc-business-rules">9. Business
+rules</a></li>
+<li><a href="#information-requirements"
+id="toc-information-requirements">10. Information requirements</a></li>
+<li><a href="#legal-and-regulatory-obligations"
+id="toc-legal-and-regulatory-obligations">11. Legal and regulatory
+obligations</a></li>
+<li><a href="#assumptions-constraints-and-dependencies"
+id="toc-assumptions-constraints-and-dependencies">12. Assumptions,
+constraints and dependencies</a></li>
+<li><a href="#business-risks" id="toc-business-risks">13. Business
+risks</a></li>
+<li><a href="#governance-approvals-and-change-control"
+id="toc-governance-approvals-and-change-control">14. Governance,
+approvals and change control</a></li>
+<li><a href="#open-items-and-next-step"
+id="toc-open-items-and-next-step">15. Open items and next step</a></li>
+<li><a href="#appendix-a.-glossary"
+id="toc-appendix-a.-glossary">Appendix A. Glossary</a></li>
+<li><a href="#appendix-b.-document-map"
+id="toc-appendix-b.-document-map">Appendix B. Document map</a></li>
+</ul>
+</nav>
+<section id="document-control" class="level1">
+<h1>0. Document control</h1>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document</td>
+<td>Business Requirements Document</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>Usiri Marketplace (working name)</td>
+</tr>
+<tr>
+<td>Document ID</td>
+<td>UM-BRD-001</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><strong>Draft for founder review. No implementation is
+authorized.</strong></td>
+</tr>
+<tr>
+<td>Date</td>
+<td>30 October 2026</td>
+</tr>
+<tr>
+<td>Prepared for</td>
+<td>The founding group</td>
+</tr>
+<tr>
+<td>Prepared by</td>
+<td>Project initiator, acting as business analyst and software
+architect</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Confidential — internal discussion</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>UM-DISC-001 Requirements Discovery Report v0.2; UM-AMD-001 Scope
+Amendment v1.0; UM-DEC-001 Decision Log v0.2</td>
+</tr>
+<tr>
+<td>Next document</td>
+<td>UM-SRS-001 Software Requirements Specification</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status notice.</strong> Usiri Group of Companies is a
+<strong>potential</strong> logistics and brand partner. No approval,
+API, rate card, franchise term or brand licence is assumed. The platform
+is designed to work with any qualified carrier and any licensed payment
+service provider. No code has been written.</p>
+</blockquote>
+<section id="how-this-document-is-used" class="level2">
+<h2>0.1 How this document is used</h2>
+<p>The BRD states <strong>what the business needs and why</strong>, in
+business language. It does not prescribe screens, schemas or endpoints;
+those belong to the SRS, the architecture and the UX specification.
+Every business need carries an ID so that the SRS and the test plan can
+trace back to it. Evidence labels follow the discovery report:
+<strong>[Confirmed]</strong>, <strong>[Assumption]</strong>,
+<strong>[Proposed]</strong>, <strong>[Open]</strong>.</p>
+<hr />
+</section>
+</section>
+<section id="executive-summary" class="level1">
+<h1>1. Executive summary</h1>
+<p>The proposed marketplace lets customers in Dar es Salaam buy from
+many verified suppliers in one checkout, pay through a licensed payment
+provider, and receive a tracked delivery. Suppliers keep their stock and
+their shop; the platform supplies demand, catalogue discipline, delivery
+coordination, payment reconciliation and customer care. The platform
+earns commission on completed merchandise and a coordination margin on
+delivery. It does not buy inventory, hold customer funds or operate a
+fleet.</p>
+<p>The founders decided on 30 October 2026 to launch with
+<strong>general merchandise</strong>, bounded to six departments, rather
+than the narrower home-and-kitchen pilot originally recommended. The
+decision increases the size of the opportunity to be tested and
+increases the operational load: variants, category attributes,
+category-specific returns, authenticity controls and higher moderation
+volume all become launch requirements.</p>
+<p>The business test is narrow and measurable. Within six months of
+launch the platform must show that customers will buy across suppliers,
+that delivery can be trusted, that failures are resolved fairly, that
+suppliers stay, and that each order contributes a positive margin. If
+those five things are not true, the platform should change or stop; it
+should not scale.</p>
+<p>This document defines the business requirements for that test. It is
+the basis for the SRS, the architecture and the test plan, and it
+records what remains unresolved.</p>
+<hr />
+</section>
+<section id="business-context" class="level1">
+<h1>2. Business context</h1>
+<section id="the-problem-being-solved" class="level2">
+<h2>2.1 The problem being solved</h2>
+<p>A customer in Dar es Salaam who wants a set of household, fashion or
+baby items faces a fragmented market. She must visit several shops or
+several Instagram and WhatsApp sellers, negotiate delivery separately,
+pay without a receipt, and accept that a wrong size or a damaged item
+may not be exchangeable. A small supplier faces the mirror image: reach
+depends on foot traffic or on social media effort, delivery is ad hoc,
+and there is no affordable way to look trustworthy to a new
+customer.</p>
+<p>The marketplace addresses both sides with one promise: <strong>many
+verified shops, one checkout, one delivery coordination point, and a
+return path that works</strong>.</p>
+</section>
+<section id="what-is-known-and-what-is-not" class="level2">
+<h2>2.2 What is known and what is not</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Area</th>
+<th>What the evidence supports</th>
+<th>What remains unproven</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Demand</td>
+<td>Urban households buy these categories online and through social
+commerce; competitors operate in Dar es Salaam</td>
+<td>Willingness to buy across suppliers in one basket; sensitivity to a
+minimum basket</td>
+</tr>
+<tr>
+<td>Supply</td>
+<td>Small and medium shops exist in the target categories and lack
+digital reach</td>
+<td>Willingness to accept commission, payout delay and catalogue
+discipline</td>
+</tr>
+<tr>
+<td>Delivery</td>
+<td>Licensed couriers operate in the city; address quality is
+uneven</td>
+<td>Cost per parcel by category; first-attempt success; liability
+terms</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>Mobile money is dominant; licensed PSPs serve merchants</td>
+<td>PSP settlement product, fees and refund behaviour</td>
+</tr>
+<tr>
+<td>Usiri</td>
+<td>A logistics and brand business exists</td>
+<td>Any partnership, API, rate card or licence</td>
+</tr>
+</tbody>
+</table>
+<p>The concept document, the discovery report and the workbook hold the
+supporting detail. This BRD does not upgrade any assumption into a
+fact.</p>
+</section>
+<section id="why-a-managed-marketplace-rather-than-a-shop-or-a-reseller"
+class="level2">
+<h2>2.3 Why a managed marketplace rather than a shop or a reseller</h2>
+<p>A managed marketplace keeps capital light and lets the platform test
+demand across categories without owning stock. It also creates a trust
+role that a classifieds site does not: the platform verifies suppliers,
+moderates listings, coordinates delivery, and stands behind the return
+process. That trust role is the product. It is also the cost centre,
+which is why the operating model must be explicit about who does
+what.</p>
+</section>
+<section id="what-general-merchandise-means-in-this-project"
+class="level2">
+<h2>2.4 What “general merchandise” means in this project</h2>
+<p>It means a <strong>multi-department consumer assortment of six
+bounded departments</strong>, not an unlimited catalogue:</p>
+<ol type="1">
+<li>Homeware, storage and kitchenware</li>
+<li>Small kitchen and home appliances</li>
+<li>Fashion and footwear</li>
+<li>Beauty and personal care</li>
+<li>Baby and maternity</li>
+<li>Home and kitchen bundles</li>
+</ol>
+<p>Consumer electronics and phones, groceries, furniture, building
+materials and restricted goods are excluded from launch. The boundary is
+a condition of a safe launch. It is recorded in UM-AMD-001 and is a
+founder decision, not a vendor preference.</p>
+<hr />
+</section>
+</section>
+<section id="business-objectives-and-success-measures" class="level1">
+<h1>3. Business objectives and success measures</h1>
+<section id="objectives" class="level2">
+<h2>3.1 Objectives</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Objective</th>
+<th>Why it matters</th>
+<th>Measure and target</th>
+<th>Review</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OBJ-01</td>
+<td>Prove that customers will buy from several verified suppliers
+through one checkout</td>
+<td>Demand is the first risk; without orders nothing else can be
+tested</td>
+<td>900 completed orders in pilot month 6; at least 30% of orders
+contain two or more suppliers</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>OBJ-02</td>
+<td>Deliver reliably enough that customers trust the platform with
+repeat purchases</td>
+<td>A late or lost parcel destroys trust faster than price attracts
+it</td>
+<td>At least 90% on-time delivery; first-attempt success at least
+80%</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>OBJ-03</td>
+<td>Resolve failures fairly and quickly</td>
+<td>The first exception is the moment of truth</td>
+<td>90% of complaints resolved within 48 hours; returns below 5% of
+delivered orders</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>OBJ-04</td>
+<td>Recruit and retain credible suppliers</td>
+<td>Supply quality determines catalogue quality and returns</td>
+<td>40 verified suppliers by month 3; 80% retention after 90 days</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>OBJ-05</td>
+<td>Prove positive contribution economics</td>
+<td>Growth on negative unit economics destroys the company faster</td>
+<td>Contribution at least 4% of gross order value by month 6</td>
+<td>Monthly</td>
+</tr>
+<tr>
+<td>OBJ-06</td>
+<td>Operate within Tanzanian law and the platform’s contracts</td>
+<td>A compliance failure can stop trading and damage the brand</td>
+<td>Written legal baseline; registrations and filings completed as
+advised</td>
+<td>Before launch</td>
+</tr>
+<tr>
+<td>OBJ-07</td>
+<td>Run the pilot with a small team without operational chaos</td>
+<td>The team, not the software, is the constraint at launch</td>
+<td>Every pilot order handled through the system; no shadow spreadsheets
+for money</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>OBJ-08</td>
+<td>Produce evidence for a scale, pivot or stop decision</td>
+<td>The pilot exists to buy information, not to prove a point</td>
+<td>Documented go/no-go review at month 6</td>
+<td>Month 6</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="guardrails" class="level2">
+<h2>3.2 Guardrails</h2>
+<p>The objectives are not to be met by trading away the foundations:</p>
+<ul>
+<li><strong>No order without a verified supplier.</strong> Growth in
+supplier count never outpaces verification capacity.</li>
+<li><strong>No delivery promise without a carrier commitment.</strong>
+The promise is set from measured performance, not ambition.</li>
+<li><strong>No customer money outside the PSP.</strong> The platform
+does not hold funds, lend, or operate a wallet.</li>
+<li><strong>No commission before the customer is served.</strong>
+Revenue is recognised on completed merchandise, not on captured
+payment.</li>
+<li><strong>No silent exception.</strong> Every manual override, refund,
+payout hold and safety suspension carries an actor, a reason and a
+record.</li>
+</ul>
+</section>
+<section id="measurement-discipline" class="level2">
+<h2>3.3 Measurement discipline</h2>
+<p>Targets in this document are <strong>hypotheses to be
+baselined</strong>, not commitments. The first four weeks of operation
+establish the baseline for conversion, basket size, delivery success,
+return rate and support volume. Targets are then reviewed against that
+baseline at the first monthly business review, and any change is
+recorded in the decision log. Vanity metrics — page views, app installs,
+follower counts — are not acceptance measures.</p>
+<hr />
+</section>
+</section>
+<section id="scope" class="level1">
+<h1>4. Scope</h1>
+<section id="in-scope-for-the-first-release" class="level2">
+<h2>4.1 In scope for the first release</h2>
+<ul>
+<li>A mobile-first customer web experience in Swahili and English, with
+guest checkout and optional accounts.</li>
+<li>A catalogue of six departments with product variants, category
+attributes, size guides, moderation and category-specific return
+rules.</li>
+<li>A supplier portal for onboarding, documents, catalogue, stock,
+orders, dispatch, statements and performance.</li>
+<li>An operations console for verification, moderation, orders,
+payments, payouts, logistics, returns, disputes, support and
+reporting.</li>
+<li>A logistics coordination capability that works manually at launch
+and is provider-agnostic.</li>
+<li>Payment through a licensed PSP with verification, refunds,
+reconciliation and supplier payouts.</li>
+<li>Category-sensitive returns and a support workflow with order
+context.</li>
+<li>Role-based access, audit logging, configuration, and the legal pages
+required at checkout.</li>
+</ul>
+</section>
+<section id="launch-profile" class="level2">
+<h2>4.2 Launch profile</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Launch position</th>
+<th>Basis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>City</td>
+<td>Dar es Salaam mainland</td>
+<td>[Confirmed]</td>
+</tr>
+<tr>
+<td>Currency and tax</td>
+<td>TZS; tax treatment configurable and unresolved</td>
+<td>[Assumption] / [Open]</td>
+</tr>
+<tr>
+<td>Departments</td>
+<td>Six bounded departments</td>
+<td>[Confirmed] D-01</td>
+</tr>
+<tr>
+<td>Suppliers</td>
+<td>40 verified at launch; 60 by month 6</td>
+<td>[Assumption]</td>
+</tr>
+<tr>
+<td>Active SKUs</td>
+<td>800–1,200</td>
+<td>[Assumption]</td>
+</tr>
+<tr>
+<td>Orders</td>
+<td>900 completed orders in month 6</td>
+<td>[Assumption]</td>
+</tr>
+<tr>
+<td>Commission</td>
+<td>8% hypothesis, configurable and effective-dated</td>
+<td>[Assumption]</td>
+</tr>
+<tr>
+<td>Delivery charge</td>
+<td>TZS 5,000 hypothesis, category and zone aware</td>
+<td>[Assumption]</td>
+</tr>
+<tr>
+<td>Minimum basket</td>
+<td>TZS 30,000 or a small-order fee, to be tested</td>
+<td>[Open] D-14</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>09:00–18:00 Monday–Saturday</td>
+<td>[Proposed]</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="out-of-scope-for-the-first-release" class="level2">
+<h2>4.3 Out of scope for the first release</h2>
+<p>Native mobile applications; marketplace warehouse or dark store;
+marketplace fleet; real-time GPS tracking; customer wallet, credit or
+instalments; buyer-seller chat; multi-city operations; international
+shipping and multi-currency; AI recommendations; automated supplier
+payouts; microservices and event streaming; advertising auction and
+loyalty programme.</p>
+</section>
+<section id="scope-change-rule" class="level2">
+<h2>4.4 Scope change rule</h2>
+<p>A capability enters the first release only if it is required to
+complete, deliver, refund or support a pilot order, or to meet a legal
+obligation. Everything else is deferred, however attractive. Any
+exception requires a written change note approved by the founders, with
+the schedule or quality consequence stated.</p>
+<hr />
+</section>
+</section>
+<section id="stakeholders-and-roles" class="level1">
+<h1>5. Stakeholders and roles</h1>
+<section id="stakeholder-register" class="level2">
+<h2>5.1 Stakeholder register</h2>
+<p>IDs STK-01 to STK-16 follow UM-DISC-001. STK-17 to STK-19 are added
+by this BRD for commercial parties that the baseline treats as
+dependencies rather than users.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Stakeholder</th>
+<th>What they need</th>
+<th>What the platform needs from them</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STK-01</td>
+<td>Guest visitor</td>
+<td>Browse and understand price, delivery and returns before
+committing</td>
+<td>Lawful use; accurate contact details at checkout</td>
+</tr>
+<tr>
+<td>STK-02</td>
+<td>Registered customer</td>
+<td>Reliable purchase, tracking, returns and help</td>
+<td>Accurate address and contact; payment</td>
+</tr>
+<tr>
+<td>STK-03</td>
+<td>Individual merchant</td>
+<td>More sales without a delivery desk</td>
+<td>Accurate listings, current stock, standard packing</td>
+</tr>
+<tr>
+<td>STK-04</td>
+<td>Business supplier</td>
+<td>A predictable channel that protects its reputation</td>
+<td>Contract compliance, quality, fulfilment discipline</td>
+</tr>
+<tr>
+<td>STK-05</td>
+<td>Supplier employee</td>
+<td>Clear daily tasks without sensitive data</td>
+<td>Correct packing and dispatch updates</td>
+</tr>
+<tr>
+<td>STK-06</td>
+<td>Logistics provider</td>
+<td>Profitable, predictable parcel volume</td>
+<td>Pickup, line-haul, delivery, status events, claims</td>
+</tr>
+<tr>
+<td>STK-07</td>
+<td>Logistics agent or driver</td>
+<td>Clear stops and proof of delivery</td>
+<td>Delivery, status events, proof of delivery</td>
+</tr>
+<tr>
+<td>STK-08</td>
+<td>Customer support agent</td>
+<td>Full context to resolve issues</td>
+<td>Fair, documented decisions</td>
+</tr>
+<tr>
+<td>STK-09</td>
+<td>Finance personnel</td>
+<td>Accurate money and clean reconciliation</td>
+<td>Timely review and approval</td>
+</tr>
+<tr>
+<td>STK-10</td>
+<td>Catalogue moderator</td>
+<td>A trustworthy, accurate catalogue</td>
+<td>Consistent review against the checklist</td>
+</tr>
+<tr>
+<td>STK-11</td>
+<td>Operations administrator</td>
+<td>Orders move and exceptions close</td>
+<td>Timely booking and exception handling</td>
+</tr>
+<tr>
+<td>STK-12</td>
+<td>Super administrator</td>
+<td>The platform is controlled and auditable</td>
+<td>Least-privilege discipline</td>
+</tr>
+<tr>
+<td>STK-13</td>
+<td>Franchise or brand manager</td>
+<td>Brand standards and licence compliance</td>
+<td>Nothing until a written licence exists</td>
+</tr>
+<tr>
+<td>STK-14</td>
+<td>Technology administrator</td>
+<td>A secure, available system</td>
+<td>Patch, monitor and restore discipline</td>
+</tr>
+<tr>
+<td>STK-15</td>
+<td>Auditor or adviser</td>
+<td>Evidence that controls work</td>
+<td>Independent review</td>
+</tr>
+<tr>
+<td>STK-16</td>
+<td>Regulators and authorities</td>
+<td>Compliance with applicable law</td>
+<td>Registration and cooperation</td>
+</tr>
+<tr>
+<td>STK-17</td>
+<td>Payment service provider</td>
+<td>Compliant merchants and clean transaction data</td>
+<td>Contractual compliance; accurate references</td>
+</tr>
+<tr>
+<td>STK-18</td>
+<td>Usiri, potentially</td>
+<td>A credible operating partner and brand licensor</td>
+<td>Nothing is assumed until a written agreement</td>
+</tr>
+<tr>
+<td>STK-19</td>
+<td>Investors or lenders, potentially</td>
+<td>Evidence of traction and unit economics</td>
+<td>Nothing is assumed</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="internal-role-model" class="level2">
+<h2>5.2 Internal role model</h2>
+<p>Fourteen roles are defined in the discovery report (ROL-01 to
+ROL-14). For business purposes they collapse into five accountability
+groups:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Group</th>
+<th>Roles</th>
+<th>Accountable for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer-facing</td>
+<td>Guest, customer</td>
+<td>Their own account and orders</td>
+</tr>
+<tr>
+<td>Supply-facing</td>
+<td>Supplier owner, supplier staff</td>
+<td>Their own catalogue, stock and fulfilment</td>
+</tr>
+<tr>
+<td>Logistics-facing</td>
+<td>Carrier administrator, agent or driver</td>
+<td>Assigned shipments and delivery evidence</td>
+</tr>
+<tr>
+<td>Platform operations</td>
+<td>Support, moderator, category lead, operations lead</td>
+<td>Catalogue quality, customer resolution, delivery coordination</td>
+</tr>
+<tr>
+<td>Control functions</td>
+<td>Finance, administrator, auditor, founder</td>
+<td>Money, access, audit and direction</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="decision-rights" class="level2">
+<h2>5.3 Decision rights</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Recommends</th>
+<th>Approves</th>
+<th>Informed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplier approval and suspension</td>
+<td>Operations lead</td>
+<td>Founder</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td>Listing approval and rejection</td>
+<td>Moderator</td>
+<td>Category lead</td>
+<td>Supplier</td>
+</tr>
+<tr>
+<td>Refund within limit</td>
+<td>Support agent</td>
+<td>Finance</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td>Refund above limit</td>
+<td>Finance</td>
+<td>Founder</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td>Payout batch</td>
+<td>Finance preparer</td>
+<td>Second finance approver or founder</td>
+<td>Suppliers</td>
+</tr>
+<tr>
+<td>Carrier selection and rates</td>
+<td>Operations lead</td>
+<td>Founder</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td>Commission and fee change</td>
+<td>Founder</td>
+<td>Founder</td>
+<td>Suppliers, finance</td>
+</tr>
+<tr>
+<td>Category addition or removal</td>
+<td>Category lead</td>
+<td>Founder</td>
+<td>Operations, finance</td>
+</tr>
+<tr>
+<td>Brand or franchise configuration activation</td>
+<td>Founder</td>
+<td>Written licence holder</td>
+<td>All staff</td>
+</tr>
+<tr>
+<td>Safety recall and listing suspension</td>
+<td>Category lead</td>
+<td>Founder or duty manager</td>
+<td>Customers affected, supplier</td>
+</tr>
+</tbody>
+</table>
+<p>Separation of duties is a requirement, not a preference: the person
+who prepares a payout does not approve it, and the person who approves a
+listing does not verify the supplier’s bank account.</p>
+<hr />
+</section>
+</section>
+<section id="target-operating-model" class="level1">
+<h1>6. Target operating model</h1>
+<section id="supply" class="level2">
+<h2>6.1 Supply</h2>
+<p>Suppliers hold their own stock and pack their own orders. The
+platform verifies the supplier’s identity, business registration, tax
+registration, shop location and payout account before the first listing
+is approved. Verification is re-performed on a schedule and on any
+change of ownership or bank account. Suppliers receive a portal, a
+packing standard, a performance scorecard and a settlement
+statement.</p>
+<p>The platform does not buy stock, set prices unilaterally, or take
+ownership of inventory. It does set listing standards, commission,
+delivery charges and service levels, and it can suspend a listing or a
+supplier for safety, fraud or repeated failure.</p>
+</section>
+<section id="demand" class="level2">
+<h2>6.2 Demand</h2>
+<p>Demand is generated through search, category browsing, supplier
+storefronts and controlled promotions. The customer experience is
+mobile-first and Swahili-first. Guest checkout is allowed because
+registration friction is a known cause of abandonment in the market; an
+account is offered after the first order. Reviews come only from
+verified purchasers.</p>
+</section>
+<section id="order-and-delivery" class="level2">
+<h2>6.3 Order and delivery</h2>
+<p>One checkout creates one parent order and one supplier order per
+supplier. Each supplier order is fulfilled separately and may ship
+separately, so a three-supplier basket produces up to three parcels. The
+customer sees one order with a per-supplier progress view, not three
+unrelated orders.</p>
+<p>The platform coordinates pickup through licensed carriers. At launch
+the coordination is manual (Mode A): an operator books the carrier,
+records the waybill, and updates status from carrier messages. The data
+recorded is identical to what an integrated carrier would supply, so an
+API can be added later without changing the order model. Delivery
+charges are quoted per shipment, displayed before payment, and allocated
+to the supplier order that generated them.</p>
+</section>
+<section id="money" class="level2">
+<h2>6.4 Money</h2>
+<p>A licensed PSP collects the customer’s payment. The platform records
+a payable to each supplier equal to merchandise value less commission
+and less any supplier-funded discount, and a separate carrier payable.
+The supplier payable becomes eligible for payout after delivery plus the
+return window, subject to holds for disputes, negative balances or KYC
+issues.</p>
+<p>The platform’s own revenue is commission plus the coordination margin
+between the customer delivery charge and the carrier charge.
+Pass-through money is never counted as revenue. No customer funds are
+held outside the PSP, and the platform is not described as an escrow
+service.</p>
+</section>
+<section id="service" class="level2">
+<h2>6.5 Service</h2>
+<p>Customer support runs during published hours and works from order
+context, not from memory. Every ticket links to an order, a supplier
+order and, where relevant, a shipment. Refunds above a threshold require
+finance approval. The support standard is a first human response within
+four working hours and resolution of 90% of complaints within 48
+hours.</p>
+</section>
+<section id="catalogue-and-category-management" class="level2">
+<h2>6.6 Catalogue and category management</h2>
+<p>Each department has a category lead — initially a founder or the
+operations lead wearing a category hat — who owns the assortment, the
+attribute template, the moderation checklist and the return rules.
+Moderation is a queue with reasons and resubmission, not an inbox.
+Listings are audited after publication, and a prohibited-item list is
+maintained as configuration.</p>
+<p>The platform deliberately runs a <strong>shallow but
+credible</strong> catalogue: the best-selling, photographable,
+returnable range of each supplier, not its entire inventory. Depth is
+added after the first cohort proves it can list and fulfil well.</p>
+</section>
+<section id="capacity-assumptions" class="level2">
+<h2>6.7 Capacity assumptions</h2>
+<p>The launch team is one operations lead, one part-time moderator, one
+support agent (shared with operations), one finance person (part-time)
+and the technical team. That capacity supports roughly 40 suppliers and
+1,000 listings only if onboarding is phased. The business plan must not
+assume the same team can double supplier count without adding moderation
+capacity.</p>
+<hr />
+</section>
+</section>
+<section id="business-processes" class="level1">
+<h1>7. Business processes</h1>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Process</th>
+<th>Trigger</th>
+<th>Outcome</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WF-01</td>
+<td>Customer purchase across suppliers</td>
+<td>Customer checks out</td>
+<td>Paid parent order with supplier orders and reservations</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>WF-02</td>
+<td>Supplier fulfilment</td>
+<td>Supplier order accepted</td>
+<td>Packed parcel handed to carrier with waybill</td>
+<td>Supplier</td>
+</tr>
+<tr>
+<td>WF-03</td>
+<td>Payment verification and reconciliation</td>
+<td>PSP callback or daily file</td>
+<td>Payment matched to order; exceptions queued</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td>WF-04</td>
+<td>Manual logistics (Mode A)</td>
+<td>Supplier marks ready for pickup</td>
+<td>Shipment booked, tracked and delivered with POD</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>WF-05</td>
+<td>Integrated logistics (Mode B)</td>
+<td>Carrier API available</td>
+<td>Same records created through the adapter</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>WF-06</td>
+<td>Returns, refunds and disputes</td>
+<td>Customer request within window</td>
+<td>Item returned or refund decided; supplier charged back</td>
+<td>Support and finance</td>
+</tr>
+<tr>
+<td>WF-07</td>
+<td>Supplier onboarding and KYC</td>
+<td>Supplier application</td>
+<td>Verified supplier able to publish approved listings</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>WF-08</td>
+<td>Support and escalation</td>
+<td>Customer contact</td>
+<td>Ticket resolved or escalated with a documented decision</td>
+<td>Support</td>
+</tr>
+</tbody>
+</table>
+<p>Process detail, including alternative paths and exception handling,
+is in the SRS use cases. The business rules that govern each process are
+in Section 9.</p>
+<hr />
+</section>
+<section id="business-needs-catalogue" class="level1">
+<h1>8. Business needs catalogue</h1>
+<p>Each need is a business outcome. The SRS converts it into testable
+software requirements.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Business need</th>
+<th>Capabilities</th>
+<th>Success measure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BN-01</td>
+<td>A customer can buy from several suppliers in one checkout and see
+one order</td>
+<td>CAP-06, CAP-07</td>
+<td>Multi-supplier orders complete without manual intervention</td>
+</tr>
+<tr>
+<td>BN-02</td>
+<td>Only verified, accountable suppliers can sell</td>
+<td>CAP-02</td>
+<td>100% of live suppliers have complete KYC evidence</td>
+</tr>
+<tr>
+<td>BN-03</td>
+<td>Products are described consistently enough to compare and
+return</td>
+<td>CAP-03</td>
+<td>95% of listings pass attribute completeness at first review</td>
+</tr>
+<tr>
+<td>BN-04</td>
+<td>Customers can find products quickly on a phone</td>
+<td>CAP-05</td>
+<td>Search success rate and zero-result rate monitored</td>
+</tr>
+<tr>
+<td>BN-05</td>
+<td>Price and stock shown are true at the moment of payment</td>
+<td>CAP-04</td>
+<td>Oversell rate below 0.5% of orders</td>
+</tr>
+<tr>
+<td>BN-06</td>
+<td>Delivery cost and promise are clear before payment</td>
+<td>CAP-10</td>
+<td>Delivery-related complaints below 5% of orders</td>
+</tr>
+<tr>
+<td>BN-07</td>
+<td>Payment is safe, verifiable and refundable</td>
+<td>CAP-08</td>
+<td>100% of payments matched or exceptioned within one day</td>
+</tr>
+<tr>
+<td>BN-08</td>
+<td>Suppliers are paid correctly and on time</td>
+<td>CAP-09</td>
+<td>Payout disputes below 1% of statements</td>
+</tr>
+<tr>
+<td>BN-09</td>
+<td>A partially fulfilled order is handled without cancelling the whole
+order</td>
+<td>CAP-07</td>
+<td>Partial cancellation and partial delivery supported end to end</td>
+</tr>
+<tr>
+<td>BN-10</td>
+<td>Returns follow category rules that are fair and published</td>
+<td>CAP-11</td>
+<td>Return decisions consistent with policy in audit sample</td>
+</tr>
+<tr>
+<td>BN-11</td>
+<td>Customers know where their parcel is</td>
+<td>CAP-07, CAP-13</td>
+<td>Tracking visible for 100% of shipments</td>
+</tr>
+<tr>
+<td>BN-12</td>
+<td>A customer can reach a human with order context</td>
+<td>CAP-12</td>
+<td>First response within four working hours</td>
+</tr>
+<tr>
+<td>BN-13</td>
+<td>Personal data is collected lawfully and minimally</td>
+<td>CAP-01, CAP-14</td>
+<td>Consent evidence for 100% of accounts</td>
+</tr>
+<tr>
+<td>BN-14</td>
+<td>Each role sees only what its job requires</td>
+<td>CAP-01, CAP-14</td>
+<td>Authorisation tests pass for every role</td>
+</tr>
+<tr>
+<td>BN-15</td>
+<td>Sensitive actions are reconstructable after the fact</td>
+<td>CAP-14</td>
+<td>100% of refunds, payouts and status changes audited</td>
+</tr>
+<tr>
+<td>BN-16</td>
+<td>Moderation capacity matches catalogue growth</td>
+<td>CAP-03</td>
+<td>Queue age under 48 hours during onboarding</td>
+</tr>
+<tr>
+<td>BN-17</td>
+<td>Supplier performance is measured objectively</td>
+<td>CAP-15</td>
+<td>Scorecards available monthly to every supplier</td>
+</tr>
+<tr>
+<td>BN-18</td>
+<td>A unsafe or recalled product can be removed and buyers notified</td>
+<td>CAP-03, CAP-13</td>
+<td>Recall executed within one working day</td>
+</tr>
+<tr>
+<td>BN-19</td>
+<td>Category profitability is visible</td>
+<td>CAP-15</td>
+<td>Contribution reported by department monthly</td>
+</tr>
+<tr>
+<td>BN-20</td>
+<td>Brand and franchise rules can be configured without code</td>
+<td>CAP-18</td>
+<td>Configuration change without deployment</td>
+</tr>
+<tr>
+<td>BN-21</td>
+<td>Promotions are controlled and funded deliberately</td>
+<td>CAP-17</td>
+<td>Every discount attributable to a campaign and a funder</td>
+</tr>
+<tr>
+<td>BN-22</td>
+<td>Reviews are trustworthy</td>
+<td>CAP-16</td>
+<td>Only verified purchases published</td>
+</tr>
+<tr>
+<td>BN-23</td>
+<td>Money reconciles to the ledger every day</td>
+<td>CAP-08</td>
+<td>Unmatched transactions below 0.5%</td>
+</tr>
+<tr>
+<td>BN-24</td>
+<td>Management can run the business from reports, not spreadsheets</td>
+<td>CAP-15</td>
+<td>Daily operating report used at stand-up</td>
+</tr>
+<tr>
+<td>BN-25</td>
+<td>The platform can grow without re-architecture</td>
+<td>NFR-S-01, NFR-S-02</td>
+<td>10x SKUs supported in design review</td>
+</tr>
+<tr>
+<td>BN-26</td>
+<td>The experience works in Swahili and English</td>
+<td>NFR-I18N-01</td>
+<td>No untranslated string in critical flows</td>
+</tr>
+<tr>
+<td>BN-27</td>
+<td>The business can recover from data loss or outage</td>
+<td>NFR-R-02</td>
+<td>Restore drill within target</td>
+</tr>
+<tr>
+<td>BN-28</td>
+<td>Founders can decide to scale, pivot or stop on evidence</td>
+<td>CAP-15</td>
+<td>Month-6 review pack complete</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+<section id="business-rules" class="level1">
+<h1>9. Business rules</h1>
+<p>The full rule catalogue is BR-001 to BR-040, held in the discovery
+report and the scope amendment. The BRD groups them by the business
+question they answer.</p>
+<section id="orders-and-pricing" class="level2">
+<h2>9.1 Orders and pricing</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Statement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-001</td>
+<td>One checkout creates one parent order and one supplier order per
+supplier</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-003</td>
+<td>Prices and totals are calculated server-side; the browser total is
+never authoritative</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-011</td>
+<td>Placing an order snapshots title, SKU, price, tax line and
+commission rule</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-012</td>
+<td>Cancellation is allowed before supplier acceptance; afterwards it
+becomes a return</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-019</td>
+<td>Money is stored as integer TZS with explicit rounding applied
+once</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-038</td>
+<td>A minimum delivered order value or small-order fee may apply,
+displayed before checkout</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="money-and-settlement" class="level2">
+<h2>9.2 Money and settlement</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Statement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-004</td>
+<td>Commission is charged on net completed merchandise, not gross
+captured payment</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-005</td>
+<td>Customer delivery charge, carrier charge and coordination fee are
+separate amounts</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-006</td>
+<td>Refunds may include item value and delivery share; change-of-mind
+refunds may exclude delivery</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BR-007</td>
+<td>Supplier payout is held until delivery plus the return window,
+extended by dispute or risk</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-009</td>
+<td>Every financial adjustment needs a reason, an actor and a second
+approver above threshold</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-021</td>
+<td>The platform is not an escrow or deposit-taking service and holds no
+customer funds</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>BR-027</td>
+<td>A refund cannot exceed captured amount less prior refunds and
+reversals</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-028</td>
+<td>A payout batch needs a preparer and a different approver</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-029</td>
+<td>Payouts may be held for open dispute, negative balance or unresolved
+KYC, with a written reason</td>
+<td>Proposed</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="catalogue-and-supply" class="level2">
+<h2>9.3 Catalogue and supply</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Statement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-010</td>
+<td>A product is visible only after moderation approval and while stock
+is above zero</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-013</td>
+<td>A supplier sees only the customer data needed to pack and hand
+over</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-015</td>
+<td>Prohibited items are blocked at listing and removed at moderation;
+relisting leads to suspension</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-022</td>
+<td>Brand, territory, fee and approval rules are configuration with
+effective dates</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>BR-033</td>
+<td>Every purchasable item resolves to a variant with its own SKU, price
+and stock</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-034</td>
+<td>A listing cannot publish until mandatory category attributes are
+complete</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-036</td>
+<td>Beauty listings require authenticity evidence and, where applicable,
+batch or expiry data</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-037</td>
+<td>Baby and maternity listings require safety declarations, age grading
+and recall checks</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-039</td>
+<td>Category commission rates may differ, but a rate change applies only
+to future orders</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-040</td>
+<td>A recall can suspend a listing and notify affected buyers without
+deleting order history</td>
+<td>Proposed</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="delivery-and-returns" class="level2">
+<h2>9.4 Delivery and returns</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Statement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-008</td>
+<td>A supplier cannot mark an order delivered; delivery needs carrier or
+operations evidence</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-016</td>
+<td>Every shipment records carrier, service, waybill, cost, weight,
+dimensions, events and POD</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-017</td>
+<td>Failed attempts follow a published retry policy with customer
+contact before retry</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-018</td>
+<td>The return window starts at delivery and excludes hygiene or safety
+items where law allows</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BR-030</td>
+<td>Carrier and supplier performance is measured from system events and
+visible to the party</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-031</td>
+<td>A shipment can be run manually with the same records an API carrier
+would use</td>
+<td>Confirmed</td>
+</tr>
+<tr>
+<td>BR-035</td>
+<td>Return eligibility and refund treatment are category-specific and
+published before purchase</td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="trust-access-and-compliance" class="level2">
+<h2>9.5 Trust, access and compliance</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Statement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-014</td>
+<td>Only verified purchasers may review, once per purchased line,
+moderated for abuse</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-020</td>
+<td>VAT and tax lines are stored per invoice line and configurable; no
+treatment is assumed</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BR-023</td>
+<td>Audit records are append-only and cannot be edited through the
+application</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-024</td>
+<td>Personal data is collected for a stated purpose and deleted or
+anonymised on schedule</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-025</td>
+<td>Marketing consent is separate from transactional messages and
+withdrawable</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-026</td>
+<td>Staff access outside normal duties needs a reason, is time-bound and
+logged</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-032</td>
+<td>A customer can obtain a human response within published support
+hours</td>
+<td>Proposed</td>
+</tr>
+</tbody>
+</table>
+<p>Rules marked <strong>Open</strong> cannot be implemented as fixed
+policy. They are configurable, and the default is the most protective
+position that is commercially tolerable. Each open rule has an owner in
+the decision log.</p>
+<hr />
+</section>
+</section>
+<section id="information-requirements" class="level1">
+<h1>10. Information requirements</h1>
+<section id="core-business-entities" class="level2">
+<h2>10.1 Core business entities</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Business meaning</th>
+<th>Owner</th>
+<th>Retention</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer</td>
+<td>A person who buys, with contact, addresses and consent</td>
+<td>Platform</td>
+<td>Active plus statutory period</td>
+</tr>
+<tr>
+<td>Supplier</td>
+<td>A verified seller with legal identity, contract and payout
+account</td>
+<td>Platform</td>
+<td>Contract plus statutory period</td>
+</tr>
+<tr>
+<td>Supplier document</td>
+<td>Registration, TIN, identity, site evidence, bank verification</td>
+<td>Operations</td>
+<td>As required by law and audit</td>
+</tr>
+<tr>
+<td>Product and variant</td>
+<td>What is sold, with attributes, media, price and stock</td>
+<td>Supplier, moderated by platform</td>
+<td>Life of listing plus order history</td>
+</tr>
+<tr>
+<td>Parent order</td>
+<td>The customer’s commercial order</td>
+<td>Platform</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Supplier order</td>
+<td>The supplier’s obligation and settlement unit</td>
+<td>Platform</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Shipment</td>
+<td>The physical movement of goods with carrier and proof</td>
+<td>Platform</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Payment and refund</td>
+<td>Money received and returned through the PSP</td>
+<td>Finance</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Ledger entry</td>
+<td>Every financial movement, with accounts and references</td>
+<td>Finance</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Payout</td>
+<td>A batch payment to a supplier with approval evidence</td>
+<td>Finance</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Return and dispute</td>
+<td>A claim, its evidence and its resolution</td>
+<td>Support</td>
+<td>Statutory period</td>
+</tr>
+<tr>
+<td>Ticket</td>
+<td>A customer contact and its resolution</td>
+<td>Support</td>
+<td>Policy period</td>
+</tr>
+<tr>
+<td>Consent record</td>
+<td>What was agreed, when, to which notice version</td>
+<td>Platform</td>
+<td>As required</td>
+</tr>
+<tr>
+<td>Audit record</td>
+<td>Who changed what, when and why</td>
+<td>Platform</td>
+<td>As required</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="information-qualities" class="level2">
+<h2>10.2 Information qualities</h2>
+<ul>
+<li><strong>Single source of truth.</strong> Money is recorded in the
+ledger; order status is derived from events, not typed into a
+field.</li>
+<li><strong>Snapshot at transaction.</strong> Order lines preserve what
+was sold at the price and terms agreed.</li>
+<li><strong>Minimisation.</strong> The supplier sees delivery data, not
+customer history; the carrier sees the address, not the price.</li>
+<li><strong>Traceability.</strong> Every financial and access event can
+be reconstructed from records.</li>
+<li><strong>Separation.</strong> Customer funds, platform revenue and
+supplier payables are distinct accounts.</li>
+</ul>
+</section>
+<section id="reporting-needs" class="level2">
+<h2>10.3 Reporting needs</h2>
+<p>Daily: orders, payments, exceptions, deliveries due, tickets open,
+payouts due. Weekly: delivery success, returns, supplier dispatch
+performance, catalogue queue. Monthly: contribution by department,
+supplier cohort retention, customer repeat rate, category mix,
+moderation throughput.</p>
+<hr />
+</section>
+</section>
+<section id="legal-and-regulatory-obligations" class="level1">
+<h1>11. Legal and regulatory obligations</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Area</th>
+<th>Obligation in business terms</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data protection (PDPA 2022, PDPC)</td>
+<td>Lawful basis, notice, consent, access and deletion, security,
+registration where required</td>
+<td>Counsel to confirm; REG-01</td>
+</tr>
+<tr>
+<td>Consumer contracts (FCC Standard Form Regulations 2014)</td>
+<td>Fair standard-form terms, clear pricing, complaint handling</td>
+<td>Counsel to confirm; REG-02</td>
+</tr>
+<tr>
+<td>Electronic transactions (ETA 2015)</td>
+<td>Electronic records, signatures and evidence</td>
+<td>Counsel to confirm; REG-03</td>
+</tr>
+<tr>
+<td>Payment services (Bank of Tanzania)</td>
+<td>Collection and settlement only through a licensed provider; no
+unauthorised deposit-taking</td>
+<td>PSP and counsel; REG-04</td>
+</tr>
+<tr>
+<td>Courier and postal services (TCRA)</td>
+<td>Carriers must be licensed for the services used</td>
+<td>Carrier due diligence; REG-05</td>
+</tr>
+<tr>
+<td>Tax (TRA)</td>
+<td>VAT and corporate tax treatment, invoices and records</td>
+<td>Accountant and counsel; REG-06</td>
+</tr>
+<tr>
+<td>Business registration (BRELA)</td>
+<td>Company registration and filings</td>
+<td>Company secretary; REG-07</td>
+</tr>
+<tr>
+<td>Fair competition and consumer protection</td>
+<td>Honest pricing, no misleading claims, fair supplier terms</td>
+<td>Counsel; REG-08</td>
+</tr>
+<tr>
+<td>Product safety and standards</td>
+<td>Baby products, appliances, cosmetics, recalls</td>
+<td>Category leads and counsel; REG-09 to REG-11</td>
+</tr>
+<tr>
+<td>Employment and contractor law</td>
+<td>Rider and staff engagement model</td>
+<td>Counsel; REG-12</td>
+</tr>
+</tbody>
+</table>
+<p>The platform does not assert that it complies until counsel has
+confirmed the position and the controls are evidenced. Compliance is a
+launch gate, not a post-launch task.</p>
+<hr />
+</section>
+<section id="assumptions-constraints-and-dependencies" class="level1">
+<h1>12. Assumptions, constraints and dependencies</h1>
+<section id="business-assumptions" class="level2">
+<h2>12.1 Business assumptions</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Assumption</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-01</td>
+<td>Customers will pay online through a PSP</td>
+<td>Observe payment success and abandonment in first cohort</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>Six departments can be supplied credibly by 40 suppliers</td>
+<td>Supplier recruitment against department targets</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>40 suppliers can deliver 800–1,200 active SKUs</td>
+<td>Catalogue audit at launch</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>900 orders in month 6 is achievable at planned acquisition cost</td>
+<td>Monthly acquisition and conversion tracking</td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>8% commission is acceptable to suppliers</td>
+<td>Contract negotiation and churn</td>
+</tr>
+<tr>
+<td>A-06</td>
+<td>TZS 5,000 delivery charge is viable with a minimum basket</td>
+<td>Carrier quotes and basket data</td>
+</tr>
+<tr>
+<td>A-07</td>
+<td>A 7-day return window is workable across categories</td>
+<td>Return rate and dispute data</td>
+</tr>
+<tr>
+<td>A-08</td>
+<td>Manual logistics can support launch volume</td>
+<td>Shipments per operator per day</td>
+</tr>
+<tr>
+<td>A-09</td>
+<td>Support volume is manageable with one agent</td>
+<td>Tickets per 100 orders</td>
+</tr>
+<tr>
+<td>A-10</td>
+<td>Suppliers will keep stock current</td>
+<td>Weekly stock update rate</td>
+</tr>
+<tr>
+<td>A-11</td>
+<td>Moderation can be staffed part-time</td>
+<td>Queue age during onboarding</td>
+</tr>
+<tr>
+<td>A-12</td>
+<td>Swahili-first is the right default</td>
+<td>Language switching and support language mix</td>
+</tr>
+<tr>
+<td>A-13</td>
+<td>A minimum basket will not destroy conversion</td>
+<td>Checkout test</td>
+</tr>
+<tr>
+<td>A-14</td>
+<td>8–12 weeks is achievable with the stated team</td>
+<td>Week-8 gate</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="constraints" class="level2">
+<h2>12.2 Constraints</h2>
+<ul>
+<li>One city, one currency, one legal entity at launch.</li>
+<li>No platform-held customer funds.</li>
+<li>No hard-coded Usiri dependency; any carrier integration must be
+replaceable.</li>
+<li>No warehouse, fleet or inventory ownership.</li>
+<li>Small team; no 24/7 support at launch.</li>
+<li>Payment only through a licensed provider.</li>
+<li>Brand use only under a written licence.</li>
+</ul>
+</section>
+<section id="dependencies" class="level2">
+<h2>12.3 Dependencies</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dependency</th>
+<th>Needed by</th>
+<th>Owner</th>
+<th>Risk if late</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PSP contract and sandbox</td>
+<td>Before payment build</td>
+<td>Finance lead</td>
+<td>Payment cannot be built or tested</td>
+</tr>
+<tr>
+<td>Carrier agreement and rate card</td>
+<td>Before checkout pricing is frozen</td>
+<td>Operations lead</td>
+<td>Delivery promise and pricing unknown</td>
+</tr>
+<tr>
+<td>Counsel memo on consumer, data and payment model</td>
+<td>Before launch</td>
+<td>Founders</td>
+<td>Compliance gate fails</td>
+</tr>
+<tr>
+<td>Supplier recruitment to 30 verified</td>
+<td>Before catalogue freeze</td>
+<td>Founders</td>
+<td>Catalogue too thin to launch</td>
+</tr>
+<tr>
+<td>Photography and content capacity</td>
+<td>Before launch</td>
+<td>Operations</td>
+<td>Listings late or poor</td>
+</tr>
+<tr>
+<td>Hosting and domain</td>
+<td>Before build environment</td>
+<td>CTO</td>
+<td>Build blocked</td>
+</tr>
+<tr>
+<td>Brand assets and domain clearance</td>
+<td>Before public launch</td>
+<td>Founders</td>
+<td>Launch delay or rebrand</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+</section>
+<section id="business-risks" class="level1">
+<h1>13. Business risks</h1>
+<p>The full register is RSK-01 to RSK-21 in the discovery report and the
+amendment. The business-critical risks are:</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Business consequence</th>
+<th>Mitigation</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scope sprawl across six departments</td>
+<td>Late launch and shallow catalogue</td>
+<td>Six bounded departments; week-8 scope gate</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>Supplier recruitment shortfall</td>
+<td>No credible assortment</td>
+<td>Dedicated recruitment; department quotas; onboarding incentives</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>Delivery failure rate</td>
+<td>Trust collapse and refunds</td>
+<td>Carrier qualification; zones; second attempt; measured promise</td>
+<td>Operations</td>
+</tr>
+<tr>
+<td>Return rate in fashion</td>
+<td>Margin erosion</td>
+<td>Size guides; fit reason codes; supplier scorecards; reserve</td>
+<td>Category lead</td>
+</tr>
+<tr>
+<td>Counterfeit or expired beauty</td>
+<td>Legal and trust damage</td>
+<td>Authenticity evidence; audits; delisting</td>
+<td>Category lead</td>
+</tr>
+<tr>
+<td>Baby safety incident</td>
+<td>Liability and reputational harm</td>
+<td>Declarations; recall checks; insurance; counsel</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>Payment or settlement error</td>
+<td>Supplier distrust and loss</td>
+<td>Ledger; daily reconciliation; maker-checker</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td>Regulatory finding</td>
+<td>Trading interruption</td>
+<td>Counsel before launch; PSP structure; filings</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>Key-person dependency</td>
+<td>Delivery stall</td>
+<td>Documentation; second contributor; code access</td>
+<td>CTO</td>
+</tr>
+<tr>
+<td>Cash exhaustion</td>
+<td>Stop before evidence</td>
+<td>Lean scope; monthly burn review; stop rules</td>
+<td>Founders</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+<section id="governance-approvals-and-change-control" class="level1">
+<h1>14. Governance, approvals and change control</h1>
+<section id="stage-gates" class="level2">
+<h2>14.1 Stage gates</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Question</th>
+<th>Evidence required</th>
+<th>Approver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G0</td>
+<td>Is the business worth building?</td>
+<td>Concept, discovery, decisions</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>Are the requirements agreed?</td>
+<td>BRD and SRS signed off; open decisions assigned</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>Is the design safe and buildable?</td>
+<td>Architecture, data, API, security and UX approved</td>
+<td>Founders and technical lead</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>Is it ready to test?</td>
+<td>Test plan, environments, test data, acceptance criteria</td>
+<td>Technical lead and operations</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>Is it ready to launch?</td>
+<td>Compliance memo, supplier cohort, carrier, PSP, runbooks</td>
+<td>Founders</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>Should it scale, pivot or stop?</td>
+<td>Month-6 evidence pack</td>
+<td>Founders</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="change-control" class="level2">
+<h2>14.2 Change control</h2>
+<ol type="1">
+<li>A change to scope is written, with the reason, the cost, the
+schedule effect and the risk.</li>
+<li>The product owner assesses the impact against the traceability
+matrix.</li>
+<li>The founders approve or reject at the next review; urgent safety
+changes may be approved by the duty manager and ratified within 48
+hours.</li>
+<li>Approved changes update the BRD, SRS and traceability matrix in the
+same version cycle.</li>
+<li>No change is implemented by direct edit to code without a
+requirement and a test.</li>
+</ol>
+</section>
+<section id="sign-off" class="level2">
+<h2>14.3 Sign-off</h2>
+<p>This BRD is approved when the founders confirm: the objectives and
+targets, the six-department boundary, the operating model, the business
+rules status, and the assignment of open decisions D-13 to D-20. Until
+then it remains a draft and does not authorize build.</p>
+<hr />
+</section>
+</section>
+<section id="open-items-and-next-step" class="level1">
+<h1>15. Open items and next step</h1>
+<p>The blocking decisions D-01 to D-04 are closed. Eight sub-decisions
+remain:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Question</th>
+<th>Needed by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-13</td>
+<td>Exact six-department tree</td>
+<td>BRD sign-off</td>
+</tr>
+<tr>
+<td>D-14</td>
+<td>Minimum basket or small-order fee</td>
+<td>Checkout design freeze</td>
+</tr>
+<tr>
+<td>D-15</td>
+<td>Category commission schedule</td>
+<td>Supplier contracts</td>
+</tr>
+<tr>
+<td>D-16</td>
+<td>Beauty authenticity evidence</td>
+<td>Beauty go-live</td>
+</tr>
+<tr>
+<td>D-17</td>
+<td>Baby safety declaration</td>
+<td>Baby go-live</td>
+</tr>
+<tr>
+<td>D-18</td>
+<td>Fashion return policy</td>
+<td>Policy publication</td>
+</tr>
+<tr>
+<td>D-19</td>
+<td>Launch supplier cohort</td>
+<td>Recruitment plan</td>
+</tr>
+<tr>
+<td>D-20</td>
+<td>Timeline fallback</td>
+<td>Roadmap sign-off</td>
+</tr>
+</tbody>
+</table>
+<p>The SRS will convert this BRD into numbered, testable requirements.
+The architecture, data, API and UX packs follow. No implementation
+begins until G2 is passed.</p>
+<hr />
+</section>
+<section id="appendix-a.-glossary" class="level1">
+<h1>Appendix A. Glossary</h1>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parent order</td>
+<td>The customer’s single commercial order from one checkout</td>
+</tr>
+<tr>
+<td>Supplier order</td>
+<td>The part of a parent order fulfilled by one supplier; the settlement
+unit</td>
+</tr>
+<tr>
+<td>Shipment</td>
+<td>A parcel with a carrier, waybill and proof of delivery</td>
+</tr>
+<tr>
+<td>Variant</td>
+<td>A purchasable combination of options, such as size and colour, with
+its own SKU</td>
+</tr>
+<tr>
+<td>GOV</td>
+<td>Gross order value, the merchandise value of orders before
+deductions</td>
+</tr>
+<tr>
+<td>Contribution</td>
+<td>Revenue less commission costs, delivery costs, payment fees and
+expected returns</td>
+</tr>
+<tr>
+<td>Mode A</td>
+<td>Manual logistics coordination at pilot</td>
+</tr>
+<tr>
+<td>Mode B</td>
+<td>Integrated logistics through a carrier API</td>
+</tr>
+<tr>
+<td>KYC</td>
+<td>Know-your-supplier verification of identity, business and payout
+account</td>
+</tr>
+<tr>
+<td>POD</td>
+<td>Proof of delivery</td>
+</tr>
+<tr>
+<td>PSP</td>
+<td>Licensed payment service provider</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="appendix-b.-document-map" class="level1">
+<h1>Appendix B. Document map</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Document</th>
+<th>Purpose</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UM-DISC-001</td>
+<td>Discovery baseline, evidence, rules, gaps</td>
+<td>v0.2</td>
+</tr>
+<tr>
+<td>UM-DEC-001</td>
+<td>Decision log</td>
+<td>v0.2</td>
+</tr>
+<tr>
+<td>UM-AMD-001</td>
+<td>Decision outcome and scope amendment</td>
+<td>v1.0</td>
+</tr>
+<tr>
+<td>UM-BRD-001</td>
+<td>This document</td>
+<td>v1.0</td>
+</tr>
+<tr>
+<td>UM-SRS-001</td>
+<td>Numbered software requirements</td>
+<td>Next</td>
+</tr>
+<tr>
+<td>Architecture pack</td>
+<td>System, data, API and security design</td>
+<td>After SRS</td>
+</tr>
+<tr>
+<td>UX pack</td>
+<td>Flows, wireframes, content and accessibility</td>
+<td>After SRS</td>
+</tr>
+<tr>
+<td>Test, DevOps, DR and roadmap</td>
+<td>Delivery planning</td>
+<td>After design</td>
+</tr>
+</tbody>
+</table>
+</section>
+</body>
+</html>

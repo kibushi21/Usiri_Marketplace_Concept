@@ -1,0 +1,171 @@
+INFO:     Will watch for changes in these directories: ['/home/kibushi-bugwi/Usiri_Marketplace_Concept/Application/backend']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [49926] using WatchFiles
+INFO:     Started server process [49928]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:46758 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46762 - "GET /api/chats HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:48028 - "OPTIONS /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48030 - "OPTIONS /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48030 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48028 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48028 - "OPTIONS /api/ops/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48030 - "OPTIONS /api/ops/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48028 - "GET /api/ops/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48030 - "GET /api/ops/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33530 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "GET /api/chats HTTP/1.1" 200 OK
+integrity error: (sqlite3.IntegrityError) UNIQUE constraint failed: conversations.supplier_order_id
+[SQL: INSERT INTO conversations (code, supplier_order_id, order_id, supplier_id, customer_id, assigned_party, handoff_at, handoff_note, last_message_at, id, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('CH-2026-000001', '0ccdbc35-800a-4ea9-ad5c-feab760867d5', '9a2c9910-4338-496e-8a7d-486a09cf45dd', 'b075af6e-dd98-48b2-924b-9b2408fb2933', 'eb20e359-efab-42fa-8ef9-aaa0fb68556b', 'supplier', None, None, '2026-10-30 13:44:37.725582', '44de72c7-b0a2-4e6e-9a16-41d6f9ca61d7', '2026-10-30 13:44:37.734758', '2026-10-30 13:44:37.734765')]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)
+INFO:     127.0.0.1:33530 - "GET /api/chats HTTP/1.1" 409 Conflict
+INFO:     127.0.0.1:33530 - "OPTIONS /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44718 - "WebSocket /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTc0ZmU0Mi03ZmMzLTRhMDItODgwNi1lM2NlOTQyMzcyNDEiLCJyb2xlIjoib3BzX3N1cHBvcnQiLCJuYW1lIjoiQmFyYWthIE11c2hpIiwic2lkIjpudWxsLCJpYXQiOjE3OTMzNjQzOTksImV4cCI6MTc5MzQwNzU5OSwianRpIjoiYTRiNDBlMDMtODQ3Zi00N2E3LTkyZWMtOTU1ZDc0NjgxYjgxIn0.pYBg91u7s1ddIiQZyWy8-AtrfSQG9ThmzfXYQgOiL54" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:33520 - "OPTIONS /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44720 - "WebSocket /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTc0ZmU0Mi03ZmMzLTRhMDItODgwNi1lM2NlOTQyMzcyNDEiLCJyb2xlIjoib3BzX3N1cHBvcnQiLCJuYW1lIjoiQmFyYWthIE11c2hpIiwic2lkIjpudWxsLCJpYXQiOjE3OTMzNjQzOTksImV4cCI6MTc5MzQwNzU5OSwianRpIjoiYTRiNDBlMDMtODQ3Zi00N2E3LTkyZWMtOTU1ZDc0NjgxYjgxIn0.pYBg91u7s1ddIiQZyWy8-AtrfSQG9ThmzfXYQgOiL54" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:44722 - "OPTIONS /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "GET /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33530 - "GET /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44722 - "GET /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'app/services/chat.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [49928]
+INFO:     Started server process [50042]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+WARNING:  WatchFiles detected changes in 'app/services/chat.py'. Reloading...
+INFO:     127.0.0.1:42838 - "WebSocket /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTc0ZmU0Mi03ZmMzLTRhMDItODgwNi1lM2NlOTQyMzcyNDEiLCJyb2xlIjoib3BzX3N1cHBvcnQiLCJuYW1lIjoiQmFyYWthIE11c2hpIiwic2lkIjpudWxsLCJpYXQiOjE3OTMzNjQzOTksImV4cCI6MTc5MzQwNzU5OSwianRpIjoiYTRiNDBlMDMtODQ3Zi00N2E3LTkyZWMtOTU1ZDc0NjgxYjgxIn0.pYBg91u7s1ddIiQZyWy8-AtrfSQG9ThmzfXYQgOiL54" [accepted]
+INFO:     connection open
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [50042]
+INFO:     Started server process [50049]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:42844 - "OPTIONS /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42860 - "WebSocket /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1MTc0ZmU0Mi03ZmMzLTRhMDItODgwNi1lM2NlOTQyMzcyNDEiLCJyb2xlIjoib3BzX3N1cHBvcnQiLCJuYW1lIjoiQmFyYWthIE11c2hpIiwic2lkIjpudWxsLCJpYXQiOjE3OTMzNjQzOTksImV4cCI6MTc5MzQwNzU5OSwianRpIjoiYTRiNDBlMDMtODQ3Zi00N2E3LTkyZWMtOTU1ZDc0NjgxYjgxIn0.pYBg91u7s1ddIiQZyWy8-AtrfSQG9ThmzfXYQgOiL54" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:54340 - "OPTIONS /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42844 - "GET /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54340 - "GET /api/chats/670c7398-c61f-4222-9a4b-c74c4756f0f4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49798 - "OPTIONS /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49804 - "OPTIONS /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49798 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49804 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "OPTIONS /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "OPTIONS /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "OPTIONS /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37828 - "OPTIONS /api/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "OPTIONS /api/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37830 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37828 - "GET /api/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37826 - "GET /api/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39452 - "OPTIONS /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39462 - "OPTIONS /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39452 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39462 - "OPTIONS /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd/refunds HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39452 - "OPTIONS /api/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39478 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39480 - "OPTIONS /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39462 - "OPTIONS /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd/refunds HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39492 - "OPTIONS /api/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39498 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39478 - "GET /api/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39492 - "GET /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39452 - "GET /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39480 - "GET /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd/refunds HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39498 - "GET /api/orders/9a2c9910-4338-496e-8a7d-486a09cf45dd/refunds HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39478 - "GET /api/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39462 - "GET /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39492 - "GET /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52854 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52868 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlYjIwZTM1OS1lZmFiLTQyZmEtOGVmOS1hYWEwZmI2ODU1NmIiLCJyb2xlIjoiY3VzdG9tZXIiLCJuYW1lIjoiQXNoYSBKdW1hIiwic2lkIjpudWxsLCJpYXQiOjE3OTMzNjgwMzksImV4cCI6MTc5MzQxMTIzOSwianRpIjoiZWI0NTdjMDItOTIzMS00MjY2LWIxODItMjM5ZjViZDk5OWQ2In0.OTyqbO9D1jcMkaBMrLzPC6rIyjKz0jK0zcsyIyFz8D8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:52870 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52880 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlYjIwZTM1OS1lZmFiLTQyZmEtOGVmOS1hYWEwZmI2ODU1NmIiLCJyb2xlIjoiY3VzdG9tZXIiLCJuYW1lIjoiQXNoYSBKdW1hIiwic2lkIjpudWxsLCJpYXQiOjE3OTMzNjgwMzksImV4cCI6MTc5MzQxMTIzOSwianRpIjoiZWI0NTdjMDItOTIzMS00MjY2LWIxODItMjM5ZjViZDk5OWQ2In0.OTyqbO9D1jcMkaBMrLzPC6rIyjKz0jK0zcsyIyFz8D8" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:52854 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52870 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52870 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52870 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55594 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55594 - "POST /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/messages HTTP/1.1" 201 Created
+INFO:     127.0.0.1:60242 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "OPTIONS /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "OPTIONS /api/supplier/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60254 - "OPTIONS /api/supplier/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "OPTIONS /api/supplier/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60260 - "OPTIONS /api/supplier/payouts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60254 - "OPTIONS /api/supplier/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60272 - "GET /api/catalogue/departments HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60272 - "OPTIONS /api/supplier/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "OPTIONS /api/supplier/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60272 - "OPTIONS /api/supplier/payouts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60288 - "OPTIONS /api/supplier/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60272 - "OPTIONS /api/supplier/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /api/catalogue/departments HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60286 - "GET /api/supplier/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60288 - "GET /api/supplier/payouts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60260 - "GET /api/supplier/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60272 - "GET /api/supplier/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60288 - "GET /api/supplier/payouts HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60272 - "GET /api/supplier/returns HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60254 - "GET /api/supplier/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60260 - "GET /api/supplier/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /api/supplier/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60286 - "GET /api/supplier/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36206 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36206 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36206 - "GET /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36214 - "GET /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36214 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36222 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYzY0YTczNi01NzdiLTRkNWEtYjkwMi03ODIyYzc0NmFhZTciLCJyb2xlIjoic3VwcGxpZXIiLCJuYW1lIjoiUGV0ZXIgTXdhbmdhIiwic2lkIjoiNzZkNTA1OTYtMTZkYi00Zjk4LWEyYTktNWJiMWM1ZDQxNzI0IiwiaWF0IjoxNzkzMzY4MTQyLCJleHAiOjE3OTM0MTEzNDIsImp0aSI6IjBjNzBkYjJjLWNiNDItNDYzMy1iZmY2LTkzNjVmNmMxNjhhZiJ9.UldJ9wPv-79L_iFgGMmP0YuTTksBvgRWE_GUP9E7Xns" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:36234 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36248 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYzY0YTczNi01NzdiLTRkNWEtYjkwMi03ODIyYzc0NmFhZTciLCJyb2xlIjoic3VwcGxpZXIiLCJuYW1lIjoiUGV0ZXIgTXdhbmdhIiwic2lkIjoiNzZkNTA1OTYtMTZkYi00Zjk4LWEyYTktNWJiMWM1ZDQxNzI0IiwiaWF0IjoxNzkzMzY4MTQyLCJleHAiOjE3OTM0MTEzNDIsImp0aSI6IjBjNzBkYjJjLWNiNDItNDYzMy1iZmY2LTkzNjVmNmMxNjhhZiJ9.UldJ9wPv-79L_iFgGMmP0YuTTksBvgRWE_GUP9E7Xns" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:36206 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36206 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36234 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36206 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37824 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37840 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYzY0YTczNi01NzdiLTRkNWEtYjkwMi03ODIyYzc0NmFhZTciLCJyb2xlIjoic3VwcGxpZXIiLCJuYW1lIjoiUGV0ZXIgTXdhbmdhIiwic2lkIjoiNzZkNTA1OTYtMTZkYi00Zjk4LWEyYTktNWJiMWM1ZDQxNzI0IiwiaWF0IjoxNzkzMzY4MTQyLCJleHAiOjE3OTM0MTEzNDIsImp0aSI6IjBjNzBkYjJjLWNiNDItNDYzMy1iZmY2LTkzNjVmNmMxNjhhZiJ9.UldJ9wPv-79L_iFgGMmP0YuTTksBvgRWE_GUP9E7Xns" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:37854 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37868 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYzY0YTczNi01NzdiLTRkNWEtYjkwMi03ODIyYzc0NmFhZTciLCJyb2xlIjoic3VwcGxpZXIiLCJuYW1lIjoiUGV0ZXIgTXdhbmdhIiwic2lkIjoiNzZkNTA1OTYtMTZkYi00Zjk4LWEyYTktNWJiMWM1ZDQxNzI0IiwiaWF0IjoxNzkzMzY4MTQyLCJleHAiOjE3OTM0MTEzNDIsImp0aSI6IjBjNzBkYjJjLWNiNDItNDYzMy1iZmY2LTkzNjVmNmMxNjhhZiJ9.UldJ9wPv-79L_iFgGMmP0YuTTksBvgRWE_GUP9E7Xns" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:37824 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37854 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37824 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37824 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37872 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37872 - "OPTIONS /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37874 - "GET /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37872 - "GET /api/chats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37872 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37890 - "WebSocket /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d/ws?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYzY0YTczNi01NzdiLTRkNWEtYjkwMi03ODIyYzc0NmFhZTciLCJyb2xlIjoic3VwcGxpZXIiLCJuYW1lIjoiUGV0ZXIgTXdhbmdhIiwic2lkIjoiNzZkNTA1OTYtMTZkYi00Zjk4LWEyYTktNWJiMWM1ZDQxNzI0IiwiaWF0IjoxNzkzMzY4MTQyLCJleHAiOjE3OTM0MTEzNDIsImp0aSI6IjBjNzBkYjJjLWNiNDItNDYzMy1iZmY2LTkzNjVmNmMxNjhhZiJ9.UldJ9wPv-79L_iFgGMmP0YuTTksBvgRWE_GUP9E7Xns" [accepted]
+INFO:     connection open
+INFO:     127.0.0.1:37872 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37906 - "OPTIONS /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37874 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37906 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37872 - "GET /api/chats/0f0f8b3c-3528-49d1-9108-0bbfbc0e2c4d HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [50049]
+INFO:     Stopping reloader process [49926]

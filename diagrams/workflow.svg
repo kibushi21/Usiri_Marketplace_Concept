@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="870" viewBox="0 0 1480 870">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#1F3A5F"/>
+  </marker>
+  <marker id="arrowTeal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2A7F7F"/>
+  </marker>
+  <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#C8892A"/>
+  </marker>
+  <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.08"/>
+  </filter>
+</defs>
+
+<style>
+  .title { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 25px; font-weight: bold; fill: #1F3A5F; }
+  .subtitle { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 13px; fill: #5A6572; }
+  .box { fill: #FFFFFF; stroke: #1F3A5F; stroke-width: 1.4; }
+  .brand { fill: #1F3A5F; stroke: #1F3A5F; }
+  .ops { fill: #E9F2F1; stroke: #2A7F7F; }
+  .ext { fill: #FCF3E4; stroke: #C8892A; }
+  .light { fill: #F4F7FA; stroke: #CBD5E1; }
+  .h { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #1F3A5F; }
+  .hw { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #FFFFFF; }
+  .t { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 12.5px; fill: #333333; }
+  .tw { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 12.5px; fill: #FFFFFF; }
+  .s { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 11px; fill: #5A6572; }
+  .tag { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #2A7F7F; letter-spacing: 0.6px; }
+  .arrow { stroke: #1F3A5F; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+  .conn { stroke: #1F3A5F; stroke-width: 1.6; fill: none; }
+  .arrow-teal { stroke: #2A7F7F; stroke-width: 1.6; fill: none; marker-end: url(#arrowTeal); }
+  .arrow-amber { stroke: #C8892A; stroke-width: 1.6; fill: none; marker-end: url(#arrowAmber); }
+  .dash { stroke-dasharray: 7 5; }
+  .dot { stroke-dasharray: 2 4; }
+  .lane { fill: #FFFFFF; stroke: #D8E0E8; stroke-width: 1; }
+  .lane-alt { fill: #F8FAFC; stroke: #D8E0E8; stroke-width: 1; }
+  .cell-blue { fill: #E4EDF7; stroke: #B8CCE2; }
+  .cell-teal { fill: #E3F0EE; stroke: #B9D8D4; }
+  .cell-amber { fill: #FBEFD8; stroke: #E7CC9B; }
+  .cell-grey { fill: #EEF2F6; stroke: #D3DCE5; }
+  .note { font-family: 'DejaVu Sans', Arial, sans-serif; font-size: 10.5px; fill: #5A6572; }
+</style>
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="45" y="48" class="title">Customer, supplier and logistics workflow</text>
+<text x="45" y="72" class="subtitle">Eight stages from discovery to settlement and aftercare. Manual coordination is assumed for the pilot.</text>
+<rect x="40" y="115" width="190" height="58" class="brand" rx="8"/>
+<text x="135.0" y="145" class="hw" text-anchor="middle">ACTOR</text>
+<text x="135.0" y="162" class="tw" text-anchor="middle" font-size="10">stage / handoff</text>
+<rect x="230" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="309.0" y="139" class="h" text-anchor="middle" font-size="13">1. Discover</text>
+<text x="309.0" y="157" class="s" text-anchor="middle">Search, compare,</text>
+<text x="309.0" y="169" class="s" text-anchor="middle">check supplier</text>
+<rect x="388" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="467.0" y="139" class="h" text-anchor="middle" font-size="13">2. Order &amp; pay</text>
+<text x="467.0" y="157" class="s" text-anchor="middle">Cart, delivery</text>
+<text x="467.0" y="169" class="s" text-anchor="middle">quote, payment</text>
+<rect x="546" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="625.0" y="139" class="h" text-anchor="middle" font-size="13">3. Confirm &amp; pack</text>
+<text x="625.0" y="157" class="s" text-anchor="middle">Stock check,</text>
+<text x="625.0" y="169" class="s" text-anchor="middle">pack, label</text>
+<rect x="704" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="783.0" y="139" class="h" text-anchor="middle" font-size="13">4. Handover</text>
+<text x="783.0" y="157" class="s" text-anchor="middle">Drop-off or</text>
+<text x="783.0" y="169" class="s" text-anchor="middle">pickup, manifest</text>
+<rect x="862" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="941.0" y="139" class="h" text-anchor="middle" font-size="13">5. Line-haul</text>
+<text x="941.0" y="157" class="s" text-anchor="middle">Route, scan,</text>
+<text x="941.0" y="169" class="s" text-anchor="middle">in-transit</text>
+<rect x="1020" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="1099.0" y="139" class="h" text-anchor="middle" font-size="13">6. Last mile</text>
+<text x="1099.0" y="157" class="s" text-anchor="middle">Delivery or</text>
+<text x="1099.0" y="169" class="s" text-anchor="middle">collection</text>
+<rect x="1178" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="1257.0" y="139" class="h" text-anchor="middle" font-size="13">7. Confirm</text>
+<text x="1257.0" y="157" class="s" text-anchor="middle">POD, status,</text>
+<text x="1257.0" y="169" class="s" text-anchor="middle">reconcile</text>
+<rect x="1336" y="115" width="158" height="58" class="light" rx="0"/>
+<text x="1415.0" y="139" class="h" text-anchor="middle" font-size="13">8. Aftercare</text>
+<text x="1415.0" y="157" class="s" text-anchor="middle">Payout, returns,</text>
+<text x="1415.0" y="169" class="s" text-anchor="middle">refunds, disputes</text>
+<rect x="40" y="173" width="190" height="100" class="lane"/>
+<text x="135.0" y="228.0" class="h" text-anchor="middle" font-size="13">CUSTOMER</text>
+<rect x="230" y="173" width="158" height="100" class="lane"/>
+<rect x="239" y="195" width="140" height="56" rx="7" class="cell-blue"/>
+<text x="309.0" y="215" class="t" text-anchor="middle">Browses and</text>
+<text x="309.0" y="230" class="t" text-anchor="middle">compares</text>
+<rect x="388" y="173" width="158" height="100" class="lane"/>
+<rect x="397" y="195" width="140" height="56" rx="7" class="cell-blue"/>
+<text x="467.0" y="215" class="t" text-anchor="middle">Places order;</text>
+<text x="467.0" y="230" class="t" text-anchor="middle">pays</text>
+<rect x="546" y="173" width="158" height="100" class="lane"/>
+<rect x="704" y="173" width="158" height="100" class="lane"/>
+<rect x="862" y="173" width="158" height="100" class="lane"/>
+<rect x="1020" y="173" width="158" height="100" class="lane"/>
+<rect x="1029" y="195" width="140" height="56" rx="7" class="cell-blue"/>
+<text x="1099.0" y="215" class="t" text-anchor="middle">Receives or</text>
+<text x="1099.0" y="230" class="t" text-anchor="middle">collects</text>
+<rect x="1178" y="173" width="158" height="100" class="lane"/>
+<rect x="1187" y="195" width="140" height="56" rx="7" class="cell-blue"/>
+<text x="1257.0" y="215" class="t" text-anchor="middle">Confirms</text>
+<text x="1257.0" y="230" class="t" text-anchor="middle">delivery</text>
+<rect x="1336" y="173" width="158" height="100" class="lane"/>
+<rect x="1345" y="195" width="140" height="56" rx="7" class="cell-blue"/>
+<text x="1415.0" y="215" class="t" text-anchor="middle">Reviews, returns,</text>
+<text x="1415.0" y="230" class="t" text-anchor="middle">complains</text>
+<rect x="40" y="273" width="190" height="100" class="lane-alt"/>
+<text x="135.0" y="328.0" class="h" text-anchor="middle" font-size="13">MARKETPLACE</text>
+<rect x="230" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="239" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="309.0" y="315" class="t" text-anchor="middle">Catalogue,</text>
+<text x="309.0" y="330" class="t" text-anchor="middle">search, ratings</text>
+<rect x="388" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="397" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="467.0" y="315" class="t" text-anchor="middle">Checkout,</text>
+<text x="467.0" y="330" class="t" text-anchor="middle">payment link</text>
+<rect x="546" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="555" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="625.0" y="315" class="t" text-anchor="middle">Routes order;</text>
+<text x="625.0" y="330" class="t" text-anchor="middle">monitors SLA</text>
+<rect x="704" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="713" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="783.0" y="315" class="t" text-anchor="middle">Books carrier;</text>
+<text x="783.0" y="330" class="t" text-anchor="middle">manifest</text>
+<rect x="862" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="871" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="941.0" y="315" class="t" text-anchor="middle">Tracking</text>
+<text x="941.0" y="330" class="t" text-anchor="middle">updates</text>
+<rect x="1020" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="1029" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="1099.0" y="315" class="t" text-anchor="middle">Exception</text>
+<text x="1099.0" y="330" class="t" text-anchor="middle">handling</text>
+<rect x="1178" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="1187" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="1257.0" y="315" class="t" text-anchor="middle">Delivery</text>
+<text x="1257.0" y="330" class="t" text-anchor="middle">confirmation</text>
+<rect x="1336" y="273" width="158" height="100" class="lane-alt"/>
+<rect x="1345" y="295" width="140" height="56" rx="7" class="cell-teal"/>
+<text x="1415.0" y="315" class="t" text-anchor="middle">Payout, refund,</text>
+<text x="1415.0" y="330" class="t" text-anchor="middle">dispute log</text>
+<rect x="40" y="373" width="190" height="100" class="lane"/>
+<text x="135.0" y="428.0" class="h" text-anchor="middle" font-size="13">SUPPLIER</text>
+<rect x="230" y="373" width="158" height="100" class="lane"/>
+<rect x="239" y="395" width="140" height="56" rx="7" class="cell-amber"/>
+<text x="309.0" y="415" class="t" text-anchor="middle">Onboarded;</text>
+<text x="309.0" y="430" class="t" text-anchor="middle">lists stock</text>
+<rect x="388" y="373" width="158" height="100" class="lane"/>
+<rect x="546" y="373" width="158" height="100" class="lane"/>
+<rect x="555" y="395" width="140" height="56" rx="7" class="cell-amber"/>
+<text x="625.0" y="415" class="t" text-anchor="middle">Confirms stock;</text>
+<text x="625.0" y="430" class="t" text-anchor="middle">packs parcel</text>
+<rect x="704" y="373" width="158" height="100" class="lane"/>
+<rect x="713" y="395" width="140" height="56" rx="7" class="cell-amber"/>
+<text x="783.0" y="415" class="t" text-anchor="middle">Hands parcel</text>
+<text x="783.0" y="430" class="t" text-anchor="middle">to carrier</text>
+<rect x="862" y="373" width="158" height="100" class="lane"/>
+<rect x="1020" y="373" width="158" height="100" class="lane"/>
+<rect x="1178" y="373" width="158" height="100" class="lane"/>
+<rect x="1336" y="373" width="158" height="100" class="lane"/>
+<rect x="1345" y="395" width="140" height="56" rx="7" class="cell-amber"/>
+<text x="1415.0" y="415" class="t" text-anchor="middle">Receives payout;</text>
+<text x="1415.0" y="430" class="t" text-anchor="middle">handles return</text>
+<rect x="40" y="473" width="190" height="100" class="lane-alt"/>
+<text x="135.0" y="528.0" class="h" text-anchor="middle" font-size="13">CARRIER</text>
+<rect x="230" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="388" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="546" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="704" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="713" y="495" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="783.0" y="515" class="t" text-anchor="middle">Receives and</text>
+<text x="783.0" y="530" class="t" text-anchor="middle">scans parcel</text>
+<rect x="862" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="871" y="495" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="941.0" y="515" class="t" text-anchor="middle">Line-haul;</text>
+<text x="941.0" y="530" class="t" text-anchor="middle">status events</text>
+<rect x="1020" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="1029" y="495" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="1099.0" y="515" class="t" text-anchor="middle">Delivers or</text>
+<text x="1099.0" y="530" class="t" text-anchor="middle">holds at branch</text>
+<rect x="1178" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="1187" y="495" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="1257.0" y="515" class="t" text-anchor="middle">Returns POD;</text>
+<text x="1257.0" y="530" class="t" text-anchor="middle">closes trip</text>
+<rect x="1336" y="473" width="158" height="100" class="lane-alt"/>
+<rect x="1345" y="495" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="1415.0" y="515" class="t" text-anchor="middle">Reverse</text>
+<text x="1415.0" y="530" class="t" text-anchor="middle">logistics</text>
+<rect x="40" y="573" width="190" height="100" class="lane"/>
+<text x="135.0" y="628.0" class="h" text-anchor="middle" font-size="13">PAYMENT PROVIDER</text>
+<rect x="230" y="573" width="158" height="100" class="lane"/>
+<rect x="388" y="573" width="158" height="100" class="lane"/>
+<rect x="397" y="595" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="467.0" y="615" class="t" text-anchor="middle">Collects funds;</text>
+<text x="467.0" y="630" class="t" text-anchor="middle">sends webhook</text>
+<rect x="546" y="573" width="158" height="100" class="lane"/>
+<rect x="704" y="573" width="158" height="100" class="lane"/>
+<rect x="862" y="573" width="158" height="100" class="lane"/>
+<rect x="1020" y="573" width="158" height="100" class="lane"/>
+<rect x="1178" y="573" width="158" height="100" class="lane"/>
+<rect x="1187" y="595" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="1257.0" y="615" class="t" text-anchor="middle">Settles to</text>
+<text x="1257.0" y="630" class="t" text-anchor="middle">marketplace</text>
+<rect x="1336" y="573" width="158" height="100" class="lane"/>
+<rect x="1345" y="595" width="140" height="56" rx="7" class="cell-grey"/>
+<text x="1415.0" y="615" class="t" text-anchor="middle">Processes</text>
+<text x="1415.0" y="630" class="t" text-anchor="middle">refunds</text>
+<line x1="235" y1="691" x2="1489" y2="691" class="arrow"/>
+<text x="40" y="828" class="note">Multi-supplier orders are split into separate parcels and delivery charges. Each parcel carries its own ID and tracking events.</text>
+<text x="40" y="846" class="note">Failed delivery: two attempts, then hold at branch for 7 days, then return to supplier. Proof of delivery includes photo and recipient confirmation.</text>
+</svg>

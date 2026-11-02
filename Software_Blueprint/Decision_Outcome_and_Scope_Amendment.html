@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Usiri Marketplace — Scope Amendment</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="amendment.css" />
+</head>
+<body class="doc">
+
+<div class="cover">
+  <div class="kicker">Software blueprint · Phase 1 · Amendment</div>
+  <h1>Scope<br/>Amendment</h1>
+  <div class="rule"></div>
+  <div class="subtitle">Recorded founder decisions and the bounded general merchandise launch scope</div>
+  <div class="working">Working name only — no Usiri affiliation is implied.</div>
+  <div class="meta">
+    <strong>Prepared for:</strong> the founding group<br/>
+    <strong>Document:</strong> UM-AMD-001 &nbsp;·&nbsp; <strong>Version:</strong> 1.0<br/>
+    <strong>Date:</strong> 30 October 2026<br/>
+    <strong>Amends:</strong> UM-DISC-001 v0.2 &nbsp;·&nbsp; <strong>Log:</strong> UM-DEC-001 v0.2
+  </div>
+  <div class="status">
+    <strong>DECISIONS RECORDED.</strong> D-01 to D-04 are closed. The launch scope is general
+    merchandise, bounded to six departments in Dar es Salaam. No implementation is authorized.
+    Usiri remains a potential logistics and brand partner, not a confirmed one.
+  </div>
+  <div class="confidential">Confidential — for internal discussion</div>
+</div>
+
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#document-control" id="toc-document-control">0. Document
+control</a></li>
+<li><a href="#decisions-recorded" id="toc-decisions-recorded">1.
+Decisions recorded</a></li>
+<li><a href="#why-general-merchandise-changes-more-than-the-catalogue"
+id="toc-why-general-merchandise-changes-more-than-the-catalogue">2. Why
+general merchandise changes more than the catalogue</a></li>
+<li><a href="#d-01-the-bounded-general-merchandise-scope"
+id="toc-d-01-the-bounded-general-merchandise-scope">3. D-01: The bounded
+general merchandise scope</a></li>
+<li><a href="#d-02-fulfilment-confirmed"
+id="toc-d-02-fulfilment-confirmed">4. D-02: Fulfilment
+confirmed</a></li>
+<li><a href="#d-03-payment-and-settlement-confirmed"
+id="toc-d-03-payment-and-settlement-confirmed">5. D-03: Payment and
+settlement confirmed</a></li>
+<li><a href="#d-04-build-route-confirmed-with-a-timeline-warning"
+id="toc-d-04-build-route-confirmed-with-a-timeline-warning">6. D-04:
+Build route confirmed, with a timeline warning</a></li>
+<li><a href="#impact-on-the-discovery-baseline"
+id="toc-impact-on-the-discovery-baseline">7. Impact on the discovery
+baseline</a></li>
+<li><a href="#revised-assumptions" id="toc-revised-assumptions">8.
+Revised assumptions</a></li>
+<li><a href="#additional-business-rules"
+id="toc-additional-business-rules">9. Additional business rules</a></li>
+<li><a href="#additional-evidence-gaps"
+id="toc-additional-evidence-gaps">10. Additional evidence gaps</a></li>
+<li><a href="#additional-risks" id="toc-additional-risks">11. Additional
+risks</a></li>
+<li><a href="#timeline-and-scope-trade-off"
+id="toc-timeline-and-scope-trade-off">12. Timeline and scope
+trade-off</a></li>
+<li><a href="#open-sub-decisions-before-the-brd"
+id="toc-open-sub-decisions-before-the-brd">13. Open sub-decisions before
+the BRD</a></li>
+<li><a href="#next-step" id="toc-next-step">14. Next step</a></li>
+</ul>
+</nav>
+<h1 id="document-control">0. Document control</h1>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document</td>
+<td>Decision Outcome and Scope Amendment</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>Usiri Marketplace (working name)</td>
+</tr>
+<tr>
+<td>Document ID</td>
+<td>UM-AMD-001</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><strong>Decisions recorded. Scope amended. No implementation
+authorized.</strong></td>
+</tr>
+<tr>
+<td>Date</td>
+<td>30 October 2026</td>
+</tr>
+<tr>
+<td>Prepared for</td>
+<td>The founding group</td>
+</tr>
+<tr>
+<td>Related documents</td>
+<td>UM-DISC-001 Requirements Discovery Report v0.2; UM-DEC-001 Decision
+Log v0.2</td>
+</tr>
+<tr>
+<td>Effect</td>
+<td>Amends the launch scope in the discovery report; the rest of the
+discovery baseline remains in force</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>What this document does.</strong> It records the four
+blocking decisions taken on 30 October 2026 and converts the choice of
+<strong>general merchandise</strong> into a bounded, designable launch
+scope. It also states the consequences for the data model, supplier
+onboarding, returns, compliance, budget and timeline. It does not
+authorize build work.</p>
+</blockquote>
+<hr />
+<h1 id="decisions-recorded">1. Decisions recorded</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Decision</th>
+<th>Outcome</th>
+<th>Effect on the baseline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-01</td>
+<td>Launch scope</td>
+<td><strong>General merchandise</strong></td>
+<td>Replaces the focused home-and-kitchen recommendation. The category
+boundary, supplier count and price bands are defined in Section 3.</td>
+</tr>
+<tr>
+<td>D-02</td>
+<td>Fulfilment</td>
+<td><strong>Supplier-held stock; platform-coordinated licensed carriers;
+no warehouse or fleet</strong></td>
+<td>Confirms the asset-light model in the concept and discovery
+report.</td>
+</tr>
+<tr>
+<td>D-03</td>
+<td>Payment and settlement</td>
+<td><strong>Licensed PSP collects; platform settles suppliers after
+delivery plus the return window, with holds and
+maker-checker</strong></td>
+<td>Confirms the proposed payment boundary. Legal and PSP confirmation
+remain open.</td>
+</tr>
+<tr>
+<td>D-04</td>
+<td>Build route</td>
+<td><strong>Custom modular monolith; Next.js, TypeScript, FastAPI,
+PostgreSQL; 8–12 week target</strong></td>
+<td>Confirms the proposed architecture. The broader catalogue adds
+variant and moderation scope; the timeline tension is addressed in
+Section 12.</td>
+</tr>
+</tbody>
+</table>
+<p>The decision log records the date, the chosen option and the
+consequences. The original recommendation for D-01 was a focused Dar es
+Salaam pilot in home, kitchen and small electrical goods. The founders
+chose a broader assortment. This amendment does not pretend the original
+recommendation was wrong; it manages the consequences of the choice.</p>
+<hr />
+<h1 id="why-general-merchandise-changes-more-than-the-catalogue">2. Why
+general merchandise changes more than the catalogue</h1>
+<p>A marketplace that sells only home and kitchen goods can use a simple
+product model: one product, a few sizes, a price, a stock count and a
+warranty. General merchandise adds departments with different data,
+different returns behaviour and different risks:</p>
+<ul>
+<li><strong>Fashion and footwear</strong> need size, colour and fit
+variants, size guides, and a return process built for fit failure.
+Return rates are structurally higher than for homeware.</li>
+<li><strong>Beauty and personal care</strong> need authenticity
+controls, batch or expiry data, ingredient and claims review, and
+hygiene rules for opened products.</li>
+<li><strong>Baby and maternity</strong> need safety declarations, age
+grading, recall awareness and stricter supplier verification.</li>
+<li><strong>Small appliances</strong> still need warranty handling and
+functional testing.</li>
+<li><strong>Homeware and storage</strong> remain the simplest category
+and the anchor for basket value.</li>
+</ul>
+<p>The system therefore needs <strong>variants at launch</strong>, not
+later; <strong>category-specific attributes and moderation
+checklists</strong>; <strong>category-specific return rules</strong>;
+and <strong>a catalogue operations capability</strong> that a small team
+can actually run. These are not cosmetic additions. They change the
+database design, the supplier onboarding flow, the checkout validation
+and the support script.</p>
+<hr />
+<h1 id="d-01-the-bounded-general-merchandise-scope">3. D-01: The bounded
+general merchandise scope</h1>
+<h2 id="geography-and-supplier-base">3.1 Geography and supplier
+base</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Decision</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>City</td>
+<td>Dar es Salaam mainland</td>
+<td>Unchanged from the concept; multi-city remains deferred</td>
+</tr>
+<tr>
+<td>Language</td>
+<td>Swahili default, English available</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>Supplier count at launch</td>
+<td><strong>40 verified suppliers</strong></td>
+<td>Enough to cover six departments without overwhelming onboarding;
+25–40 was the old range</td>
+</tr>
+<tr>
+<td>Supplier count by month 6</td>
+<td>60</td>
+<td>Consistent with the concept’s growth path</td>
+</tr>
+<tr>
+<td>Active SKUs at launch</td>
+<td><strong>800–1,200</strong></td>
+<td>At 20–30 active SKUs per supplier; shallow depth is deliberate</td>
+</tr>
+<tr>
+<td>Supplier profile</td>
+<td>Registered business or verifiable sole trader with a fixed shop,
+TIN, payout account in the business name, and ability to pack to
+standard</td>
+<td>Unchanged, with category-specific additions</td>
+</tr>
+</tbody>
+</table>
+<p>Forty suppliers across six departments is a minimum for credible
+choice. It is not a licence to list everything a supplier stocks. The
+catalogue should carry the supplier’s best-selling, photographable,
+returnable range, not its entire inventory.</p>
+<h2 id="launch-departments-and-boundary">3.2 Launch departments and
+boundary</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Department</th>
+<th>Include at launch?</th>
+<th>Conditions and category notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homeware, storage and kitchenware</td>
+<td><strong>Yes</strong></td>
+<td>Lowest risk; anchor for basket value; accurate dimensions and
+material descriptions</td>
+</tr>
+<tr>
+<td>Small kitchen and home appliances</td>
+<td><strong>Yes</strong></td>
+<td>Functional guarantee; plug and voltage information; warranty terms;
+exclude high-value or installed appliances</td>
+</tr>
+<tr>
+<td>Fashion and footwear</td>
+<td><strong>Yes, bounded</strong></td>
+<td>Size and colour variants; size guide; fit-based return reasons; no
+high-value designer or counterfeit-prone brands without brand
+authorisation</td>
+</tr>
+<tr>
+<td>Beauty and personal care</td>
+<td><strong>Yes, bounded</strong></td>
+<td>Authenticity evidence; batch or expiry where applicable; no medical
+claims; opened-item hygiene exclusions; restricted products blocked</td>
+</tr>
+<tr>
+<td>Baby and maternity</td>
+<td><strong>Yes, bounded</strong></td>
+<td>Safety declarations; age grading; no recalled or restricted items;
+stricter supplier verification; feeding and hygiene exclusions</td>
+</tr>
+<tr>
+<td>Consumer electronics and phones</td>
+<td><strong>No at launch</strong></td>
+<td>High value, counterfeit, theft, warranty and price-transparency
+risk. Revisit after operations are stable and a warranty process
+exists</td>
+</tr>
+<tr>
+<td>Groceries and fresh food</td>
+<td><strong>No</strong></td>
+<td>Perishability, cold chain and low basket value do not fit the
+model</td>
+</tr>
+<tr>
+<td>Furniture</td>
+<td><strong>No</strong></td>
+<td>Bulky, assembly and delivery complexity</td>
+</tr>
+<tr>
+<td>Building materials</td>
+<td><strong>No</strong></td>
+<td>Weight, delivery and B2B sales cycle</td>
+</tr>
+<tr>
+<td>Restricted and prohibited goods</td>
+<td><strong>Never</strong></td>
+<td>Weapons, medicines, hazardous chemicals, stolen goods, counterfeit
+goods, recalled products</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation.</strong> “General merchandise” in this
+project means a <strong>multi-department consumer assortment of six
+bounded departments</strong>, not an unlimited catalogue. The boundary
+is a condition of a safe launch, not a retreat from the founders’
+choice.</p>
+<h2 id="price-bands-and-basket-economics">3.3 Price bands and basket
+economics</h2>
+<p>The old single band of TZS 30,000–250,000 no longer fits a
+multi-department assortment. The following bands are proposed for
+testing:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Department</th>
+<th>Proposed launch band (TZS)</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Homeware and storage</td>
+<td>20,000–200,000</td>
+<td>Basket anchor; bulky items need volumetric pricing</td>
+</tr>
+<tr>
+<td>Small appliances</td>
+<td>40,000–250,000</td>
+<td>Warranty and functional testing justify higher value</td>
+</tr>
+<tr>
+<td>Fashion and footwear</td>
+<td>25,000–150,000</td>
+<td>Lower-priced items need a basket threshold to cover delivery</td>
+</tr>
+<tr>
+<td>Beauty and personal care</td>
+<td>15,000–100,000</td>
+<td>Small parcels; authenticity risk rises with branded goods</td>
+</tr>
+<tr>
+<td>Baby and maternity</td>
+<td>20,000–150,000</td>
+<td>Safety and quality checks; some items are low value</td>
+</tr>
+<tr>
+<td>Home and kitchen bundles</td>
+<td>50,000–250,000</td>
+<td>Encourages basket size and one delivery</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical economics consequence.</strong> The concept’s unit
+economics assume an average order value of TZS 75,000. A broad
+assortment with fashion and beauty will pull the average down. The
+platform should test a <strong>minimum delivered order value</strong>
+(for example TZS 30,000) or a small-order fee, and should not promise
+free delivery on low-value baskets. The exact rule is
+<strong>[Open]</strong> and must be tested with customers before the
+checkout is frozen.</p>
+<h2 id="what-variants-at-launch-means">3.4 What “variants at launch”
+means</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product has options such as size, colour, scent, pack size or
+model</td>
+<td>The catalogue needs option types and option values, not just a
+product row</td>
+</tr>
+<tr>
+<td>Each combination has its own SKU, price, stock and barcode where
+available</td>
+<td>Inventory and order lines attach to the variant, not the parent
+product</td>
+</tr>
+<tr>
+<td>Images may differ by colour</td>
+<td>Media can attach to a variant as well as to the product</td>
+</tr>
+<tr>
+<td>Size guides are category-specific</td>
+<td>A content and attribute model is needed for fashion and baby</td>
+</tr>
+<tr>
+<td>Price and stock can differ by variant</td>
+<td>Cart validation and checkout must operate at variant level</td>
+</tr>
+<tr>
+<td>Search and filters use category attributes</td>
+<td>Attribute definitions are data, not hard-coded columns for one
+category</td>
+</tr>
+</tbody>
+</table>
+<p>This is the single largest technical consequence of D-01. A product
+model that assumes one SKU per product will fail in fashion and beauty
+within the first week.</p>
+<h2 id="catalogue-operations">3.5 Catalogue operations</h2>
+<p>General merchandise multiplies moderation work. The platform
+needs:</p>
+<ul>
+<li><strong>Category-specific checklists</strong> for listing approval,
+not one generic checklist.</li>
+<li><strong>Attribute templates</strong> per department, so suppliers
+cannot omit size, material, age grading or expiry.</li>
+<li><strong>Photo standards</strong> by category, including scale and
+colour accuracy for fashion and authenticity cues for beauty.</li>
+<li><strong>A moderation queue with reasons and resubmission</strong>,
+so suppliers can fix rather than guess.</li>
+<li><strong>Periodic audits</strong> of live listings, not only first
+approval.</li>
+<li><strong>A prohibited-item list</strong> maintained as configuration
+and reviewed when regulations or recalls change.</li>
+</ul>
+<p>A team of one operations lead and one part-time moderator cannot
+approve 1,000 listings in a week. The launch plan must phase supplier
+onboarding and listing approval, or the catalogue will be either late or
+unchecked.</p>
+<hr />
+<h1 id="d-02-fulfilment-confirmed">4. D-02: Fulfilment confirmed</h1>
+<p>The founders confirmed supplier-held stock and platform-coordinated
+carriers, with no warehouse and no fleet.</p>
+<p><strong>What this means for the build:</strong></p>
+<ul>
+<li>The logistics module remains provider-agnostic and supports manual
+coordination first.</li>
+<li>The platform records the shipment, carrier, waybill, weight, cost,
+status events and proof of delivery.</li>
+<li>The supplier packs and hands over; the platform or carrier confirms
+delivery.</li>
+<li>A second carrier is qualified before pilot, regardless of any Usiri
+relationship.</li>
+<li>The delivery promise must accommodate category differences: a
+fashion parcel and a small appliance may have different handling and
+insurance needs.</li>
+</ul>
+<p><strong>What remains open:</strong> carrier selection, rates,
+volumetric rules, liability, insurance and whether any carrier offers an
+API. None of these is assumed.</p>
+<hr />
+<h1 id="d-03-payment-and-settlement-confirmed">5. D-03: Payment and
+settlement confirmed</h1>
+<p>The founders confirmed that a licensed PSP collects the full order
+and the platform settles suppliers after delivery plus the return
+window, with holds and maker-checker approval.</p>
+<p><strong>What this means for the build:</strong></p>
+<ul>
+<li>One customer payment per checkout, allocated across supplier orders
+and items in the ledger.</li>
+<li>Commission, coordination fee, carrier payable and supplier payable
+are separate ledger accounts.</li>
+<li>Refunds are processed against the original payment; partial refunds
+are allocated per line and delivery share.</li>
+<li>Supplier payouts are held until delivery plus the return window, and
+may be frozen by a dispute, negative balance or KYC issue.</li>
+<li>The platform does not describe itself as escrow or hold customer
+funds in a wallet.</li>
+</ul>
+<p><strong>What remains open:</strong> PSP selection, fees, settlement
+product, payout timing, refund API, chargeback handling and the legal
+characterisation of the flow. Counsel and the PSP must confirm before
+build.</p>
+<hr />
+<h1 id="d-04-build-route-confirmed-with-a-timeline-warning">6. D-04:
+Build route confirmed, with a timeline warning</h1>
+<p>The founders confirmed a custom modular monolith using Next.js,
+TypeScript, FastAPI and PostgreSQL, with an 8–12 week target.</p>
+<p><strong>The warning is specific:</strong> the discovery baseline
+assumed a focused home-and-kitchen catalogue. General merchandise adds
+variants, category attributes, six moderation checklists, size guides,
+authenticity controls and a broader returns process. These are not
+cosmetic; they add design, build and test work.</p>
+<p><strong>Options to keep 8–12 weeks credible:</strong></p>
+<ol type="1">
+<li><strong>Reduce department depth, not department count.</strong>
+Launch all six departments but with 40 suppliers and 800 SKUs, not
+1,200. Accept a shallow catalogue at launch.</li>
+<li><strong>Use a category template.</strong> Build one flexible
+attribute and variant system, then configure six templates. Do not build
+six bespoke catalogue modules.</li>
+<li><strong>Defer non-essential experience work.</strong> No
+recommendations, no loyalty, no chat, no native app, no automated
+payouts.</li>
+<li><strong>Protect the critical path.</strong> Variants, multi-supplier
+orders, payment verification, shipment records and refunds come before
+merchandising polish.</li>
+<li><strong>Set a scope-cut list at week 8.</strong> If variants and
+checkout are not stable, cut departments to four for the pilot rather
+than extend indefinitely.</li>
+</ol>
+<p>If the team is part-time, or if the PSP and carrier integrations are
+not available by week 2, the realistic estimate is <strong>12–16
+weeks</strong>, not 8–12. The founders should treat 8–12 weeks as a
+stretch target with a written scope-cut list, not as a promise to
+suppliers or customers.</p>
+<hr />
+<h1 id="impact-on-the-discovery-baseline">7. Impact on the discovery
+baseline</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Discovery area</th>
+<th>What changes</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scope (Section 3)</td>
+<td>Six departments; 40 suppliers; 800–1,200 SKUs; category-specific
+price bands</td>
+<td>Superseded by this amendment</td>
+</tr>
+<tr>
+<td>Stakeholders (Section 4)</td>
+<td>More suppliers, more category-specific moderation and support
+work</td>
+<td>BRD to add category owners or moderation capacity</td>
+</tr>
+<tr>
+<td>Capability map (Section 6)</td>
+<td>Variants become must-have at launch; category attributes and size
+guides become must-have</td>
+<td>SRS to promote variants and attributes to MVP</td>
+</tr>
+<tr>
+<td>Order model (Section 8)</td>
+<td>Order items attach to variants; returns are category-sensitive</td>
+<td>Database design to model variant-level order lines</td>
+</tr>
+<tr>
+<td>Business rules (Section 9)</td>
+<td>Add rules for variants, category returns, authenticity, safety and
+minimum basket</td>
+<td>See Section 9 of this amendment</td>
+</tr>
+<tr>
+<td>NFRs (Section 10)</td>
+<td>Search and filters must handle variants and attributes; moderation
+queue must handle volume</td>
+<td>NFR targets unchanged; capacity assumptions revised</td>
+</tr>
+<tr>
+<td>Regulatory (Section 11)</td>
+<td>Beauty claims, baby safety, product recalls and counterfeit risk
+need explicit controls</td>
+<td>Counsel and compliance review before launch</td>
+</tr>
+<tr>
+<td>Evidence gaps (Section 13)</td>
+<td>Add fashion fit, beauty authenticity, baby safety and category
+return evidence</td>
+<td>See Section 10 of this amendment</td>
+</tr>
+<tr>
+<td>Risks (Section 15)</td>
+<td>Add category sprawl, counterfeit, return-rate and moderation
+risks</td>
+<td>See Section 11 of this amendment</td>
+</tr>
+<tr>
+<td>Decisions (Section 14)</td>
+<td>D-01 to D-04 decided; new sub-decisions opened</td>
+<td>See Section 13 of this amendment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="revised-assumptions">8. Revised assumptions</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Old assumption</th>
+<th>Revised assumption</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-02</td>
+<td>Home, kitchen and small electrical goods, TZS 30,000–250,000</td>
+<td>Six bounded departments with category-specific bands</td>
+<td><strong>Revised by D-01</strong></td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>25–40 suppliers</td>
+<td>40 at launch, 60 by month 6</td>
+<td><strong>Revised</strong></td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>900 orders in month 6</td>
+<td>Unchanged as a planning target, but average order value must be
+re-tested because of the broader mix</td>
+<td><strong>To test</strong></td>
+</tr>
+<tr>
+<td>A-05</td>
+<td>8% commission, tested 6–12%</td>
+<td>Unchanged; category-level commission may be needed later</td>
+<td><strong>To test</strong></td>
+</tr>
+<tr>
+<td>A-06</td>
+<td>TZS 5,000 delivery charge</td>
+<td>Unchanged as a hypothesis; minimum basket or small-order fee to be
+tested</td>
+<td><strong>To test</strong></td>
+</tr>
+<tr>
+<td>A-09</td>
+<td>Support 09:00–18:00 Monday–Saturday</td>
+<td>Unchanged, but ticket volume will be higher because of fashion fit
+and beauty questions</td>
+<td><strong>To test</strong></td>
+</tr>
+<tr>
+<td>A-14</td>
+<td>8–12 week MVP</td>
+<td>8–12 weeks as a stretch target with a scope-cut list; 12–16 weeks
+realistic if integrations or team capacity slip</td>
+<td><strong>Revised</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The existing startup budget also needs re-costing. More suppliers,
+more photography, more moderation and a broader support script increase
+the pre-launch and operating cost. No revised figure is asserted here;
+the BRD must obtain quotations and update the workbook rather than reuse
+the old total.</p>
+<hr />
+<h1 id="additional-business-rules">9. Additional business rules</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Rule</th>
+<th>Rationale</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BR-033</td>
+<td>Every purchasable item resolves to a variant with its own SKU, price
+and stock; a product without a valid variant cannot be ordered.</td>
+<td>Fashion, beauty and baby require size, colour or pack options</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-034</td>
+<td>Category attribute templates are configuration; a listing cannot be
+published until mandatory attributes for its category are complete.</td>
+<td>Comparable listings and fewer returns</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-035</td>
+<td>Return eligibility and refund treatment are category-specific;
+hygiene, safety and opened-item exclusions must be published before
+purchase.</td>
+<td>Fairness and consumer law</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BR-036</td>
+<td>Beauty and personal-care listings require authenticity evidence and,
+where applicable, batch or expiry data before approval.</td>
+<td>Counterfeit and safety risk</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-037</td>
+<td>Baby and maternity listings require safety declarations, age grading
+and recall checks before approval.</td>
+<td>Child safety</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-038</td>
+<td>The platform may set a minimum delivered order value or a
+small-order fee; the rule is displayed before checkout and tested with
+customers.</td>
+<td>Protect contribution on low-value fashion and beauty baskets</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>BR-039</td>
+<td>Category-level commission rates may be configured separately, but a
+rate change applies only to future orders.</td>
+<td>Margin differences across departments</td>
+<td>Proposed</td>
+</tr>
+<tr>
+<td>BR-040</td>
+<td>A product recall or safety notice can suspend a listing and notify
+affected buyers without deleting order history.</td>
+<td>Safety and audit</td>
+<td>Proposed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="additional-evidence-gaps">10. Additional evidence gaps</h1>
+<div class="gaps-table">
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Gap</th>
+<th>Why it matters</th>
+<th>Method</th>
+<th>Impact if unresolved</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GAP-19</td>
+<td>Fashion size and fit return rates in Dar es Salaam</td>
+<td>Determines return policy, size guides and contribution</td>
+<td>Supplier interviews, competitor policy review, pilot
+measurement</td>
+<td>Return costs may erase fashion margin</td>
+</tr>
+<tr>
+<td>GAP-20</td>
+<td>Beauty authenticity and expiry practices</td>
+<td>Determines verification and liability controls</td>
+<td>Supplier documents, brand-authorisation checks, sample audit</td>
+<td>Counterfeit or expired goods create legal and trust risk</td>
+</tr>
+<tr>
+<td>GAP-21</td>
+<td>Baby product safety and recall exposure</td>
+<td>Determines listing requirements and insurance</td>
+<td>Supplier declarations, safety checklist, counsel input</td>
+<td>Child-safety incident and liability</td>
+</tr>
+<tr>
+<td>GAP-22</td>
+<td>Category-specific carrier handling and insurance</td>
+<td>Determines delivery cost and claims</td>
+<td>Carrier quotes for representative parcels in each department</td>
+<td>Underpriced delivery or uninsured loss</td>
+</tr>
+<tr>
+<td>GAP-23</td>
+<td>Catalogue content and photography capacity across six
+departments</td>
+<td>Determines launch date and moderation load</td>
+<td>Supplier audit, sample photography, time-and-motion</td>
+<td>Catalogue late or poor quality</td>
+</tr>
+<tr>
+<td>GAP-24</td>
+<td>Customer response to a minimum basket or small-order fee</td>
+<td>Determines checkout conversion and basket economics</td>
+<td>Pricing test and interviews</td>
+<td>Low-value orders lose money or customers abandon</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h1 id="additional-risks">11. Additional risks</h1>
+<div class="risk6">
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Risk</th>
+<th style="text-align: right;">Likelihood</th>
+<th style="text-align: right;">Impact</th>
+<th style="text-align: right;">Score</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RSK-16</td>
+<td>Category sprawl makes the catalogue shallow and hard to trust</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">16</td>
+<td>Six bounded departments; 40 suppliers; no high-value electronics;
+category owners</td>
+</tr>
+<tr>
+<td>RSK-17</td>
+<td>Fashion return rates exceed the model</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">16</td>
+<td>Size guides; fit reason codes; supplier scorecards; return reserve;
+test before scaling</td>
+</tr>
+<tr>
+<td>RSK-18</td>
+<td>Counterfeit or expired beauty products damage trust</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">15</td>
+<td>Authenticity evidence; batch checks; brand authorisation; spot
+audits; delisting</td>
+</tr>
+<tr>
+<td>RSK-19</td>
+<td>Baby product safety incident</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+<td>Safety declarations; recall checks; restricted list; insurance;
+counsel review</td>
+</tr>
+<tr>
+<td>RSK-20</td>
+<td>Catalogue moderation becomes a bottleneck</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
+<td>Templates; phased onboarding; moderator capacity; resubmission
+workflow</td>
+</tr>
+<tr>
+<td>RSK-21</td>
+<td>Broader assortment pushes the 8–12 week build beyond target</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">16</td>
+<td>Scope-cut list; flexible category templates; week-8 gate; realistic
+12–16 week fallback</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h1 id="timeline-and-scope-trade-off">12. Timeline and scope
+trade-off</h1>
+<p>The founders chose both general merchandise and an 8–12 week build.
+Those choices are in tension. The professional response is not to
+pretend the tension is absent; it is to define what must be true for the
+timeline to hold.</p>
+<p><strong>Conditions for 8–12 weeks:</strong></p>
+<ul>
+<li>A dedicated technical lead and one full-time developer, with design
+support.</li>
+<li>PSP sandbox access and a selected carrier by week 2.</li>
+<li>A single flexible variant and attribute system, configured by
+category, not six bespoke builds.</li>
+<li>40 suppliers, not 60, at launch; 800 SKUs, not 1,200.</li>
+<li>No native app, no chat, no wallet, no automated payouts, no
+recommendations.</li>
+<li>A written scope-cut list that reduces departments to four if week 8
+finds variants, checkout or payments unstable.</li>
+</ul>
+<p><strong>If any condition fails</strong>, the plan should move to
+12–16 weeks. A delayed, working marketplace is better than an on-time
+marketplace that cannot handle a size exchange or a partial refund.</p>
+<hr />
+<h1 id="open-sub-decisions-before-the-brd">13. Open sub-decisions before
+the BRD</h1>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Question</th>
+<th>Recommended default</th>
+<th>Needed by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-13</td>
+<td>Exact six-department list</td>
+<td>Homeware, small appliances, fashion, beauty, baby, home and kitchen
+bundles</td>
+<td>BRD review</td>
+</tr>
+<tr>
+<td>D-14</td>
+<td>Minimum delivered order value or small-order fee</td>
+<td>Test a TZS 30,000 minimum delivered basket; no free delivery below
+it</td>
+<td>Checkout design freeze</td>
+</tr>
+<tr>
+<td>D-15</td>
+<td>Category-level commission</td>
+<td>Start with one rate; configure category rates only if supplier
+economics require it</td>
+<td>Supplier contracts</td>
+</tr>
+<tr>
+<td>D-16</td>
+<td>Beauty authenticity evidence</td>
+<td>Supplier invoice and brand authorisation where available; batch or
+expiry for perishable cosmetics</td>
+<td>Beauty onboarding</td>
+</tr>
+<tr>
+<td>D-17</td>
+<td>Baby safety declaration</td>
+<td>Mandatory declaration plus restricted-product list; counsel
+review</td>
+<td>Baby onboarding</td>
+</tr>
+<tr>
+<td>D-18</td>
+<td>Fashion return policy</td>
+<td>7-day fit return, unworn with tags, customer pays reverse transport
+unless the item is faulty</td>
+<td>Policy publication</td>
+</tr>
+<tr>
+<td>D-19</td>
+<td>Launch cohort by department</td>
+<td>At least 6 suppliers per department, 40 total</td>
+<td>Supplier recruitment plan</td>
+</tr>
+<tr>
+<td>D-20</td>
+<td>Timeline fallback</td>
+<td>12–16 weeks if week-2 integrations or week-8 variant stability
+fail</td>
+<td>Roadmap sign-off</td>
+</tr>
+</tbody>
+</table>
+<p>These are narrower than the four blocking decisions. They can be
+resolved during BRD elaboration, but each needs an owner and a date.</p>
+<hr />
+<h1 id="next-step">14. Next step</h1>
+<p>The BRD will use this amended scope. It will restate the business
+objectives, the six-department boundary, the supplier and customer
+journeys, the operating model and the success measures in business
+language. The SRS will then convert the capability map and business
+rules into numbered, testable requirements, with variants,
+multi-supplier orders, payment verification, shipment records and
+category-sensitive returns treated as MVP.</p>
+<p>No code will be written until the architecture and UX packs are
+reviewed and approved. No Usiri brand will be used until a written
+licence exists.</p>
+</body>
+</html>

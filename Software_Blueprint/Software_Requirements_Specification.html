@@ -1,0 +1,4650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Usiri Marketplace — Software Requirements</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="srs.css" />
+</head>
+<body class="doc">
+
+<div class="cover">
+  <div class="kicker">Software blueprint · Phase 2</div>
+  <h1>Software<br/>Requirements</h1>
+  <div class="rule"></div>
+  <div class="subtitle">Numbered, testable requirements, use cases and state models for the
+  proposed Usiri Marketplace</div>
+  <div class="working">Working name only — no Usiri affiliation is implied.</div>
+  <div class="meta">
+    <strong>Prepared for:</strong> founders, technical lead, design, security and test reviewers<br/>
+    <strong>Document:</strong> UM-SRS-001 &nbsp;·&nbsp; <strong>Version:</strong> 1.0<br/>
+    <strong>Date:</strong> 30 October 2026<br/>
+    <strong>Baseline:</strong> UM-BRD-001 v1.0
+  </div>
+  <div class="status">
+    <strong>DRAFT FOR REVIEW.</strong> No implementation is authorized. Requirements marked
+    Must form the launch scope. Values marked TBC come from configuration, not code.
+  </div>
+  <div class="confidential">Confidential — for internal discussion</div>
+</div>
+
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#document-control" id="toc-document-control">0. Document
+control</a></li>
+<li><a href="#introduction" id="toc-introduction">1.
+Introduction</a></li>
+<li><a href="#overall-description" id="toc-overall-description">2.
+Overall description</a></li>
+<li><a href="#system-context-and-actors"
+id="toc-system-context-and-actors">3. System context and actors</a></li>
+<li><a href="#functional-requirements"
+id="toc-functional-requirements">4. Functional requirements</a></li>
+<li><a href="#use-cases" id="toc-use-cases">5. Use cases</a></li>
+<li><a href="#user-stories-and-acceptance-criteria"
+id="toc-user-stories-and-acceptance-criteria">6. User stories and
+acceptance criteria</a></li>
+<li><a href="#external-interface-requirements"
+id="toc-external-interface-requirements">7. External interface
+requirements</a></li>
+<li><a href="#data-requirements" id="toc-data-requirements">8. Data
+requirements</a></li>
+<li><a href="#non-functional-requirements"
+id="toc-non-functional-requirements">9. Non-functional
+requirements</a></li>
+<li><a href="#state-models" id="toc-state-models">10. State
+models</a></li>
+<li><a href="#business-rule-enforcement"
+id="toc-business-rule-enforcement">11. Business rule
+enforcement</a></li>
+<li><a href="#traceability" id="toc-traceability">12.
+Traceability</a></li>
+<li><a href="#verification-and-acceptance"
+id="toc-verification-and-acceptance">13. Verification and
+acceptance</a></li>
+<li><a href="#open-issues" id="toc-open-issues">14. Open issues</a></li>
+<li><a href="#appendix-a.-requirement-index"
+id="toc-appendix-a.-requirement-index">Appendix A. Requirement
+index</a></li>
+<li><a href="#appendix-b.-glossary"
+id="toc-appendix-b.-glossary">Appendix B. Glossary</a></li>
+</ul>
+</nav>
+<section id="document-control" class="level1">
+<h1>0. Document control</h1>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Document</td>
+<td>Software Requirements Specification</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>Usiri Marketplace (working name)</td>
+</tr>
+<tr>
+<td>Document ID</td>
+<td>UM-SRS-001</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>Status</td>
+<td><strong>Draft for founder and technical review. No implementation is
+authorized.</strong></td>
+</tr>
+<tr>
+<td>Date</td>
+<td>30 October 2026</td>
+</tr>
+<tr>
+<td>Prepared for</td>
+<td>Founders, technical lead, design, security and test reviewers</td>
+</tr>
+<tr>
+<td>Prepared by</td>
+<td>Project initiator, acting as business analyst and software
+architect</td>
+</tr>
+<tr>
+<td>Classification</td>
+<td>Confidential — internal discussion</td>
+</tr>
+<tr>
+<td>Baseline</td>
+<td>UM-BRD-001 v1.0; UM-DISC-001 v0.2; UM-AMD-001 v1.0; UM-DEC-001
+v0.2</td>
+</tr>
+<tr>
+<td>Next documents</td>
+<td>System architecture, database design, API specification, security
+architecture, UX specification</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Status notice.</strong> Usiri is a potential logistics and
+brand partner only. No API, rate card, franchise term or licence is
+assumed. The platform is carrier-agnostic and PSP-agnostic. No code has
+been written.</p>
+</blockquote>
+<section id="conventions" class="level2">
+<h2>0.1 Conventions</h2>
+<ul>
+<li><strong>Shall</strong> marks a mandatory requirement.
+<strong>Should</strong> marks a requirement that may be deferred with a
+written decision. <strong>May</strong> marks an optional
+capability.</li>
+<li>Every requirement has a stable ID of the form
+<code>REQ-&lt;module&gt;-&lt;number&gt;</code>. IDs are never reused or
+renumbered.</li>
+<li><strong>Priority</strong> uses MoSCoW: Must, Should, Could, Won’t.
+<strong>Must</strong> requirements form the launch scope.</li>
+<li><strong>Source</strong> links to a business need (BN), business rule
+(BR), capability (CAP) or decision (D).</li>
+<li><strong>Verification</strong> states how the requirement will be
+proven. It is not a test script; it names the test approach.</li>
+<li><strong>TBC</strong> marks a value that cannot be fixed until an
+open decision is answered. A TBC value must come from configuration, not
+from code.</li>
+</ul>
+<hr />
+</section>
+</section>
+<section id="introduction" class="level1">
+<h1>1. Introduction</h1>
+<section id="purpose" class="level2">
+<h2>1.1 Purpose</h2>
+<p>This specification defines the software behaviour required to operate
+the marketplace described in the BRD. It is the contract between
+business, design, engineering and testing. It is detailed enough to
+estimate, build and test, and it deliberately stops short of prescribing
+the internal design.</p>
+</section>
+<section id="scope" class="level2">
+<h2>1.2 Scope</h2>
+<p>The system comprises a customer web experience, a supplier portal, an
+operations console, a logistics coordination module, a payment and
+settlement module, a support and returns workflow, and the platform
+services that connect them. It runs as a modular monolith with a
+relational database, background workers, object storage and external
+integrations for payments, messaging and delivery.</p>
+</section>
+<section id="definitions" class="level2">
+<h2>1.3 Definitions</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parent order</td>
+<td>The customer’s single commercial order created by one checkout</td>
+</tr>
+<tr>
+<td>Supplier order</td>
+<td>The part of a parent order fulfilled by one supplier; the unit of
+commission and settlement</td>
+</tr>
+<tr>
+<td>Shipment</td>
+<td>A physical parcel with a carrier, waybill and delivery evidence</td>
+</tr>
+<tr>
+<td>Variant</td>
+<td>A purchasable option combination with its own SKU, price and
+stock</td>
+</tr>
+<tr>
+<td>Reservation</td>
+<td>A temporary hold on stock while payment is in progress</td>
+</tr>
+<tr>
+<td>Captured</td>
+<td>Funds successfully taken by the PSP</td>
+</tr>
+<tr>
+<td>Settled</td>
+<td>Supplier payable released for payout after delivery and the return
+window</td>
+</tr>
+<tr>
+<td>POD</td>
+<td>Proof of delivery, with recipient evidence</td>
+</tr>
+<tr>
+<td>Mode A</td>
+<td>Manual carrier coordination</td>
+</tr>
+<tr>
+<td>Mode B</td>
+<td>Carrier integration through an adapter</td>
+</tr>
+<tr>
+<td>TBC</td>
+<td>To be confirmed by an open decision</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="references" class="level2">
+<h2>1.4 References</h2>
+<p>UM-DISC-001 Requirements Discovery Report v0.2; UM-BRD-001 v1.0;
+UM-AMD-001 v1.0; UM-DEC-001 v0.2; the concept document v1.0; the startup
+workbook.</p>
+<hr />
+</section>
+</section>
+<section id="overall-description" class="level1">
+<h1>2. Overall description</h1>
+<section id="product-perspective" class="level2">
+<h2>2.1 Product perspective</h2>
+<p>The system is a new, self-contained platform. It integrates with, but
+does not depend on, a specific payment provider or carrier. It replaces
+spreadsheets and messaging apps for the operating team; it does not
+replace the supplier’s own shop or stock system, which remains the
+source of stock truth through portal updates or file upload.</p>
+</section>
+<section id="product-functions" class="level2">
+<h2>2.2 Product functions</h2>
+<ol type="1">
+<li>Customer identity, consent and addresses.</li>
+<li>Supplier onboarding, verification and contracts.</li>
+<li>Catalogue, variants, attributes, media and moderation.</li>
+<li>Inventory and reservations.</li>
+<li>Search, browse and product discovery.</li>
+<li>Multi-supplier cart and checkout.</li>
+<li>Order orchestration and partial fulfilment.</li>
+<li>Payment initiation, verification, refunds and reconciliation.</li>
+<li>Commission, statements, payouts and holds.</li>
+<li>Logistics coordination, tracking, proof of delivery and claims.</li>
+<li>Category-sensitive returns and disputes.</li>
+<li>Customer support with order context.</li>
+<li>Transactional and consent-aware notifications.</li>
+<li>Administration, access control, configuration and audit.</li>
+<li>Reporting and supplier scorecards.</li>
+<li>Verified reviews, controlled promotions and configurable brand
+rules.</li>
+</ol>
+</section>
+<section id="user-classes" class="level2">
+<h2>2.3 User classes</h2>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Frequency</th>
+<th>Criticality</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guest</td>
+<td>High</td>
+<td>High</td>
+<td>Must complete checkout without an account</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>High</td>
+<td>High</td>
+<td>Mobile, low bandwidth, Swahili-first</td>
+</tr>
+<tr>
+<td>Supplier owner</td>
+<td>Daily</td>
+<td>High</td>
+<td>May use a phone; needs simple tasks</td>
+</tr>
+<tr>
+<td>Supplier staff</td>
+<td>Daily</td>
+<td>Medium</td>
+<td>Packing and dispatch only</td>
+</tr>
+<tr>
+<td>Support agent</td>
+<td>Daily</td>
+<td>High</td>
+<td>Needs order context in one screen</td>
+</tr>
+<tr>
+<td>Moderator</td>
+<td>Daily</td>
+<td>High</td>
+<td>Queue-based work</td>
+</tr>
+<tr>
+<td>Finance</td>
+<td>Daily</td>
+<td>High</td>
+<td>Reconciliation and payouts</td>
+</tr>
+<tr>
+<td>Operations lead</td>
+<td>Daily</td>
+<td>High</td>
+<td>Exceptions and carrier coordination</td>
+</tr>
+<tr>
+<td>Administrator</td>
+<td>Weekly</td>
+<td>High</td>
+<td>Access and configuration</td>
+</tr>
+<tr>
+<td>Carrier administrator</td>
+<td>Daily</td>
+<td>Medium</td>
+<td>Assigned shipments only</td>
+</tr>
+<tr>
+<td>Auditor or founder</td>
+<td>Monthly</td>
+<td>Medium</td>
+<td>Read-only access to evidence</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="operating-environment" class="level2">
+<h2>2.4 Operating environment</h2>
+<p>Mobile web first, responsive to desktop. Supported browsers: current
+Chrome, Safari, Firefox and Android WebView. The customer experience
+must work on a mid-range Android device on a 4G connection, and degrade
+gracefully on slower devices. The supplier portal must be usable on a
+phone. The operations console is desktop-first. No native application is
+in scope.</p>
+</section>
+<section id="design-and-implementation-constraints" class="level2">
+<h2>2.5 Design and implementation constraints</h2>
+<ul>
+<li>Modular monolith; a single deployable application with clear module
+boundaries.</li>
+<li>PostgreSQL as the system of record; Redis for ephemeral state such
+as sessions, rate limits and reservations.</li>
+<li>Object storage for media and documents, with signed access.</li>
+<li>All money as integer TZS.</li>
+<li>Server-side calculation of all prices, fees, commissions and
+refunds.</li>
+<li>No card data stored or transmitted through platform infrastructure
+beyond the PSP’s hosted interface.</li>
+<li>All customer-facing strings externalised for Swahili and
+English.</li>
+<li>All brand, territory and franchise behaviour driven by
+configuration.</li>
+<li>Timezone Africa/Dar_es_Salaam for business dates; UTC for
+storage.</li>
+</ul>
+</section>
+<section id="assumptions-and-dependencies" class="level2">
+<h2>2.6 Assumptions and dependencies</h2>
+<p>The PSP provides signed callbacks, a status endpoint, refunds and a
+settlement or payout mechanism. A licensed carrier can carry the launch
+categories and provide a waybill and delivery evidence. SMS delivery is
+available to Tanzanian numbers. The team can obtain legal advice before
+launch. These are dependencies, not confirmed facts.</p>
+<hr />
+</section>
+</section>
+<section id="system-context-and-actors" class="level1">
+<h1>3. System context and actors</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Actor</th>
+<th>Interaction</th>
+<th>Trust boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Guest or customer</td>
+<td>Web application over HTTPS</td>
+<td>Untrusted input; authenticated for account actions</td>
+</tr>
+<tr>
+<td>Supplier owner or staff</td>
+<td>Supplier portal</td>
+<td>Authenticated; scoped to one supplier</td>
+</tr>
+<tr>
+<td>Carrier administrator or agent</td>
+<td>Carrier view or manual coordination</td>
+<td>Authenticated; scoped to assigned shipments</td>
+</tr>
+<tr>
+<td>Support, moderator, finance, operations</td>
+<td>Operations console</td>
+<td>Authenticated with MFA; role-scoped</td>
+</tr>
+<tr>
+<td>PSP</td>
+<td>Server-to-server API and signed callbacks</td>
+<td>External; verified signatures and IP allow-list where available</td>
+</tr>
+<tr>
+<td>Carrier</td>
+<td>Adapter or manual entry</td>
+<td>External; contract and evidence</td>
+</tr>
+<tr>
+<td>Messaging provider</td>
+<td>Server-to-server API</td>
+<td>External; template and consent rules</td>
+</tr>
+<tr>
+<td>Object storage</td>
+<td>Private bucket with signed URLs</td>
+<td>Internal; least privilege</td>
+</tr>
+<tr>
+<td>Auditor</td>
+<td>Read-only console and exports</td>
+<td>Authenticated; no mutation</td>
+</tr>
+</tbody>
+</table>
+<p>Data flows across these boundaries are described in Section 7. The
+most sensitive boundaries are the PSP callback, supplier access to
+customer delivery data, and staff access to KYC documents.</p>
+<hr />
+</section>
+<section id="functional-requirements" class="level1">
+<h1>4. Functional requirements</h1>
+<section id="identity-accounts-and-consent-req-acc" class="level2">
+<h2>4.1 Identity, accounts and consent (REQ-ACC)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-ACC-001</td>
+<td>The system shall let a customer register and sign in with a phone
+number verified by a one-time code.</td>
+<td>Must</td>
+<td>CAP-01</td>
+<td>OTP integration test for valid, expired and reused codes</td>
+</tr>
+<tr>
+<td>REQ-ACC-002</td>
+<td>The system shall allow guest checkout with only the contact and
+address data needed to fulfil the order.</td>
+<td>Must</td>
+<td>BN-01, STK-01</td>
+<td>Guest order completes without an account</td>
+</tr>
+<tr>
+<td>REQ-ACC-003</td>
+<td>The system shall offer account creation after a guest order without
+requiring re-entry of the order data.</td>
+<td>Should</td>
+<td>CAP-01</td>
+<td>Conversion test from guest order to account</td>
+</tr>
+<tr>
+<td>REQ-ACC-004</td>
+<td>The system shall maintain a customer profile with name, phone,
+optional email and a list of addresses with a landmark field.</td>
+<td>Must</td>
+<td>CAP-01</td>
+<td>Create, edit and select address in checkout</td>
+</tr>
+<tr>
+<td>REQ-ACC-005</td>
+<td>The system shall record consent per purpose against a versioned
+privacy notice, with timestamp and source.</td>
+<td>Must</td>
+<td>BR-024, NFR-PRIV-01</td>
+<td>Consent record inspection for each signup path</td>
+</tr>
+<tr>
+<td>REQ-ACC-006</td>
+<td>The system shall expire idle sessions and invalidate sessions on
+sign-out and on credential change.</td>
+<td>Must</td>
+<td>NFR-SEC-01</td>
+<td>Session tests</td>
+</tr>
+<tr>
+<td>REQ-ACC-007</td>
+<td>The system shall require multi-factor authentication for all staff
+and supplier owner accounts.</td>
+<td>Must</td>
+<td>NFR-SEC-03</td>
+<td>Login test for each privileged role</td>
+</tr>
+<tr>
+<td>REQ-ACC-008</td>
+<td>The system shall store passwords, where used, with Argon2id and
+enforce a minimum length of 12 characters.</td>
+<td>Must</td>
+<td>NFR-SEC-03</td>
+<td>Code review and authentication test</td>
+</tr>
+<tr>
+<td>REQ-ACC-009</td>
+<td>The system shall let a customer export their personal data in a
+machine-readable format.</td>
+<td>Must</td>
+<td>NFR-PRIV-03</td>
+<td>Export request produces complete file</td>
+</tr>
+<tr>
+<td>REQ-ACC-010</td>
+<td>The system shall support account deletion or anonymisation while
+retaining records required for tax, dispute and audit.</td>
+<td>Must</td>
+<td>BR-024</td>
+<td>Deletion test with financial retention check</td>
+</tr>
+<tr>
+<td>REQ-ACC-011</td>
+<td>The system shall keep marketing consent separate from transactional
+messaging and allow withdrawal at any time.</td>
+<td>Must</td>
+<td>BR-025</td>
+<td>Withdrawal stops marketing only</td>
+</tr>
+<tr>
+<td>REQ-ACC-012</td>
+<td>The system shall rate-limit sign-in, OTP and password reset attempts
+and lock progressively.</td>
+<td>Must</td>
+<td>NFR-SEC-05</td>
+<td>Abuse test against limits</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supplier-onboarding-and-kyc-req-kyc" class="level2">
+<h2>4.2 Supplier onboarding and KYC (REQ-KYC)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-KYC-001</td>
+<td>The system shall accept a supplier application with business name,
+trading name, category, location, contact and owner details.</td>
+<td>Must</td>
+<td>CAP-02</td>
+<td>Application submitted and stored</td>
+</tr>
+<tr>
+<td>REQ-KYC-002</td>
+<td>The system shall accept document uploads for business registration,
+TIN, owner identity, shop evidence and payout account evidence.</td>
+<td>Must</td>
+<td>CAP-02, REG-07</td>
+<td>Upload each document type with size and type checks</td>
+</tr>
+<tr>
+<td>REQ-KYC-003</td>
+<td>The system shall move an application through defined states:
+submitted, under review, information requested, approved, rejected,
+suspended.</td>
+<td>Must</td>
+<td>CAP-02</td>
+<td>State transition test with reasons</td>
+</tr>
+<tr>
+<td>REQ-KYC-004</td>
+<td>The system shall detect possible duplicate suppliers by TIN, phone
+number and payout account.</td>
+<td>Should</td>
+<td>CAP-02</td>
+<td>Duplicate application flagged</td>
+</tr>
+<tr>
+<td>REQ-KYC-005</td>
+<td>The system shall record a site visit with date, visitor, location
+evidence and outcome.</td>
+<td>Must</td>
+<td>CAP-02</td>
+<td>Site visit recorded before approval</td>
+</tr>
+<tr>
+<td>REQ-KYC-006</td>
+<td>The system shall store the supplier contract version accepted, with
+date and signatory.</td>
+<td>Must</td>
+<td>REG-08</td>
+<td>Contract record linked to supplier</td>
+</tr>
+<tr>
+<td>REQ-KYC-007</td>
+<td>The system shall require a reason and an actor for every approval,
+rejection and suspension decision.</td>
+<td>Must</td>
+<td>BR-023</td>
+<td>Decision without reason is blocked</td>
+</tr>
+<tr>
+<td>REQ-KYC-008</td>
+<td>The system shall verify that the payout account name matches the
+supplier’s legal or trading name before approval.</td>
+<td>Must</td>
+<td>BR-029</td>
+<td>Mismatch blocks approval pending review</td>
+</tr>
+<tr>
+<td>REQ-KYC-009</td>
+<td>The system shall schedule re-verification and flag overdue
+verifications, ownership changes and bank-account changes.</td>
+<td>Must</td>
+<td>CAP-02</td>
+<td>Overdue supplier appears in compliance queue</td>
+</tr>
+<tr>
+<td>REQ-KYC-010</td>
+<td>The system shall let an authorised operator suspend a supplier,
+immediately hiding its listings and blocking new orders.</td>
+<td>Must</td>
+<td>BR-010</td>
+<td>Suspension test shows listings hidden</td>
+</tr>
+<tr>
+<td>REQ-KYC-011</td>
+<td>The system shall let a supplier owner invite staff with limited
+permissions and revoke access immediately.</td>
+<td>Must</td>
+<td>ROL-04</td>
+<td>Invitation and revocation test</td>
+</tr>
+<tr>
+<td>REQ-KYC-012</td>
+<td>The system shall notify the supplier of missing or expiring
+documents in the supplier’s chosen language.</td>
+<td>Should</td>
+<td>CAP-13</td>
+<td>Notification triggered at threshold</td>
+</tr>
+<tr>
+<td>REQ-KYC-013</td>
+<td>The system shall allow a rejected supplier to correct and resubmit
+without creating a duplicate record.</td>
+<td>Should</td>
+<td>CAP-02</td>
+<td>Resubmission test</td>
+</tr>
+<tr>
+<td>REQ-KYC-014</td>
+<td>The system shall publish a supplier storefront with approved brand,
+description, policies and live listings only.</td>
+<td>Must</td>
+<td>BN-03</td>
+<td>Storefront shows approved content only</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="catalogue-variants-and-moderation-req-cat" class="level2">
+<h2>4.3 Catalogue, variants and moderation (REQ-CAT)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-CAT-001</td>
+<td>The system shall maintain a category tree of six departments with
+configurable subcategories.</td>
+<td>Must</td>
+<td>BN-03, D-13</td>
+<td>Category administration test</td>
+</tr>
+<tr>
+<td>REQ-CAT-002</td>
+<td>The system shall support category attribute templates with mandatory
+and optional fields, data types and allowed values.</td>
+<td>Must</td>
+<td>BR-034</td>
+<td>Listing cannot publish without mandatory attributes</td>
+</tr>
+<tr>
+<td>REQ-CAT-003</td>
+<td>The system shall support products with one or more variants defined
+by option types such as size, colour, scent, pack size and model.</td>
+<td>Must</td>
+<td>BR-033</td>
+<td>Variant creation and purchase test</td>
+</tr>
+<tr>
+<td>REQ-CAT-004</td>
+<td>The system shall require a unique SKU per variant and reject
+duplicates within a supplier account.</td>
+<td>Must</td>
+<td>BR-033</td>
+<td>Duplicate SKU rejected</td>
+</tr>
+<tr>
+<td>REQ-CAT-005</td>
+<td>The system shall store price and stock at variant level and display
+a price range when variants differ.</td>
+<td>Must</td>
+<td>BR-033</td>
+<td>Price range and per-variant checkout</td>
+</tr>
+<tr>
+<td>REQ-CAT-006</td>
+<td>The system shall support multiple images per product and per
+variant, with ordering, alt text and category-specific guidance.</td>
+<td>Must</td>
+<td>BN-03</td>
+<td>Media upload and ordering test</td>
+</tr>
+<tr>
+<td>REQ-CAT-007</td>
+<td>The system shall route new and edited listings to a moderation queue
+with the applicable category checklist.</td>
+<td>Must</td>
+<td>CAP-03</td>
+<td>Listing enters correct queue</td>
+</tr>
+<tr>
+<td>REQ-CAT-008</td>
+<td>The system shall let a moderator approve, reject or request changes
+with a reason code and a note.</td>
+<td>Must</td>
+<td>BR-010</td>
+<td>Decision recorded with reason</td>
+</tr>
+<tr>
+<td>REQ-CAT-009</td>
+<td>The system shall prevent publication of a listing that is
+unapproved, out of stock, prohibited or missing mandatory
+attributes.</td>
+<td>Must</td>
+<td>BR-010, BR-015</td>
+<td>Publish attempt is blocked with explanation</td>
+</tr>
+<tr>
+<td>REQ-CAT-010</td>
+<td>The system shall support bulk listing upload by CSV with per-row
+validation and an error report.</td>
+<td>Should</td>
+<td>CAP-03</td>
+<td>200-row upload with mixed errors</td>
+</tr>
+<tr>
+<td>REQ-CAT-011</td>
+<td>The system shall maintain a brand registry and flag listings that
+claim a brand without evidence where evidence is required.</td>
+<td>Should</td>
+<td>BR-036</td>
+<td>Brand claim routed to evidence check</td>
+</tr>
+<tr>
+<td>REQ-CAT-012</td>
+<td>The system shall block prohibited items at listing time using a
+configurable keyword, category and brand list.</td>
+<td>Must</td>
+<td>BR-015</td>
+<td>Prohibited term blocked</td>
+</tr>
+<tr>
+<td>REQ-CAT-013</td>
+<td>The system shall store category size guides and link them from
+fashion, baby and footwear listings.</td>
+<td>Must</td>
+<td>BN-03, D-18</td>
+<td>Size guide visible on product page</td>
+</tr>
+<tr>
+<td>REQ-CAT-014</td>
+<td>The system shall support periodic audit of live listings by sampling
+or filter, with findings and corrective actions.</td>
+<td>Should</td>
+<td>CAP-03</td>
+<td>Audit sample created and recorded</td>
+</tr>
+<tr>
+<td>REQ-CAT-015</td>
+<td>The system shall provide category-specific moderation checklists
+editable without deployment.</td>
+<td>Must</td>
+<td>BN-16</td>
+<td>Checklist change reflected in queue</td>
+</tr>
+<tr>
+<td>REQ-CAT-016</td>
+<td>The system shall keep a version history of listing content, price
+and moderation decisions.</td>
+<td>Must</td>
+<td>BR-011</td>
+<td>Prior version retrievable</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="inventory-and-availability-req-inv" class="level2">
+<h2>4.4 Inventory and availability (REQ-INV)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-INV-001</td>
+<td>The system shall record stock per variant per supplier
+location.</td>
+<td>Must</td>
+<td>CAP-04</td>
+<td>Stock record created and read</td>
+</tr>
+<tr>
+<td>REQ-INV-002</td>
+<td>The system shall reserve stock atomically when a payment intent is
+created and release it if payment fails or the reservation expires.</td>
+<td>Must</td>
+<td>BR-002</td>
+<td>Concurrent checkout test shows no oversell</td>
+</tr>
+<tr>
+<td>REQ-INV-003</td>
+<td>The system shall apply a configurable reservation expiry, defaulting
+to 15 minutes.</td>
+<td>Must</td>
+<td>BR-002</td>
+<td>Expired reservation releases stock</td>
+</tr>
+<tr>
+<td>REQ-INV-004</td>
+<td>The system shall prevent negative available stock through
+database-level constraints or equivalent guarantees.</td>
+<td>Must</td>
+<td>BN-05</td>
+<td>Concurrent reservation test</td>
+</tr>
+<tr>
+<td>REQ-INV-005</td>
+<td>The system shall hide or mark unavailable a variant at zero
+available stock.</td>
+<td>Must</td>
+<td>BR-010</td>
+<td>Zero-stock variant not purchasable</td>
+</tr>
+<tr>
+<td>REQ-INV-006</td>
+<td>The system shall alert a supplier when stock falls below a
+configurable threshold.</td>
+<td>Should</td>
+<td>CAP-04</td>
+<td>Threshold alert sent</td>
+</tr>
+<tr>
+<td>REQ-INV-007</td>
+<td>The system shall let a supplier update stock by portal edit or file
+upload with an audit record.</td>
+<td>Must</td>
+<td>CAP-04</td>
+<td>Update and audit entry</td>
+</tr>
+<tr>
+<td>REQ-INV-008</td>
+<td>The system shall record manual stock adjustments with actor, reason
+and before-and-after values.</td>
+<td>Must</td>
+<td>BR-023</td>
+<td>Adjustment history visible</td>
+</tr>
+<tr>
+<td>REQ-INV-009</td>
+<td>The system shall not accept backorders at launch.</td>
+<td>Must</td>
+<td>D-02</td>
+<td>Order attempt beyond stock is blocked</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="search-browse-and-discovery-req-dis" class="level2">
+<h2>4.5 Search, browse and discovery (REQ-DIS)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-DIS-001</td>
+<td>The system shall provide keyword search across product title, brand,
+category and attributes in Swahili and English.</td>
+<td>Must</td>
+<td>CAP-05</td>
+<td>Search test in both languages</td>
+</tr>
+<tr>
+<td>REQ-DIS-002</td>
+<td>The system shall support filters by category, price, availability,
+brand and category-specific attributes.</td>
+<td>Must</td>
+<td>CAP-05</td>
+<td>Filter combinations return correct sets</td>
+</tr>
+<tr>
+<td>REQ-DIS-003</td>
+<td>The system shall support sorting by relevance, price and
+recency.</td>
+<td>Must</td>
+<td>CAP-05</td>
+<td>Sort order test</td>
+</tr>
+<tr>
+<td>REQ-DIS-004</td>
+<td>The system shall provide department and category landing pages with
+curated ordering.</td>
+<td>Must</td>
+<td>CAP-05</td>
+<td>Landing page renders live products</td>
+</tr>
+<tr>
+<td>REQ-DIS-005</td>
+<td>The system shall provide a product page with variant selection,
+price, stock, delivery estimate, return terms and supplier
+identity.</td>
+<td>Must</td>
+<td>BN-06</td>
+<td>Product page completeness check</td>
+</tr>
+<tr>
+<td>REQ-DIS-006</td>
+<td>The system shall handle zero results with spelling suggestions,
+related categories and popular products.</td>
+<td>Should</td>
+<td>CAP-05</td>
+<td>Zero-result page shows alternatives</td>
+</tr>
+<tr>
+<td>REQ-DIS-007</td>
+<td>The system shall show related products from the same category
+without promoting unrelated categories.</td>
+<td>Could</td>
+<td>CAP-05</td>
+<td>Related list relevance check</td>
+</tr>
+<tr>
+<td>REQ-DIS-008</td>
+<td>The system shall present all customer-facing discovery content in
+the selected language.</td>
+<td>Must</td>
+<td>NFR-I18N-01</td>
+<td>Pseudo-localisation test</td>
+</tr>
+<tr>
+<td>REQ-DIS-009</td>
+<td>The system shall record search terms and zero-result queries for
+merchandising review.</td>
+<td>Should</td>
+<td>CAP-15</td>
+<td>Search report available</td>
+</tr>
+<tr>
+<td>REQ-DIS-010</td>
+<td>The system shall indicate when a product is unavailable rather than
+hiding it abruptly from a shared link.</td>
+<td>Should</td>
+<td>BN-05</td>
+<td>Shared link shows unavailable state</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cart-and-checkout-req-chk" class="level2">
+<h2>4.6 Cart and checkout (REQ-CHK)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-CHK-001</td>
+<td>The system shall maintain one cart that may contain items from
+multiple suppliers.</td>
+<td>Must</td>
+<td>BN-01</td>
+<td>Three-supplier cart</td>
+</tr>
+<tr>
+<td>REQ-CHK-002</td>
+<td>The system shall validate price and stock server-side at cart view,
+checkout start and order submission.</td>
+<td>Must</td>
+<td>BR-003</td>
+<td>Tampering and stale-price tests</td>
+</tr>
+<tr>
+<td>REQ-CHK-003</td>
+<td>The system shall collect a delivery address with recipient name,
+phone, street or area, landmark and optional instructions.</td>
+<td>Must</td>
+<td>CAP-06</td>
+<td>Address validation test</td>
+</tr>
+<tr>
+<td>REQ-CHK-004</td>
+<td>The system shall quote delivery per supplier shipment and show the
+number of parcels before payment.</td>
+<td>Must</td>
+<td>BN-06</td>
+<td>Multi-supplier quote displayed</td>
+</tr>
+<tr>
+<td>REQ-CHK-005</td>
+<td>The system shall display item value, delivery, discounts, any
+small-order fee and total in TZS before payment.</td>
+<td>Must</td>
+<td>BN-06, BR-038</td>
+<td>Total breakdown visible and correct</td>
+</tr>
+<tr>
+<td>REQ-CHK-006</td>
+<td>The system shall enforce a configurable minimum delivered order
+value or small-order fee, disclosed before payment.</td>
+<td>Must</td>
+<td>BR-038, D-14</td>
+<td>Below-threshold cart shows fee or block</td>
+</tr>
+<tr>
+<td>REQ-CHK-007</td>
+<td>The system shall require acceptance of terms, returns policy and
+privacy notice before order submission.</td>
+<td>Must</td>
+<td>REG-02, BR-024</td>
+<td>Consent recorded with version</td>
+</tr>
+<tr>
+<td>REQ-CHK-008</td>
+<td>The system shall support voucher or promotion codes where a valid
+campaign exists.</td>
+<td>Should</td>
+<td>CAP-17</td>
+<td>Valid and invalid code tests</td>
+</tr>
+<tr>
+<td>REQ-CHK-009</td>
+<td>The system shall submit an order idempotently so that retries and
+double taps do not create duplicate orders.</td>
+<td>Must</td>
+<td>NFR-R-01</td>
+<td>Double-submit test creates one order</td>
+</tr>
+<tr>
+<td>REQ-CHK-010</td>
+<td>The system shall create stock reservations before payment initiation
+and release them on failure or expiry.</td>
+<td>Must</td>
+<td>BR-002</td>
+<td>Reservation lifecycle test</td>
+</tr>
+<tr>
+<td>REQ-CHK-011</td>
+<td>The system shall allow a guest to provide only the contact details
+required for fulfilment and support.</td>
+<td>Must</td>
+<td>STK-01</td>
+<td>Guest checkout field audit</td>
+</tr>
+<tr>
+<td>REQ-CHK-012</td>
+<td>The system shall show an estimated delivery window per supplier
+based on configured handling and transit times.</td>
+<td>Should</td>
+<td>BN-06</td>
+<td>Estimate shown and labelled as estimate</td>
+</tr>
+<tr>
+<td>REQ-CHK-013</td>
+<td>The system shall preserve cart contents across sessions for a
+signed-in customer for a configurable period.</td>
+<td>Could</td>
+<td>CAP-06</td>
+<td>Cart restored after sign-in</td>
+</tr>
+<tr>
+<td>REQ-CHK-014</td>
+<td>The system shall recover gracefully from payment failure, preserving
+the cart and offering retry.</td>
+<td>Must</td>
+<td>BN-07</td>
+<td>Failed payment returns to cart with items</td>
+</tr>
+<tr>
+<td>REQ-CHK-015</td>
+<td>The system shall show the supplier name and fulfilment
+responsibility on each cart line.</td>
+<td>Must</td>
+<td>BN-01</td>
+<td>Supplier shown per line</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="orders-and-fulfilment-orchestration-req-ord"
+class="level2">
+<h2>4.7 Orders and fulfilment orchestration (REQ-ORD)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-ORD-001</td>
+<td>The system shall create one parent order and one supplier order per
+supplier at checkout.</td>
+<td>Must</td>
+<td>BR-001</td>
+<td>Three-supplier order structure</td>
+</tr>
+<tr>
+<td>REQ-ORD-002</td>
+<td>The system shall give the supplier a configurable acceptance window,
+defaulting to 12 working hours, after which the supplier order may be
+auto-cancelled.</td>
+<td>Must</td>
+<td>CAP-07</td>
+<td>Timeout test</td>
+</tr>
+<tr>
+<td>REQ-ORD-003</td>
+<td>The system shall allow a supplier to accept, reject or partially
+accept an order with a reason.</td>
+<td>Must</td>
+<td>BN-09</td>
+<td>Partial acceptance test</td>
+</tr>
+<tr>
+<td>REQ-ORD-004</td>
+<td>The system shall allow cancellation of a supplier order before
+acceptance.</td>
+<td>Must</td>
+<td>BR-012</td>
+<td>Cancellation before acceptance</td>
+</tr>
+<tr>
+<td>REQ-ORD-005</td>
+<td>The system shall allow cancellation of individual lines after
+acceptance only through the return or exception process.</td>
+<td>Must</td>
+<td>BR-012</td>
+<td>Post-acceptance cancel blocked</td>
+</tr>
+<tr>
+<td>REQ-ORD-006</td>
+<td>The system shall maintain separate payment, supplier order,
+shipment, return and dispute states and derive a customer-facing
+summary.</td>
+<td>Must</td>
+<td>CAP-07</td>
+<td>State combination tests</td>
+</tr>
+<tr>
+<td>REQ-ORD-007</td>
+<td>The system shall record every state change with actor, timestamp,
+reason and previous state.</td>
+<td>Must</td>
+<td>BR-023</td>
+<td>Event history inspection</td>
+</tr>
+<tr>
+<td>REQ-ORD-008</td>
+<td>The system shall show the customer a per-supplier progress view
+within the parent order.</td>
+<td>Must</td>
+<td>BN-01</td>
+<td>Customer view test</td>
+</tr>
+<tr>
+<td>REQ-ORD-009</td>
+<td>The system shall show the supplier only its own order lines and the
+customer data needed to fulfil.</td>
+<td>Must</td>
+<td>BR-013</td>
+<td>Supplier data visibility test</td>
+</tr>
+<tr>
+<td>REQ-ORD-010</td>
+<td>The system shall issue a receipt or invoice per parent order and a
+supplier statement per settlement period.</td>
+<td>Must</td>
+<td>REG-06</td>
+<td>Document generation test</td>
+</tr>
+<tr>
+<td>REQ-ORD-011</td>
+<td>The system shall allow a customer to reorder previous items subject
+to current price and stock.</td>
+<td>Could</td>
+<td>CAP-07</td>
+<td>Reorder test with changed price</td>
+</tr>
+<tr>
+<td>REQ-ORD-012</td>
+<td>The system shall support order search by order number, phone,
+supplier and tracking reference.</td>
+<td>Must</td>
+<td>NFR-SUP-01</td>
+<td>Lookup under 30 seconds</td>
+</tr>
+<tr>
+<td>REQ-ORD-013</td>
+<td>The system shall notify the customer of acceptance, dispatch,
+delivery and cancellation events.</td>
+<td>Must</td>
+<td>CAP-13</td>
+<td>Notification trigger test</td>
+</tr>
+<tr>
+<td>REQ-ORD-014</td>
+<td>The system shall calculate and display the expected supplier payout
+date on the supplier order.</td>
+<td>Should</td>
+<td>BR-007</td>
+<td>Payout date matches policy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="payments-refunds-and-reconciliation-req-pay"
+class="level2">
+<h2>4.8 Payments, refunds and reconciliation (REQ-PAY)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-PAY-001</td>
+<td>The system shall initiate payment through the PSP for the parent
+order total and store the PSP reference.</td>
+<td>Must</td>
+<td>CAP-08</td>
+<td>Sandbox initiation</td>
+</tr>
+<tr>
+<td>REQ-PAY-002</td>
+<td>The system shall verify every PSP callback signature and reject
+unsigned or invalid callbacks.</td>
+<td>Must</td>
+<td>NFR-SEC-01</td>
+<td>Forged callback rejected</td>
+</tr>
+<tr>
+<td>REQ-PAY-003</td>
+<td>The system shall confirm final payment status through a
+server-to-server PSP query before marking an order paid.</td>
+<td>Must</td>
+<td>BN-07</td>
+<td>Callback followed by status query</td>
+</tr>
+<tr>
+<td>REQ-PAY-004</td>
+<td>The system shall process duplicate callbacks idempotently.</td>
+<td>Must</td>
+<td>NFR-R-01</td>
+<td>Repeated callback leaves one payment</td>
+</tr>
+<tr>
+<td>REQ-PAY-005</td>
+<td>The system shall record failed, cancelled, expired and reversed
+payments with a reason.</td>
+<td>Must</td>
+<td>BN-07</td>
+<td>Failure state test</td>
+</tr>
+<tr>
+<td>REQ-PAY-006</td>
+<td>The system shall support full and partial refunds against the
+original payment with a reason and an approver.</td>
+<td>Must</td>
+<td>BR-027</td>
+<td>Partial refund test</td>
+</tr>
+<tr>
+<td>REQ-PAY-007</td>
+<td>The system shall prevent refunds exceeding the captured amount less
+prior refunds and reversals.</td>
+<td>Must</td>
+<td>BR-027</td>
+<td>Over-refund blocked</td>
+</tr>
+<tr>
+<td>REQ-PAY-008</td>
+<td>The system shall record chargebacks and reversals with evidence and
+affected order lines.</td>
+<td>Must</td>
+<td>RSK-13</td>
+<td>Chargeback record created</td>
+</tr>
+<tr>
+<td>REQ-PAY-009</td>
+<td>The system shall post every payment, refund and fee to a
+double-entry ledger with unique references.</td>
+<td>Must</td>
+<td>BN-23</td>
+<td>Ledger balances to zero per transaction</td>
+</tr>
+<tr>
+<td>REQ-PAY-010</td>
+<td>The system shall reconcile PSP settlement files to the ledger daily
+and queue unmatched items.</td>
+<td>Must</td>
+<td>BN-23</td>
+<td>Reconciliation run with seeded mismatch</td>
+</tr>
+<tr>
+<td>REQ-PAY-011</td>
+<td>The system shall provide an exception queue for unmatched,
+duplicated or amount-mismatched transactions.</td>
+<td>Must</td>
+<td>BN-23</td>
+<td>Exception appears and can be resolved</td>
+</tr>
+<tr>
+<td>REQ-PAY-012</td>
+<td>The system shall show the customer the payment status of each order
+without exposing PSP credentials or card data.</td>
+<td>Must</td>
+<td>BN-07</td>
+<td>Status view test</td>
+</tr>
+<tr>
+<td>REQ-PAY-013</td>
+<td>The system shall not store card numbers, CVV or full track data in
+any platform system.</td>
+<td>Must</td>
+<td>NFR-PRIV-02</td>
+<td>Data-inventory review</td>
+</tr>
+<tr>
+<td>REQ-PAY-014</td>
+<td>The system shall allow a customer to retry a failed payment while
+the reservation is valid.</td>
+<td>Must</td>
+<td>BN-07</td>
+<td>Retry within window</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commission-settlement-and-payouts-req-set" class="level2">
+<h2>4.9 Commission, settlement and payouts (REQ-SET)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-SET-001</td>
+<td>The system shall calculate commission per order line on net
+completed merchandise using the effective rule at order time.</td>
+<td>Must</td>
+<td>BR-004</td>
+<td>Calculation test with returns and discounts</td>
+</tr>
+<tr>
+<td>REQ-SET-002</td>
+<td>The system shall record the commission rule version on every order
+line.</td>
+<td>Must</td>
+<td>BR-011</td>
+<td>Rule version visible on statement</td>
+</tr>
+<tr>
+<td>REQ-SET-003</td>
+<td>The system shall generate a supplier statement per period with
+orders, commission, refunds, chargebacks, adjustments and net
+payable.</td>
+<td>Must</td>
+<td>CAP-09</td>
+<td>Statement reconciles to ledger</td>
+</tr>
+<tr>
+<td>REQ-SET-004</td>
+<td>The system shall make a payable eligible only after delivery plus
+the return window, unless a hold applies.</td>
+<td>Must</td>
+<td>BR-007</td>
+<td>Eligibility date test</td>
+</tr>
+<tr>
+<td>REQ-SET-005</td>
+<td>The system shall apply holds for open disputes, negative balances,
+KYC issues and risk flags with a written reason.</td>
+<td>Must</td>
+<td>BR-029</td>
+<td>Hold blocks payout and is visible</td>
+</tr>
+<tr>
+<td>REQ-SET-006</td>
+<td>The system shall build payout batches and require a different
+approver before release.</td>
+<td>Must</td>
+<td>BR-028</td>
+<td>Same-user approval blocked</td>
+</tr>
+<tr>
+<td>REQ-SET-007</td>
+<td>The system shall export a payout file in the format required by the
+payment channel.</td>
+<td>Must</td>
+<td>CAP-09</td>
+<td>Export accepted by channel in test</td>
+</tr>
+<tr>
+<td>REQ-SET-008</td>
+<td>The system shall record manual adjustments with reason, actor and
+approver, and reflect them in the next statement.</td>
+<td>Must</td>
+<td>BR-009</td>
+<td>Adjustment appears in statement</td>
+</tr>
+<tr>
+<td>REQ-SET-009</td>
+<td>The system shall carry a negative supplier balance forward and
+offset it against future payables.</td>
+<td>Should</td>
+<td>BR-029</td>
+<td>Negative balance offset test</td>
+</tr>
+<tr>
+<td>REQ-SET-010</td>
+<td>The system shall apply configurable tax withholding where counsel
+confirms a requirement.</td>
+<td>Should</td>
+<td>REG-06</td>
+<td>Withholding applied when enabled</td>
+</tr>
+<tr>
+<td>REQ-SET-011</td>
+<td>The system shall show the supplier the payout status and reference
+for each paid batch.</td>
+<td>Must</td>
+<td>BN-08</td>
+<td>Supplier view test</td>
+</tr>
+<tr>
+<td>REQ-SET-012</td>
+<td>The system shall reconcile payout channel confirmations to the
+payout batch and flag failures.</td>
+<td>Must</td>
+<td>BN-23</td>
+<td>Failed payout flagged</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logistics-and-tracking-req-log" class="level2">
+<h2>4.10 Logistics and tracking (REQ-LOG)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-LOG-001</td>
+<td>The system shall maintain a register of carriers with services,
+coverage, contact details and contract status.</td>
+<td>Must</td>
+<td>CAP-10</td>
+<td>Carrier administration test</td>
+</tr>
+<tr>
+<td>REQ-LOG-002</td>
+<td>The system shall maintain delivery zones and rate rules by carrier,
+weight, dimensions and category.</td>
+<td>Must</td>
+<td>BN-06</td>
+<td>Quote test for each zone and category</td>
+</tr>
+<tr>
+<td>REQ-LOG-003</td>
+<td>The system shall create a shipment per supplier order or parcel with
+items, weight, dimensions and declared value.</td>
+<td>Must</td>
+<td>BR-016</td>
+<td>Shipment record test</td>
+</tr>
+<tr>
+<td>REQ-LOG-004</td>
+<td>The system shall record carrier, service, waybill, cost and pickup
+date for every shipment.</td>
+<td>Must</td>
+<td>BR-016</td>
+<td>Required fields enforced</td>
+</tr>
+<tr>
+<td>REQ-LOG-005</td>
+<td>The system shall support a manual booking mode in which an operator
+records the booking and status events.</td>
+<td>Must</td>
+<td>BR-031</td>
+<td>Mode A end-to-end test</td>
+</tr>
+<tr>
+<td>REQ-LOG-006</td>
+<td>The system shall define a carrier adapter interface so an integrated
+carrier can replace manual entry without changing order logic.</td>
+<td>Must</td>
+<td>BR-031, D-09</td>
+<td>Adapter contract review and stub test</td>
+</tr>
+<tr>
+<td>REQ-LOG-007</td>
+<td>The system shall record shipment status events with source,
+timestamp and raw reference.</td>
+<td>Must</td>
+<td>BN-11</td>
+<td>Event timeline test</td>
+</tr>
+<tr>
+<td>REQ-LOG-008</td>
+<td>The system shall record proof of delivery with recipient name,
+timestamp, method and evidence where available.</td>
+<td>Must</td>
+<td>BR-016</td>
+<td>POD required before delivery completion</td>
+</tr>
+<tr>
+<td>REQ-LOG-009</td>
+<td>The system shall record failed delivery attempts with reason and
+schedule a retry per policy.</td>
+<td>Must</td>
+<td>BR-017</td>
+<td>Failed attempt and retry test</td>
+</tr>
+<tr>
+<td>REQ-LOG-010</td>
+<td>The system shall record return-to-supplier outcomes and make the
+items available again only after inspection.</td>
+<td>Must</td>
+<td>BR-018</td>
+<td>Returned parcel stock test</td>
+</tr>
+<tr>
+<td>REQ-LOG-011</td>
+<td>The system shall record carrier claims with evidence, amount, status
+and outcome.</td>
+<td>Should</td>
+<td>CAP-10</td>
+<td>Claim lifecycle test</td>
+</tr>
+<tr>
+<td>REQ-LOG-012</td>
+<td>The system shall provide a customer tracking page by order and
+shipment without exposing internal notes.</td>
+<td>Must</td>
+<td>BN-11</td>
+<td>Tracking page test</td>
+</tr>
+<tr>
+<td>REQ-LOG-013</td>
+<td>The system shall show an estimated delivery date derived from
+carrier service and handling time, labelled as an estimate.</td>
+<td>Should</td>
+<td>BN-06</td>
+<td>Estimate calculation test</td>
+</tr>
+<tr>
+<td>REQ-LOG-014</td>
+<td>The system shall compute carrier on-time and first-attempt
+performance from system events.</td>
+<td>Must</td>
+<td>BR-030</td>
+<td>Scorecard calculation test</td>
+</tr>
+<tr>
+<td>REQ-LOG-015</td>
+<td>The system shall record the customer delivery charge, carrier charge
+and coordination margin separately.</td>
+<td>Must</td>
+<td>BR-005</td>
+<td>Three amounts visible in finance report</td>
+</tr>
+<tr>
+<td>REQ-LOG-016</td>
+<td>The system shall produce a pickup manifest per supplier and pickup
+run.</td>
+<td>Should</td>
+<td>CAP-10</td>
+<td>Manifest generation test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="returns-refunds-and-disputes-req-ret" class="level2">
+<h2>4.11 Returns, refunds and disputes (REQ-RET)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-RET-001</td>
+<td>The system shall determine return eligibility from delivery date,
+category, item condition rules and policy version.</td>
+<td>Must</td>
+<td>BR-035</td>
+<td>Eligibility matrix test</td>
+</tr>
+<tr>
+<td>REQ-RET-002</td>
+<td>The system shall require a return reason code and allow photo
+evidence.</td>
+<td>Must</td>
+<td>CAP-11</td>
+<td>Request with and without evidence</td>
+</tr>
+<tr>
+<td>REQ-RET-003</td>
+<td>The system shall display non-returnable conditions before purchase
+and again at request time.</td>
+<td>Must</td>
+<td>BR-035</td>
+<td>Disclosure visible</td>
+</tr>
+<tr>
+<td>REQ-RET-004</td>
+<td>The system shall route a request to the supplier and to support
+according to policy and value thresholds.</td>
+<td>Must</td>
+<td>CAP-11</td>
+<td>Routing test</td>
+</tr>
+<tr>
+<td>REQ-RET-005</td>
+<td>The system shall support approval, rejection and partial approval
+with a reason.</td>
+<td>Must</td>
+<td>CAP-11</td>
+<td>Decision test</td>
+</tr>
+<tr>
+<td>REQ-RET-006</td>
+<td>The system shall coordinate reverse pickup or drop-off and record
+the reverse shipment.</td>
+<td>Must</td>
+<td>CAP-11, CAP-10</td>
+<td>Reverse shipment record</td>
+</tr>
+<tr>
+<td>REQ-RET-007</td>
+<td>The system shall require inspection before refund when the policy
+requires it.</td>
+<td>Should</td>
+<td>BR-035</td>
+<td>Refund blocked before inspection</td>
+</tr>
+<tr>
+<td>REQ-RET-008</td>
+<td>The system shall calculate the refund from item value, delivery
+share, discounts and prior refunds.</td>
+<td>Must</td>
+<td>BR-006, BR-027</td>
+<td>Calculation test</td>
+</tr>
+<tr>
+<td>REQ-RET-009</td>
+<td>The system shall charge the refunded amount back to the supplier’s
+payable where the supplier is responsible.</td>
+<td>Must</td>
+<td>BR-004</td>
+<td>Supplier statement reflects chargeback</td>
+</tr>
+<tr>
+<td>REQ-RET-010</td>
+<td>The system shall support partial return of an order line quantity
+where the variant is identical.</td>
+<td>Should</td>
+<td>CAP-11</td>
+<td>Partial quantity test</td>
+</tr>
+<tr>
+<td>REQ-RET-011</td>
+<td>The system shall convert a contested return into a dispute with
+evidence and a decision record.</td>
+<td>Must</td>
+<td>CAP-11</td>
+<td>Dispute creation test</td>
+</tr>
+<tr>
+<td>REQ-RET-012</td>
+<td>The system shall escalate unresolved disputes past a configurable
+age to the operations lead.</td>
+<td>Must</td>
+<td>CAP-11</td>
+<td>SLA escalation test</td>
+</tr>
+<tr>
+<td>REQ-RET-013</td>
+<td>The system shall notify the customer of each return and refund
+decision within the published service level.</td>
+<td>Must</td>
+<td>BN-10</td>
+<td>Notification test</td>
+</tr>
+<tr>
+<td>REQ-RET-014</td>
+<td>The system shall close the return only when the refund, replacement
+or rejection is complete and communicated.</td>
+<td>Must</td>
+<td>CAP-11</td>
+<td>Closure state test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="customer-support-req-cs" class="level2">
+<h2>4.12 Customer support (REQ-CS)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-CS-001</td>
+<td>The system shall create a ticket from a customer contact with order,
+supplier order and shipment context where available.</td>
+<td>Must</td>
+<td>CAP-12</td>
+<td>Ticket creation from order</td>
+</tr>
+<tr>
+<td>REQ-CS-002</td>
+<td>The system shall display order timeline, payment status, shipment
+events and prior tickets on one screen.</td>
+<td>Must</td>
+<td>BN-12</td>
+<td>Support screen completeness</td>
+</tr>
+<tr>
+<td>REQ-CS-003</td>
+<td>The system shall assign tickets by queue, category and
+workload.</td>
+<td>Should</td>
+<td>CAP-12</td>
+<td>Assignment rule test</td>
+</tr>
+<tr>
+<td>REQ-CS-004</td>
+<td>The system shall track first-response and resolution timers against
+the service level.</td>
+<td>Must</td>
+<td>BN-12</td>
+<td>Timer breach flagged</td>
+</tr>
+<tr>
+<td>REQ-CS-005</td>
+<td>The system shall record internal notes that are never visible to
+customers or suppliers.</td>
+<td>Must</td>
+<td>ROL-07</td>
+<td>Visibility test</td>
+</tr>
+<tr>
+<td>REQ-CS-006</td>
+<td>The system shall provide approved response templates in Swahili and
+English.</td>
+<td>Should</td>
+<td>CAP-12</td>
+<td>Template insert test</td>
+</tr>
+<tr>
+<td>REQ-CS-007</td>
+<td>The system shall route refund requests above a threshold to finance
+approval.</td>
+<td>Must</td>
+<td>BR-009</td>
+<td>Threshold routing test</td>
+</tr>
+<tr>
+<td>REQ-CS-008</td>
+<td>The system shall record a resolution code for every closed
+ticket.</td>
+<td>Must</td>
+<td>BN-24</td>
+<td>Closure requires code</td>
+</tr>
+<tr>
+<td>REQ-CS-009</td>
+<td>The system shall collect a satisfaction rating after
+resolution.</td>
+<td>Should</td>
+<td>CAP-12</td>
+<td>Rating stored</td>
+</tr>
+<tr>
+<td>REQ-CS-010</td>
+<td>The system shall search tickets by customer, order, phone and
+reference.</td>
+<td>Must</td>
+<td>NFR-SUP-01</td>
+<td>Search test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notifications-req-not" class="level2">
+<h2>4.13 Notifications (REQ-NOT)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-NOT-001</td>
+<td>The system shall send transactional messages for verification,
+order, payment, dispatch, delivery, return and refund events.</td>
+<td>Must</td>
+<td>CAP-13</td>
+<td>Trigger test per event</td>
+</tr>
+<tr>
+<td>REQ-NOT-002</td>
+<td>The system shall support SMS, WhatsApp and email channels, with
+channel availability configurable per message type.</td>
+<td>Must</td>
+<td>CAP-13</td>
+<td>Channel fallback test</td>
+</tr>
+<tr>
+<td>REQ-NOT-003</td>
+<td>The system shall use approved templates with parameters and render
+them in the recipient’s language.</td>
+<td>Must</td>
+<td>NFR-I18N-01</td>
+<td>Template rendering test</td>
+</tr>
+<tr>
+<td>REQ-NOT-004</td>
+<td>The system shall send marketing messages only where consent exists
+and shall honour withdrawal immediately.</td>
+<td>Must</td>
+<td>BR-025</td>
+<td>Consent enforcement test</td>
+</tr>
+<tr>
+<td>REQ-NOT-005</td>
+<td>The system shall retry failed messages and record permanent failures
+for follow-up.</td>
+<td>Must</td>
+<td>NFR-R-03</td>
+<td>Failure retry test</td>
+</tr>
+<tr>
+<td>REQ-NOT-006</td>
+<td>The system shall record delivery status for each message where the
+provider reports it.</td>
+<td>Should</td>
+<td>CAP-13</td>
+<td>Status callback test</td>
+</tr>
+<tr>
+<td>REQ-NOT-007</td>
+<td>The system shall allow a customer to opt out of non-essential
+messages without losing order updates.</td>
+<td>Must</td>
+<td>BR-025</td>
+<td>Opt-out test</td>
+</tr>
+<tr>
+<td>REQ-NOT-008</td>
+<td>The system shall support a safety notice broadcast to affected
+buyers of a recalled or suspended product.</td>
+<td>Must</td>
+<td>BR-040</td>
+<td>Recall notice test</td>
+</tr>
+<tr>
+<td>REQ-NOT-009</td>
+<td>The system shall never include full payment credentials or sensitive
+KYB data in a message.</td>
+<td>Must</td>
+<td>NFR-PRIV-02</td>
+<td>Message content audit</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="administration-access-and-audit-req-adm" class="level2">
+<h2>4.14 Administration, access and audit (REQ-ADM)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-ADM-001</td>
+<td>The system shall provide staff accounts separate from customer and
+supplier accounts.</td>
+<td>Must</td>
+<td>CAP-14</td>
+<td>Account type separation test</td>
+</tr>
+<tr>
+<td>REQ-ADM-002</td>
+<td>The system shall enforce role-based permissions with deny-by-default
+and tenant scoping for supplier users.</td>
+<td>Must</td>
+<td>NFR-SEC-04</td>
+<td>Authorisation matrix tests</td>
+</tr>
+<tr>
+<td>REQ-ADM-003</td>
+<td>The system shall mask personal and financial data by default and
+reveal it only with a permission and a reason.</td>
+<td>Must</td>
+<td>NFR-PRIV-02</td>
+<td>Masking and reveal tests</td>
+</tr>
+<tr>
+<td>REQ-ADM-004</td>
+<td>The system shall maintain configuration for fees, commission, zones,
+policies, checklists, templates and brand rules with effective
+dates.</td>
+<td>Must</td>
+<td>BR-022</td>
+<td>Configuration change without deployment</td>
+</tr>
+<tr>
+<td>REQ-ADM-005</td>
+<td>The system shall keep an append-only audit log of authentication,
+role, refund, payout, price, listing and supplier-status events.</td>
+<td>Must</td>
+<td>BR-023</td>
+<td>Audit coverage test</td>
+</tr>
+<tr>
+<td>REQ-ADM-006</td>
+<td>The system shall support time-bound break-glass access with a
+reason, alerting and post-hoc review.</td>
+<td>Should</td>
+<td>BR-026</td>
+<td>Break-glass grants and expires</td>
+</tr>
+<tr>
+<td>REQ-ADM-007</td>
+<td>The system shall support controlled data export for operations and
+finance with permission and logging.</td>
+<td>Must</td>
+<td>CAP-14</td>
+<td>Export permission test</td>
+</tr>
+<tr>
+<td>REQ-ADM-008</td>
+<td>The system shall support feature flags to enable or disable
+capabilities without deployment.</td>
+<td>Should</td>
+<td>CAP-14</td>
+<td>Flag toggle test</td>
+</tr>
+<tr>
+<td>REQ-ADM-009</td>
+<td>The system shall support approval workflows for refunds, payouts,
+supplier approval and fee changes.</td>
+<td>Must</td>
+<td>BR-009</td>
+<td>Approval chain test</td>
+</tr>
+<tr>
+<td>REQ-ADM-010</td>
+<td>The system shall invalidate all sessions for a user when access is
+revoked.</td>
+<td>Must</td>
+<td>NFR-SEC-04</td>
+<td>Revocation test</td>
+</tr>
+<tr>
+<td>REQ-ADM-011</td>
+<td>The system shall record the reason for every manual status override
+and surface overrides in a weekly report.</td>
+<td>Must</td>
+<td>BN-15</td>
+<td>Override report test</td>
+</tr>
+<tr>
+<td>REQ-ADM-012</td>
+<td>The system shall restrict bulk personal-data export to named roles
+and require a second approval above a record threshold.</td>
+<td>Should</td>
+<td>BR-026</td>
+<td>Threshold approval test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reporting-and-analytics-req-rpt" class="level2">
+<h2>4.15 Reporting and analytics (REQ-RPT)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-RPT-001</td>
+<td>The system shall provide a daily operations dashboard for orders,
+payments, deliveries, exceptions and tickets.</td>
+<td>Must</td>
+<td>BN-24</td>
+<td>Dashboard completeness check</td>
+</tr>
+<tr>
+<td>REQ-RPT-002</td>
+<td>The system shall report orders and gross order value by day,
+department, supplier and status.</td>
+<td>Must</td>
+<td>BN-19</td>
+<td>Report totals match ledger and orders</td>
+</tr>
+<tr>
+<td>REQ-RPT-003</td>
+<td>The system shall report revenue, commission, delivery margin and
+contribution by department and period.</td>
+<td>Must</td>
+<td>BN-19</td>
+<td>Contribution calculation test</td>
+</tr>
+<tr>
+<td>REQ-RPT-004</td>
+<td>The system shall report delivery performance by carrier, zone and
+supplier.</td>
+<td>Must</td>
+<td>BR-030</td>
+<td>Performance report test</td>
+</tr>
+<tr>
+<td>REQ-RPT-005</td>
+<td>The system shall report returns by category, reason, supplier and
+outcome.</td>
+<td>Must</td>
+<td>BN-10</td>
+<td>Return report test</td>
+</tr>
+<tr>
+<td>REQ-RPT-006</td>
+<td>The system shall provide a monthly supplier scorecard covering
+dispatch timeliness, cancellation, return and rating.</td>
+<td>Must</td>
+<td>BN-17</td>
+<td>Scorecard calculation test</td>
+</tr>
+<tr>
+<td>REQ-RPT-007</td>
+<td>The system shall report payment reconciliation exceptions and
+ageing.</td>
+<td>Must</td>
+<td>BN-23</td>
+<td>Exception ageing report</td>
+</tr>
+<tr>
+<td>REQ-RPT-008</td>
+<td>The system shall report customer repeat purchase and cohort
+retention where data volume permits.</td>
+<td>Should</td>
+<td>OBJ-08</td>
+<td>Cohort report test</td>
+</tr>
+<tr>
+<td>REQ-RPT-009</td>
+<td>The system shall export reports as CSV with the filters
+applied.</td>
+<td>Must</td>
+<td>CAP-15</td>
+<td>Export matches screen</td>
+</tr>
+<tr>
+<td>REQ-RPT-010</td>
+<td>The system shall state the data freshness timestamp on every
+report.</td>
+<td>Should</td>
+<td>BN-24</td>
+<td>Timestamp visible</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reviews-and-ratings-req-rev" class="level2">
+<h2>4.16 Reviews and ratings (REQ-REV)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-REV-001</td>
+<td>The system shall allow a review only from a customer with a
+delivered purchase of that line.</td>
+<td>Must</td>
+<td>BR-014</td>
+<td>Non-buyer review blocked</td>
+</tr>
+<tr>
+<td>REQ-REV-002</td>
+<td>The system shall allow one review per purchased order line.</td>
+<td>Must</td>
+<td>BR-014</td>
+<td>Duplicate blocked</td>
+</tr>
+<tr>
+<td>REQ-REV-003</td>
+<td>The system shall moderate reviews for abuse and personal data, not
+for disagreement.</td>
+<td>Must</td>
+<td>BR-014</td>
+<td>Moderation reason codes</td>
+</tr>
+<tr>
+<td>REQ-REV-004</td>
+<td>The system shall allow a supplier to post one public reply per
+review.</td>
+<td>Should</td>
+<td>CAP-16</td>
+<td>Reply test</td>
+</tr>
+<tr>
+<td>REQ-REV-005</td>
+<td>The system shall allow any user to report a review for abuse.</td>
+<td>Should</td>
+<td>CAP-16</td>
+<td>Report flow test</td>
+</tr>
+<tr>
+<td>REQ-REV-006</td>
+<td>The system shall compute and display an average rating only when a
+minimum number of reviews exists.</td>
+<td>Should</td>
+<td>CAP-16</td>
+<td>Threshold display test</td>
+</tr>
+<tr>
+<td>REQ-REV-007</td>
+<td>The system shall not allow a review to be edited after publication
+except for privacy removal.</td>
+<td>Should</td>
+<td>BR-014</td>
+<td>Edit blocked</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="promotions-and-vouchers-req-pro" class="level2">
+<h2>4.17 Promotions and vouchers (REQ-PRO)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-PRO-001</td>
+<td>The system shall allow an administrator to create a voucher with
+code, value, minimum basket, validity and usage limits.</td>
+<td>Should</td>
+<td>CAP-17</td>
+<td>Voucher creation test</td>
+</tr>
+<tr>
+<td>REQ-PRO-002</td>
+<td>The system shall record the funding source of every discount:
+platform or supplier.</td>
+<td>Must</td>
+<td>BR-005</td>
+<td>Funder visible in ledger</td>
+</tr>
+<tr>
+<td>REQ-PRO-003</td>
+<td>The system shall enforce eligibility and stacking rules at
+checkout.</td>
+<td>Should</td>
+<td>CAP-17</td>
+<td>Stacking rule test</td>
+</tr>
+<tr>
+<td>REQ-PRO-004</td>
+<td>The system shall apply the discount to eligible lines and allocate
+it proportionally across suppliers.</td>
+<td>Should</td>
+<td>BR-004</td>
+<td>Allocation test</td>
+</tr>
+<tr>
+<td>REQ-PRO-005</td>
+<td>The system shall attribute every redemption to a campaign for
+reporting.</td>
+<td>Should</td>
+<td>BN-21</td>
+<td>Campaign report</td>
+</tr>
+<tr>
+<td>REQ-PRO-006</td>
+<td>The system shall enforce campaign budget caps and stop redemption
+when exhausted.</td>
+<td>Could</td>
+<td>CAP-17</td>
+<td>Cap test</td>
+</tr>
+<tr>
+<td>REQ-PRO-007</td>
+<td>The system shall prevent supplier-funded discounts from reducing the
+supplier payable below zero without an explicit negative-balance
+rule.</td>
+<td>Should</td>
+<td>BR-029</td>
+<td>Negative balance test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="brand-and-franchise-configuration-req-frn" class="level2">
+<h2>4.18 Brand and franchise configuration (REQ-FRN)</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Priority</th>
+<th>Source</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQ-FRN-001</td>
+<td>The system shall store brand assets, trading name, contact details
+and policy text as configuration.</td>
+<td>Must</td>
+<td>BR-022</td>
+<td>Configuration change test</td>
+</tr>
+<tr>
+<td>REQ-FRN-002</td>
+<td>The system shall store territory rules and display them where a
+territory restriction applies.</td>
+<td>Should</td>
+<td>BR-022</td>
+<td>Territory rule test</td>
+</tr>
+<tr>
+<td>REQ-FRN-003</td>
+<td>The system shall store franchise or licence fee display rules and
+keep them inactive by default.</td>
+<td>Must</td>
+<td>BR-022, D-10</td>
+<td>Default state is inactive</td>
+</tr>
+<tr>
+<td>REQ-FRN-004</td>
+<td>The system shall require a recorded licence reference before any
+franchise-branded configuration can be activated.</td>
+<td>Must</td>
+<td>D-10</td>
+<td>Activation blocked without reference</td>
+</tr>
+<tr>
+<td>REQ-FRN-005</td>
+<td>The system shall record which brand configuration was active on each
+order for evidence.</td>
+<td>Should</td>
+<td>BN-20</td>
+<td>Order brand record</td>
+</tr>
+<tr>
+<td>REQ-FRN-006</td>
+<td>The system shall produce a compliance report of brand and territory
+configuration changes.</td>
+<td>Could</td>
+<td>CAP-18</td>
+<td>Report generation test</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+</section>
+<section id="use-cases" class="level1">
+<h1>5. Use cases</h1>
+<section id="uc-01-multi-supplier-purchase-and-payment" class="level2">
+<h2>UC-01 Multi-supplier purchase and payment</h2>
+<p><strong>Actors:</strong> Customer, PSP, system.
+<strong>Trigger:</strong> customer proceeds to checkout.
+<strong>Preconditions:</strong> at least one purchasable variant in the
+cart.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Customer opens the cart; the system revalidates price and stock per
+line.</li>
+<li>Customer enters or selects an address with a landmark.</li>
+<li>System groups lines by supplier, quotes delivery per shipment and
+shows item value, delivery, discounts, any small-order fee and
+total.</li>
+<li>Customer accepts terms and privacy notice; system records consent
+with version.</li>
+<li>System creates the parent order, supplier orders and reservations,
+and requests payment from the PSP.</li>
+<li>Customer completes payment in the PSP interface.</li>
+<li>PSP sends a signed callback; system verifies the signature and
+queries the PSP status.</li>
+<li>System marks payment captured, confirms the order and notifies
+customer and suppliers.</li>
+<li>Each supplier accepts or rejects within the acceptance window.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>4a. Cart below minimum basket: system offers to add items or applies
+the disclosed small-order fee.</li>
+<li>7a. Callback invalid: system rejects it, records the attempt and
+waits for the verified status.</li>
+<li>7b. Payment fails: system releases reservations after the retry
+window, keeps the cart and notifies the customer.</li>
+<li>9a. Supplier rejects: system cancels that supplier order, initiates
+a partial refund for its lines and delivery share, and continues the
+rest.</li>
+</ul>
+<p><strong>Postconditions:</strong> parent order exists with correct
+payment state; each supplier order has an owner and a state; ledger
+entries exist for payment and payables. <strong>Requirements:</strong>
+REQ-CHK-001 to 015, REQ-ORD-001 to 009, REQ-PAY-001 to 014.</p>
+</section>
+<section id="uc-02-supplier-onboarding-and-verification" class="level2">
+<h2>UC-02 Supplier onboarding and verification</h2>
+<p><strong>Actors:</strong> Supplier applicant, operations, finance.
+<strong>Trigger:</strong> application submitted.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Applicant submits business, owner and payout details and uploads
+documents.</li>
+<li>System checks completeness, duplicates and document validity.</li>
+<li>Operations reviews documents, conducts a site visit and records
+evidence.</li>
+<li>Finance verifies the payout account name against the legal or
+trading name.</li>
+<li>Operations approves, rejects or requests information, with a
+reason.</li>
+<li>On approval, the contract version is recorded and the supplier can
+publish listings after moderation.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>2a. Duplicate TIN or bank account: application is held for
+review.</li>
+<li>4a. Name mismatch: approval blocked until evidence is provided.</li>
+<li>5a. Information requested: applicant corrects and resubmits the same
+record.</li>
+</ul>
+<p><strong>Postconditions:</strong> supplier state, evidence and
+decision are recorded and auditable. <strong>Requirements:</strong>
+REQ-KYC-001 to 014.</p>
+</section>
+<section id="uc-03-listing-creation-and-moderation" class="level2">
+<h2>UC-03 Listing creation and moderation</h2>
+<p><strong>Actors:</strong> Supplier, moderator, category lead.
+<strong>Trigger:</strong> supplier submits a listing.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Supplier selects a category; system presents the attribute template
+and checklist.</li>
+<li>Supplier enters product, variants, SKU, price, stock, media and
+category attributes.</li>
+<li>System validates mandatory fields, SKU uniqueness, brand claims and
+prohibited terms.</li>
+<li>Listing enters the moderation queue with the category
+checklist.</li>
+<li>Moderator approves, rejects or requests changes with reason
+codes.</li>
+<li>Approved and in-stock listings become visible; rejected listings
+return to the supplier with reasons.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>3a. Mandatory attribute missing: submission blocked with field-level
+guidance.</li>
+<li>5a. Suspected counterfeit or unsafe item: listing held and escalated
+to the category lead.</li>
+<li>6a. Stock reaches zero after approval: listing is hidden
+automatically.</li>
+</ul>
+<p><strong>Postconditions:</strong> listing version, decision and reason
+are recorded. <strong>Requirements:</strong> REQ-CAT-001 to 016,
+REQ-INV-005.</p>
+</section>
+<section id="uc-04-supplier-fulfilment-and-dispatch" class="level2">
+<h2>UC-04 Supplier fulfilment and dispatch</h2>
+<p><strong>Actors:</strong> Supplier, operations, carrier.
+<strong>Trigger:</strong> supplier accepts an order.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Supplier sees only its order lines and the delivery data needed to
+pack.</li>
+<li>Supplier marks the order ready and records package count, weight and
+dimensions.</li>
+<li>System creates shipment records and requests pickup or drop-off per
+the configured mode.</li>
+<li>Supplier hands over parcels; waybill is recorded against each
+shipment.</li>
+<li>Shipment status events are recorded until delivery and proof of
+delivery.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>2a. Item unavailable after acceptance: supplier requests a line
+cancellation with reason; system recalculates the order and
+refunds.</li>
+<li>3a. Carrier does not arrive: operations reassigns or rebooks and
+records the failure.</li>
+<li>4a. Waybill missing: shipment remains unbooked and is flagged for
+operations.</li>
+</ul>
+<p><strong>Postconditions:</strong> shipments exist with carrier,
+waybill and cost; supplier order reflects dispatch.
+<strong>Requirements:</strong> REQ-ORD-002 to 009, REQ-LOG-001 to
+016.</p>
+</section>
+<section id="uc-05-manual-logistics-booking-and-delivery"
+class="level2">
+<h2>UC-05 Manual logistics booking and delivery</h2>
+<p><strong>Actors:</strong> Operations, carrier, customer.
+<strong>Trigger:</strong> shipment ready for pickup.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Operations selects carrier and service from the configured register
+and rate rules.</li>
+<li>System shows the quoted cost and the customer delivery charge
+separately.</li>
+<li>Operations books the pickup with the carrier and records the waybill
+and pickup date.</li>
+<li>Status events are entered or imported as the parcel moves.</li>
+<li>On delivery, operations or the carrier records proof of
+delivery.</li>
+<li>System marks the shipment delivered and starts the return
+window.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>3a. Quoted cost exceeds the charged delivery amount beyond the
+threshold: operations escalates before booking.</li>
+<li>5a. Delivery fails: reason is recorded and a retry is scheduled per
+policy.</li>
+<li>5b. Parcel lost or damaged: claim is opened and the customer is
+refunded or replaced.</li>
+</ul>
+<p><strong>Postconditions:</strong> shipment timeline and POD exist;
+delivery performance is measurable. <strong>Requirements:</strong>
+REQ-LOG-002 to 015, REQ-ORD-006.</p>
+</section>
+<section id="uc-06-return-request-and-refund" class="level2">
+<h2>UC-06 Return request and refund</h2>
+<p><strong>Actors:</strong> Customer, support, supplier, finance.
+<strong>Trigger:</strong> customer requests a return within the
+window.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>System checks eligibility by delivery date, category and policy
+version.</li>
+<li>Customer selects lines, quantity and reason and adds evidence.</li>
+<li>System routes the request to support and, where policy allows, the
+supplier.</li>
+<li>Decision is recorded: approved, partially approved or rejected, with
+reason.</li>
+<li>Reverse pickup or drop-off is arranged and recorded.</li>
+<li>Item is inspected where required.</li>
+<li>System calculates the refund including the delivery share where
+applicable.</li>
+<li>Finance approves above threshold; PSP processes the refund; ledger
+and supplier payable are updated.</li>
+<li>Customer is notified and the return closes.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>1a. Outside window or non-returnable: request blocked with the
+policy explanation and a support link.</li>
+<li>4a. Supplier contests: dispute is opened with evidence and
+escalated.</li>
+<li>7a. Prior refund exists: calculation nets prior refunds and prevents
+over-refund.</li>
+</ul>
+<p><strong>Postconditions:</strong> refund recorded, supplier charged
+back where responsible, return closed with evidence.
+<strong>Requirements:</strong> REQ-RET-001 to 014, REQ-PAY-006 to
+009.</p>
+</section>
+<section id="uc-07-dispute-resolution" class="level2">
+<h2>UC-07 Dispute resolution</h2>
+<p><strong>Actors:</strong> Support, operations lead, finance, supplier,
+customer. <strong>Trigger:</strong> contested return, non-delivery or
+payment discrepancy.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Dispute is opened with category, amount, evidence and affected
+lines.</li>
+<li>System freezes the related supplier payable to the extent of the
+disputed amount.</li>
+<li>Operations investigates using order, shipment and payment
+evidence.</li>
+<li>Decision is recorded with reason and approver.</li>
+<li>Resolution is executed: refund, release, replacement or
+rejection.</li>
+<li>Hold is released or converted; both parties are notified.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>3a. Evidence insufficient: request more from the party and extend
+the timer once.</li>
+<li>4a. Amount above delegated limit: founder approval required.</li>
+</ul>
+<p><strong>Postconditions:</strong> dispute closed with decision and
+financial effect. <strong>Requirements:</strong> REQ-RET-011 to 014,
+REQ-SET-005.</p>
+</section>
+<section id="uc-08-supplier-settlement-and-payout" class="level2">
+<h2>UC-08 Supplier settlement and payout</h2>
+<p><strong>Actors:</strong> Finance preparer, finance approver,
+supplier. <strong>Trigger:</strong> settlement cycle date.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>System calculates eligible payables: delivered, past return window,
+no holds.</li>
+<li>System generates statements and a draft payout batch.</li>
+<li>Preparer reviews exceptions and submits the batch.</li>
+<li>A different approver reviews statements and exceptions and
+approves.</li>
+<li>System exports the payout file and releases it to the channel.</li>
+<li>Confirmations are reconciled; paid status and references are
+recorded.</li>
+<li>Suppliers are notified and can view statements.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>1a. Open dispute or negative balance: payable is partially or fully
+held with a reason.</li>
+<li>5a. Channel rejects a payment: item is flagged and retried in the
+next batch.</li>
+<li>6a. Amount mismatch: exception is queued and the batch is not marked
+complete.</li>
+</ul>
+<p><strong>Postconditions:</strong> payout batch, approvals and
+reconciliation recorded. <strong>Requirements:</strong> REQ-SET-001 to
+012.</p>
+</section>
+<section id="uc-09-recall-and-safety-suspension" class="level2">
+<h2>UC-09 Recall and safety suspension</h2>
+<p><strong>Actors:</strong> Category lead, founder, support, customer.
+<strong>Trigger:</strong> recall notice, safety report or regulator
+instruction.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Category lead identifies affected products, variants or
+batches.</li>
+<li>Listing is suspended immediately and removed from sale.</li>
+<li>Affected orders and buyers are identified.</li>
+<li>Safety notice is sent to affected buyers with instructions.</li>
+<li>Returns or refunds are handled outside normal eligibility where
+safety requires.</li>
+<li>Supplier is notified and evidence is retained.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>2a. Supplier disputes the suspension: listing remains suspended
+pending review.</li>
+<li>5a. Refund exceeds normal limits: founder approval with a safety
+reason code.</li>
+</ul>
+<p><strong>Postconditions:</strong> product unavailable, buyers
+informed, evidence retained. <strong>Requirements:</strong> REQ-CAT-009,
+REQ-NOT-008, REQ-RET-001.</p>
+</section>
+<section id="uc-10-support-ticket-resolution" class="level2">
+<h2>UC-10 Support ticket resolution</h2>
+<p><strong>Actors:</strong> Customer, support agent, operations,
+finance. <strong>Trigger:</strong> customer contact by any channel.</p>
+<p><strong>Main flow</strong></p>
+<ol type="1">
+<li>Agent creates or receives a ticket linked to an order where
+possible.</li>
+<li>System shows order timeline, payment, shipment and prior
+contacts.</li>
+<li>Agent classifies the issue and responds within the first-response
+target.</li>
+<li>Resolution action is taken: information, refund request, return,
+carrier claim or escalation.</li>
+<li>Resolution code is recorded and the customer is notified.</li>
+<li>Satisfaction rating is requested.</li>
+</ol>
+<p><strong>Alternates</strong></p>
+<ul>
+<li>3a. Issue needs another team: ticket is assigned with context and
+SLA continues.</li>
+<li>4a. Resolution needs approval: ticket waits in an approval state,
+not closed.</li>
+</ul>
+<p><strong>Postconditions:</strong> ticket closed with code and
+evidence; SLA measured. <strong>Requirements:</strong> REQ-CS-001 to
+010.</p>
+<hr />
+</section>
+</section>
+<section id="user-stories-and-acceptance-criteria" class="level1">
+<h1>6. User stories and acceptance criteria</h1>
+<p>Stories are grouped by actor. Acceptance criteria use Given/When/Then
+where the behaviour is subtle; otherwise a testable statement is
+given.</p>
+<section id="customer" class="level2">
+<h2>6.1 Customer</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Story</th>
+<th>Acceptance criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-01</td>
+<td>As a customer, I want to buy items from several shops in one
+checkout so that I pay and track once.</td>
+<td>Given three suppliers in the cart, when I pay, then one parent order
+and three supplier orders exist and I see one order with three progress
+rows.</td>
+</tr>
+<tr>
+<td>US-02</td>
+<td>As a customer, I want to know the delivery cost before paying.</td>
+<td>Delivery is shown per shipment and in the total before the payment
+step; changing the address recalculates it.</td>
+</tr>
+<tr>
+<td>US-03</td>
+<td>As a customer, I want to see whether an item will fit before
+buying.</td>
+<td>Fashion and baby listings show a size guide and size attributes;
+missing size blocks publication.</td>
+</tr>
+<tr>
+<td>US-04</td>
+<td>As a customer, I want to return an item that does not fit.</td>
+<td>Given delivery within 7 days, when I request a return with a fit
+reason, then the request is accepted and routed, and the policy terms
+shown match the category.</td>
+</tr>
+<tr>
+<td>US-05</td>
+<td>As a customer, I want to know where my parcel is.</td>
+<td>Tracking shows current shipment state, carrier, waybill and
+estimated date without internal notes.</td>
+</tr>
+<tr>
+<td>US-06</td>
+<td>As a customer, I want a real person to help when something goes
+wrong.</td>
+<td>A ticket created during support hours receives a human first
+response within four working hours.</td>
+</tr>
+<tr>
+<td>US-07</td>
+<td>As a customer, I want to pay without creating an account.</td>
+<td>Guest checkout completes with phone, name and address only, and
+consent is recorded.</td>
+</tr>
+<tr>
+<td>US-08</td>
+<td>As a customer, I want to control marketing messages.</td>
+<td>Withdrawing marketing consent stops promotional messages and does
+not stop order updates.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supplier" class="level2">
+<h2>6.2 Supplier</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Story</th>
+<th>Acceptance criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-09</td>
+<td>As a supplier, I want to list my range without a laptop.</td>
+<td>A listing with variants, price, stock and photos can be created on a
+phone; mandatory fields are indicated.</td>
+</tr>
+<tr>
+<td>US-10</td>
+<td>As a supplier, I want to know what to pack and where it goes.</td>
+<td>The supplier order shows only its lines, recipient name, phone,
+address and landmark, and a packing checklist.</td>
+</tr>
+<tr>
+<td>US-11</td>
+<td>As a supplier, I want to be paid accurately and on time.</td>
+<td>My statement lists orders, commission, refunds, adjustments and net
+payable, and matches the payout reference.</td>
+</tr>
+<tr>
+<td>US-12</td>
+<td>As a supplier, I want to contest a return that is not my fault.</td>
+<td>I can add evidence and open a dispute; the payable is held only to
+the disputed amount.</td>
+</tr>
+<tr>
+<td>US-13</td>
+<td>As a supplier, I want to know how I am performing.</td>
+<td>A monthly scorecard shows dispatch timeliness, cancellations,
+returns and rating, computed from system events.</td>
+</tr>
+<tr>
+<td>US-14</td>
+<td>As a supplier, I want clear reasons when a listing is rejected.</td>
+<td>Rejection includes a reason code and a note, and I can correct and
+resubmit the same listing.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="operations-and-finance" class="level2">
+<h2>6.3 Operations and finance</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Story</th>
+<th>Acceptance criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-15</td>
+<td>As an operator, I want to verify a supplier before they sell.</td>
+<td>No listing can publish until KYC is approved, the contract is
+recorded and the payout name matches.</td>
+</tr>
+<tr>
+<td>US-16</td>
+<td>As a moderator, I want a queue that tells me what to check.</td>
+<td>Each listing shows its category checklist, mandatory attributes and
+flags; decisions require a reason.</td>
+</tr>
+<tr>
+<td>US-17</td>
+<td>As an operator, I want to book a carrier manually and keep the same
+records an API would give.</td>
+<td>Manual booking requires carrier, service, waybill, cost and pickup
+date, and creates the same shipment record as Mode B.</td>
+</tr>
+<tr>
+<td>US-18</td>
+<td>As finance, I want to reconcile payments daily.</td>
+<td>The reconciliation run matches PSP lines to ledger entries, queues
+exceptions and reports unmatched value.</td>
+</tr>
+<tr>
+<td>US-19</td>
+<td>As finance, I want payouts approved by someone else.</td>
+<td>A batch prepared by one user cannot be approved by the same
+user.</td>
+</tr>
+<tr>
+<td>US-20</td>
+<td>As an operator, I want to stop a dangerous product immediately.</td>
+<td>Suspending a listing removes it from sale at once and notifies
+affected buyers.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="control-and-oversight" class="level2">
+<h2>6.4 Control and oversight</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Story</th>
+<th>Acceptance criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-21</td>
+<td>As a founder, I want to see contribution by department.</td>
+<td>The monthly report shows revenue, commission, delivery margin,
+refunds and contribution per department.</td>
+</tr>
+<tr>
+<td>US-22</td>
+<td>As an auditor, I want to reconstruct a refund.</td>
+<td>For any refund, the actor, reason, approver, amount, prior refunds
+and PSP reference are retrievable.</td>
+</tr>
+<tr>
+<td>US-23</td>
+<td>As an administrator, I want to change fees without a
+deployment.</td>
+<td>A commission change with an effective date applies only to orders
+after that date; prior orders keep their rule.</td>
+</tr>
+<tr>
+<td>US-24</td>
+<td>As a founder, I want to decide at month 6 with evidence.</td>
+<td>The review pack contains orders, repeat rate, delivery performance,
+returns, supplier retention and contribution.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+</section>
+<section id="external-interface-requirements" class="level1">
+<h1>7. External interface requirements</h1>
+<section id="payment-service-provider" class="level2">
+<h2>7.1 Payment service provider</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Interface</th>
+<th>Direction</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Payment initiation</td>
+<td>Outbound</td>
+<td>Create a payment for the parent order with amount, currency,
+reference and return URL; receive a PSP reference and redirect or
+prompt</td>
+</tr>
+<tr>
+<td>Callback</td>
+<td>Inbound</td>
+<td>Accept signed status callbacks; verify signature, timestamp and
+reference; respond quickly and process asynchronously</td>
+</tr>
+<tr>
+<td>Status query</td>
+<td>Outbound</td>
+<td>Query by PSP reference before finalising state</td>
+</tr>
+<tr>
+<td>Refund</td>
+<td>Outbound</td>
+<td>Full or partial refund by PSP reference with an idempotency key</td>
+</tr>
+<tr>
+<td>Settlement or payout</td>
+<td>Outbound or file</td>
+<td>Instruct supplier payouts in the agreed channel, or export a file
+for manual upload</td>
+</tr>
+<tr>
+<td>Reconciliation file</td>
+<td>Inbound</td>
+<td>Daily file or API listing of transactions, fees, refunds and
+payouts</td>
+</tr>
+<tr>
+<td>Error handling</td>
+<td>Both</td>
+<td>Timeouts, retries with backoff, dead-letter queue and alerting</td>
+</tr>
+</tbody>
+</table>
+<p>The platform must support replacing the PSP without changing order,
+ledger or settlement logic. Provider-specific fields are isolated in an
+adapter.</p>
+</section>
+<section id="carrier" class="level2">
+<h2>7.2 Carrier</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quote</td>
+<td>Return a price and estimated transit time for a parcel and
+destination zone</td>
+</tr>
+<tr>
+<td>Book</td>
+<td>Create a booking and return a waybill and label reference</td>
+</tr>
+<tr>
+<td>Cancel</td>
+<td>Cancel a booking before pickup where the carrier allows</td>
+</tr>
+<tr>
+<td>Track</td>
+<td>Return status events with timestamps and location where
+available</td>
+</tr>
+<tr>
+<td>Proof of delivery</td>
+<td>Return recipient, timestamp, method and evidence reference</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>Open and track a claim for loss or damage</td>
+</tr>
+<tr>
+<td>Manual fallback</td>
+<td>Every operation has a manual recording path with the same
+fields</td>
+</tr>
+</tbody>
+</table>
+<p>No carrier is assumed. Usiri, if it becomes a carrier, uses the same
+adapter contract as any other provider.</p>
+</section>
+<section id="messaging" class="level2">
+<h2>7.3 Messaging</h2>
+<p>SMS through a Tanzanian-capable gateway; WhatsApp through an approved
+business provider; email for receipts and statements. Templates are
+versioned per language. Delivery reports update message status. Opt-out
+is honoured for marketing only.</p>
+</section>
+<section id="storage-and-media" class="level2">
+<h2>7.4 Storage and media</h2>
+<p>Product images and KYC documents are stored in private object
+storage. Product media is served through signed, time-limited URLs or a
+CDN with derivative sizes. KYC documents are never publicly addressable
+and access is logged.</p>
+</section>
+<section id="address-and-location" class="level2">
+<h2>7.5 Address and location</h2>
+<p>Address capture is text-first with area, street, landmark and
+optional pin. The platform must not depend on a geocoding provider for
+checkout to work. A pin, where provided, is stored as a hint, not as the
+sole address.</p>
+</section>
+<section id="reporting-and-export" class="level2">
+<h2>7.6 Reporting and export</h2>
+<p>CSV exports for orders, payments, payouts, returns and catalogue.
+Exports respect the filters applied and are logged. No direct database
+access is provided to business users.</p>
+<hr />
+</section>
+</section>
+<section id="data-requirements" class="level1">
+<h1>8. Data requirements</h1>
+<section id="entity-overview" class="level2">
+<h2>8.1 Entity overview</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Key data</th>
+<th>Relationships</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer</td>
+<td>Phone, name, email, consent, status</td>
+<td>Addresses, orders, tickets, reviews</td>
+</tr>
+<tr>
+<td>Address</td>
+<td>Recipient, phone, area, street, landmark, pin, instructions</td>
+<td>Customer, orders</td>
+</tr>
+<tr>
+<td>Supplier</td>
+<td>Legal name, trading name, TIN, status, contract, payout account</td>
+<td>Users, products, orders, statements</td>
+</tr>
+<tr>
+<td>Supplier document</td>
+<td>Type, file reference, expiry, verification status</td>
+<td>Supplier</td>
+</tr>
+<tr>
+<td>Category</td>
+<td>Parent, name, attributes, checklist, return policy</td>
+<td>Products</td>
+</tr>
+<tr>
+<td>Product</td>
+<td>Supplier, category, title, brand, description, status</td>
+<td>Variants, media, reviews</td>
+</tr>
+<tr>
+<td>Variant</td>
+<td>SKU, option values, price, stock, barcode</td>
+<td>Product, order items, reservations</td>
+</tr>
+<tr>
+<td>Reservation</td>
+<td>Variant, quantity, order reference, expiry</td>
+<td>Variant, order</td>
+</tr>
+<tr>
+<td>Parent order</td>
+<td>Customer, totals, payment state, address snapshot</td>
+<td>Supplier orders</td>
+</tr>
+<tr>
+<td>Supplier order</td>
+<td>Supplier, amounts, commission rule, state, payout date</td>
+<td>Items, shipments, returns</td>
+</tr>
+<tr>
+<td>Order item</td>
+<td>Variant snapshot, title, price, quantity, discount, tax line</td>
+<td>Supplier order</td>
+</tr>
+<tr>
+<td>Shipment</td>
+<td>Carrier, service, waybill, weight, dimensions, cost, state</td>
+<td>Supplier order, events</td>
+</tr>
+<tr>
+<td>Shipment event</td>
+<td>Status, source, timestamp, raw reference</td>
+<td>Shipment</td>
+</tr>
+<tr>
+<td>Payment</td>
+<td>PSP reference, amount, state, method</td>
+<td>Parent order, refunds, ledger</td>
+</tr>
+<tr>
+<td>Refund</td>
+<td>Payment, amount, reason, approver, PSP reference</td>
+<td>Payment, return</td>
+</tr>
+<tr>
+<td>Ledger entry</td>
+<td>Account, debit, credit, reference, period</td>
+<td>Payment, refund, payout</td>
+</tr>
+<tr>
+<td>Payout</td>
+<td>Supplier, period, gross, deductions, net, state, approvals</td>
+<td>Supplier, ledger</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>Order item, quantity, reason, evidence, state</td>
+<td>Supplier order, refund</td>
+</tr>
+<tr>
+<td>Dispute</td>
+<td>Return or order, amount, evidence, state, decision</td>
+<td>Return, supplier order</td>
+</tr>
+<tr>
+<td>Ticket</td>
+<td>Customer, order, category, state, SLA, resolution code</td>
+<td>Customer, order</td>
+</tr>
+<tr>
+<td>Review</td>
+<td>Order item, rating, text, moderation state</td>
+<td>Product, supplier</td>
+</tr>
+<tr>
+<td>Consent</td>
+<td>Purpose, notice version, timestamp, source</td>
+<td>Customer</td>
+</tr>
+<tr>
+<td>Audit record</td>
+<td>Actor, action, entity, before, after, reason, timestamp</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Configuration</td>
+<td>Key, value, effective dates, approver</td>
+<td>Fees, zones, policies, brand</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-rules" class="level2">
+<h2>8.2 Data rules</h2>
+<ol type="1">
+<li>Order items snapshot title, SKU, variant description, unit price,
+discount, tax line and commission rule.</li>
+<li>Money is integer TZS; rounding is applied once per calculation and
+the rule is recorded.</li>
+<li>Personal data is masked by default in lists and exports; reveal
+requires permission and reason.</li>
+<li>KYC documents are encrypted, access-logged and retained per legal
+advice.</li>
+<li>Audit records are append-only; no application role can update or
+delete them.</li>
+<li>Deletion anonymises personal fields while preserving financial and
+audit records.</li>
+<li>Category attributes are data, not schema columns; adding a
+department must not require a migration of product tables.</li>
+</ol>
+<p>The physical schema, indexes and retention schedule are defined in
+the database design document. This section defines business data
+obligations only.</p>
+<hr />
+</section>
+</section>
+<section id="non-functional-requirements" class="level1">
+<h1>9. Non-functional requirements</h1>
+<section id="performance-and-scale" class="level2">
+<h2>9.1 Performance and scale</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-P-01</td>
+<td>Customer pages load quickly on a mid-range Android phone on 4G</td>
+<td>LCP at 75th percentile within 3.0 s</td>
+<td>Lighthouse and field measurement</td>
+</tr>
+<tr>
+<td>NFR-P-02</td>
+<td>Core read APIs respond quickly under pilot load</td>
+<td>p95 within 500 ms, excluding third-party calls</td>
+<td>Load test</td>
+</tr>
+<tr>
+<td>NFR-P-03</td>
+<td>Write APIs complete predictably</td>
+<td>p95 within 1,000 ms, excluding PSP or carrier latency</td>
+<td>Load test and tracing</td>
+</tr>
+<tr>
+<td>NFR-P-04</td>
+<td>Search returns relevant results at pilot catalogue size</td>
+<td>p95 within 800 ms at 5,000 SKUs</td>
+<td>Query benchmark</td>
+</tr>
+<tr>
+<td>NFR-P-05</td>
+<td>A customer can complete checkout on a mid-range device</td>
+<td>Median under 5 minutes including payment</td>
+<td>Moderated usability test</td>
+</tr>
+<tr>
+<td>NFR-P-06</td>
+<td>Product images are sized for mobile data</td>
+<td>No image above 250 KB on listing pages; responsive derivatives</td>
+<td>Page-weight audit</td>
+</tr>
+<tr>
+<td>NFR-S-01</td>
+<td>The pilot supports bursts with headroom</td>
+<td>100 concurrent users and 10 checkouts per minute, 5x design
+headroom</td>
+<td>Load test</td>
+</tr>
+<tr>
+<td>NFR-S-02</td>
+<td>The schema supports growth without re-architecture</td>
+<td>10x SKUs and 5x order volume over pilot</td>
+<td>Design review and synthetic data test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="availability-and-reliability" class="level2">
+<h2>9.2 Availability and reliability</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-A-01</td>
+<td>Catalogue, checkout and order APIs are available during support
+hours</td>
+<td>99.5% monthly, excluding announced maintenance</td>
+<td>Uptime monitoring</td>
+</tr>
+<tr>
+<td>NFR-R-01</td>
+<td>Payment and order operations survive retries without
+duplication</td>
+<td>Idempotent initiation and callback; zero duplicate orders in
+test</td>
+<td>Integration and chaos tests</td>
+</tr>
+<tr>
+<td>NFR-R-02</td>
+<td>Data can be recovered after failure</td>
+<td>RPO 15 minutes; RTO 4 hours</td>
+<td>Restore drill</td>
+</tr>
+<tr>
+<td>NFR-R-03</td>
+<td>Background jobs retry safely and surface dead letters</td>
+<td>At-least-once delivery with idempotent handlers; alert on
+failures</td>
+<td>Job failure injection</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="security" class="level2">
+<h2>9.3 Security</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-SEC-01</td>
+<td>Authentication, checkout and admin meet a recognised baseline</td>
+<td>OWASP ASVS Level 2 for in-scope controls</td>
+<td>Security review and penetration test</td>
+</tr>
+<tr>
+<td>NFR-SEC-02</td>
+<td>Traffic is encrypted and secrets protected</td>
+<td>TLS 1.2 or higher; managed secret store; no secrets in logs</td>
+<td>Configuration review and scan</td>
+</tr>
+<tr>
+<td>NFR-SEC-03</td>
+<td>Passwords and staff authentication resist compromise</td>
+<td>Argon2id; MFA for staff and supplier owners</td>
+<td>Code review and test</td>
+</tr>
+<tr>
+<td>NFR-SEC-04</td>
+<td>Authorisation is enforced server-side on every request</td>
+<td>Deny-by-default; tenant scoping; automated authorisation tests</td>
+<td>Test suite and manual review</td>
+</tr>
+<tr>
+<td>NFR-SEC-05</td>
+<td>Abuse is rate-limited</td>
+<td>Login 5 per minute per IP; OTP 3 per 10 minutes per number; checkout
+10 per minute per user</td>
+<td>Configuration test</td>
+</tr>
+<tr>
+<td>NFR-SEC-06</td>
+<td>Uploads cannot become an attack vector</td>
+<td>Type and size limits; malware scan; private storage; signed
+access</td>
+<td>Upload tests</td>
+</tr>
+<tr>
+<td>NFR-SEC-07</td>
+<td>Dependencies and images are scanned before release</td>
+<td>No known critical vulnerability in production artefacts</td>
+<td>CI report</td>
+</tr>
+<tr>
+<td>NFR-SEC-08</td>
+<td>Security headers and cookie attributes are enforced</td>
+<td>HSTS, CSP, frame denial, SameSite cookies</td>
+<td>Header scan</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="privacy-and-audit" class="level2">
+<h2>9.4 Privacy and audit</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-PRIV-01</td>
+<td>Consent and privacy notices are recorded and enforceable</td>
+<td>Versioned notice; consent per purpose; withdrawal honoured</td>
+<td>Process and data audit</td>
+</tr>
+<tr>
+<td>NFR-PRIV-02</td>
+<td>Personal data is minimised in logs and interfaces</td>
+<td>No card data; PII masked by default; access logged</td>
+<td>Log inspection and role tests</td>
+</tr>
+<tr>
+<td>NFR-PRIV-03</td>
+<td>Data subject requests can be fulfilled</td>
+<td>Export, correction and deletion within the statutory period to be
+confirmed</td>
+<td>Tabletop exercise with counsel</td>
+</tr>
+<tr>
+<td>NFR-AUD-01</td>
+<td>Sensitive actions are traceable</td>
+<td>100% of role, refund, payout, price and supplier-status changes
+logged with actor, reason and before/after</td>
+<td>Audit coverage test</td>
+</tr>
+<tr>
+<td>NFR-AUD-02</td>
+<td>Audit records resist tampering</td>
+<td>Append-only storage; separate access; retention per legal
+advice</td>
+<td>Design review and access test</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="maintainability-and-operability" class="level2">
+<h2>9.5 Maintainability and operability</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-M-01</td>
+<td>Critical modules have automated tests</td>
+<td>At least 70% unit coverage on order, payment, commission and refund
+logic; integration tests for adapters</td>
+<td>CI report</td>
+</tr>
+<tr>
+<td>NFR-M-02</td>
+<td>Database changes are controlled</td>
+<td>Versioned migrations; tested rollback; no manual production schema
+edits</td>
+<td>Migration review</td>
+</tr>
+<tr>
+<td>NFR-M-03</td>
+<td>Code and decisions are documented</td>
+<td>Architecture decision records; API specification generated from
+source; runbooks</td>
+<td>Documentation review</td>
+</tr>
+<tr>
+<td>NFR-OBS-01</td>
+<td>Failures are visible before customers report them</td>
+<td>Structured logs with request IDs; error tracking; payment-success
+and uptime alerts; dashboards</td>
+<td>Incident drill</td>
+</tr>
+<tr>
+<td>NFR-OPS-01</td>
+<td>Deployments are repeatable and reversible</td>
+<td>One-command deploy; rollback within 15 minutes; no manual production
+edits</td>
+<td>Deploy and rollback drill</td>
+</tr>
+<tr>
+<td>NFR-SUP-01</td>
+<td>Support can find any order quickly</td>
+<td>Order lookup by number, phone, supplier or tracking reference in
+under 30 seconds</td>
+<td>Usability test with support staff</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="accessibility-localisation-and-compatibility"
+class="level2">
+<h2>9.6 Accessibility, localisation and compatibility</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+<th>Target</th>
+<th>Verification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-ACC-01</td>
+<td>Critical customer flows are usable with assistive technology</td>
+<td>WCAG 2.1 AA for catalogue, cart, checkout and tracking</td>
+<td>Accessibility audit</td>
+</tr>
+<tr>
+<td>NFR-I18N-01</td>
+<td>The interface works in Swahili and English</td>
+<td>Swahili default; all strings externalised; TZS formatting; no
+hard-coded copy</td>
+<td>Content review and pseudo-localisation test</td>
+</tr>
+<tr>
+<td>NFR-COMP-01</td>
+<td>The site works on the devices customers use</td>
+<td>Current Chrome, Safari, Firefox and Android WebView; graceful
+degradation</td>
+<td>Device lab and analytics</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+</section>
+<section id="state-models" class="level1">
+<h1>10. State models</h1>
+<section id="payment" class="level2">
+<h2>10.1 Payment</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>From</th>
+<th>Event</th>
+<th>To</th>
+<th>Authority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>—</td>
+<td>Checkout</td>
+<td>Initiated</td>
+<td>System</td>
+</tr>
+<tr>
+<td>Initiated</td>
+<td>PSP accepted</td>
+<td>Pending</td>
+<td>PSP</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>Verified capture</td>
+<td>Captured</td>
+<td>System after status query</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>Failure or expiry</td>
+<td>Failed</td>
+<td>System</td>
+</tr>
+<tr>
+<td>Captured</td>
+<td>Refund completed</td>
+<td>Partially refunded or Refunded</td>
+<td>Finance approval and PSP</td>
+</tr>
+<tr>
+<td>Captured</td>
+<td>Chargeback</td>
+<td>Reversed or Disputed</td>
+<td>Finance</td>
+</tr>
+<tr>
+<td>Failed</td>
+<td>Retry within window</td>
+<td>Initiated</td>
+<td>Customer</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="supplier-order" class="level2">
+<h2>10.2 Supplier order</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>From</th>
+<th>Event</th>
+<th>To</th>
+<th>Authority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>—</td>
+<td>Parent order paid</td>
+<td>Awaiting acceptance</td>
+<td>System</td>
+</tr>
+<tr>
+<td>Awaiting acceptance</td>
+<td>Supplier accepts</td>
+<td>Accepted</td>
+<td>Supplier</td>
+</tr>
+<tr>
+<td>Awaiting acceptance</td>
+<td>Supplier rejects or window expires</td>
+<td>Cancelled</td>
+<td>Supplier or system</td>
+</tr>
+<tr>
+<td>Accepted</td>
+<td>Supplier starts packing</td>
+<td>Preparing</td>
+<td>Supplier</td>
+</tr>
+<tr>
+<td>Preparing</td>
+<td>Package ready</td>
+<td>Ready for pickup</td>
+<td>Supplier</td>
+</tr>
+<tr>
+<td>Ready for pickup</td>
+<td>Carrier takes parcel</td>
+<td>Dispatched</td>
+<td>Operations or carrier event</td>
+</tr>
+<tr>
+<td>Dispatched</td>
+<td>POD recorded</td>
+<td>Delivered</td>
+<td>Carrier or operations</td>
+</tr>
+<tr>
+<td>Delivered</td>
+<td>Return window closes</td>
+<td>Completed</td>
+<td>System</td>
+</tr>
+<tr>
+<td>Any pre-delivery</td>
+<td>Cancellation approved</td>
+<td>Cancelled</td>
+<td>Supplier or operations, with reason</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="shipment" class="level2">
+<h2>10.3 Shipment</h2>
+<p>Draft → Booked → Picked up → In transit → Out for delivery →
+Delivered. Exceptions: Failed attempt → Retry scheduled or Returned to
+supplier; Lost; Damaged. Only carrier events or an authorised operator
+can move a shipment to Delivered, and a POD is mandatory.</p>
+</section>
+<section id="return" class="level2">
+<h2>10.4 Return</h2>
+<p>Requested → Under review → Approved or Rejected → In reverse transit
+→ Received → Inspected → Refunded or Partially refunded → Closed. A
+contested decision moves to Disputed and may return to Approved or
+remain Rejected.</p>
+</section>
+<section id="dispute" class="level2">
+<h2>10.5 Dispute</h2>
+<p>Opened → Under review → Resolved for customer, Resolved for supplier,
+or Escalated → Closed. A dispute freezes the disputed amount of the
+supplier payable until closed.</p>
+</section>
+<section id="customer-facing-summary" class="level2">
+<h2>10.6 Customer-facing summary</h2>
+<p>The summary is derived, never typed: <strong>Processing</strong>
+while any supplier order is awaiting acceptance or preparing;
+<strong>Shipped</strong> when all active supplier orders are dispatched;
+<strong>Partially delivered</strong> when some shipments are delivered
+and others are not; <strong>Delivered</strong> when all shipments are
+delivered; <strong>Cancelled</strong> when all supplier orders are
+cancelled; <strong>Return in progress</strong> when any return is open;
+<strong>Refunded</strong> when refunds cover the captured amount. The
+customer sees both the summary and the per-supplier detail.</p>
+</section>
+<section id="transition-authority" class="level2">
+<h2>10.7 Transition authority</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Transition</th>
+<th>Who may perform</th>
+<th>Evidence required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mark supplier order accepted or rejected</td>
+<td>Supplier owner or staff with permission</td>
+<td>Reason for rejection</td>
+</tr>
+<tr>
+<td>Mark ready for pickup</td>
+<td>Supplier</td>
+<td>Package count and weight</td>
+</tr>
+<tr>
+<td>Mark dispatched</td>
+<td>Operations or carrier event</td>
+<td>Waybill</td>
+</tr>
+<tr>
+<td>Mark delivered</td>
+<td>Carrier event or operations</td>
+<td>POD</td>
+</tr>
+<tr>
+<td>Approve refund</td>
+<td>Support within limit; finance above</td>
+<td>Reason and approver</td>
+</tr>
+<tr>
+<td>Release payout</td>
+<td>Finance approver, not preparer</td>
+<td>Batch review</td>
+</tr>
+<tr>
+<td>Suspend listing or supplier</td>
+<td>Moderator, category lead or operations lead</td>
+<td>Reason code</td>
+</tr>
+<tr>
+<td>Override a state</td>
+<td>Operations lead only</td>
+<td>Reason, logged and reported</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+</section>
+<section id="business-rule-enforcement" class="level1">
+<h1>11. Business rule enforcement</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Rule group</th>
+<th>Enforced in</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Order structure and snapshots (BR-001, BR-011)</td>
+<td>Order service and database constraints</td>
+<td>Order record and tests</td>
+</tr>
+<tr>
+<td>Server-side pricing (BR-003)</td>
+<td>Checkout calculation service</td>
+<td>Tampering tests</td>
+</tr>
+<tr>
+<td>Commission on net value (BR-004)</td>
+<td>Settlement service</td>
+<td>Calculation tests and statements</td>
+</tr>
+<tr>
+<td>Separate money amounts (BR-005)</td>
+<td>Ledger accounts and reports</td>
+<td>Finance report</td>
+</tr>
+<tr>
+<td>Refund limits (BR-027)</td>
+<td>Refund service</td>
+<td>Over-refund test</td>
+</tr>
+<tr>
+<td>Payout holds and maker-checker (BR-007, BR-028, BR-029)</td>
+<td>Settlement workflow</td>
+<td>Approval tests</td>
+</tr>
+<tr>
+<td>Catalogue visibility (BR-010, BR-015, BR-034)</td>
+<td>Catalogue service and moderation workflow</td>
+<td>Publish-block tests</td>
+</tr>
+<tr>
+<td>Delivery evidence (BR-008, BR-016)</td>
+<td>Shipment service</td>
+<td>POD requirement</td>
+</tr>
+<tr>
+<td>Return eligibility (BR-018, BR-035)</td>
+<td>Returns service with policy configuration</td>
+<td>Eligibility matrix tests</td>
+</tr>
+<tr>
+<td>Variants and SKU (BR-033)</td>
+<td>Catalogue and inventory</td>
+<td>Variant checkout tests</td>
+</tr>
+<tr>
+<td>Access and audit (BR-023, BR-026)</td>
+<td>Authorisation layer and audit service</td>
+<td>Authorisation and audit tests</td>
+</tr>
+<tr>
+<td>Brand and franchise (BR-022)</td>
+<td>Configuration service</td>
+<td>Activation and effective-date tests</td>
+</tr>
+</tbody>
+</table>
+<p>A rule that cannot be enforced in software must be enforced by a
+documented operating control, and that control must be named in the test
+plan. “We will remember” is not a control.</p>
+<hr />
+</section>
+<section id="traceability" class="level1">
+<h1>12. Traceability</h1>
+<section id="objective-to-requirement" class="level2">
+<h2>12.1 Objective to requirement</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Objective</th>
+<th>Business needs</th>
+<th>Requirement modules</th>
+<th>Acceptance theme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OBJ-01 Demand</td>
+<td>BN-01, BN-04, BN-05</td>
+<td>REQ-CHK, REQ-ORD, REQ-DIS, REQ-INV</td>
+<td>Three-supplier checkout completes and is tracked as one order</td>
+</tr>
+<tr>
+<td>OBJ-02 Delivery</td>
+<td>BN-06, BN-11</td>
+<td>REQ-LOG, REQ-ORD, REQ-NOT</td>
+<td>Every shipment has carrier, waybill, events and POD</td>
+</tr>
+<tr>
+<td>OBJ-03 Trust</td>
+<td>BN-09, BN-10, BN-12</td>
+<td>REQ-RET, REQ-CS, REQ-PAY</td>
+<td>Return resolved with refund, chargeback and communication</td>
+</tr>
+<tr>
+<td>OBJ-04 Supply</td>
+<td>BN-02, BN-03, BN-17</td>
+<td>REQ-KYC, REQ-CAT, REQ-RPT</td>
+<td>Verified supplier publishes approved variants and sees own data
+only</td>
+</tr>
+<tr>
+<td>OBJ-05 Economics</td>
+<td>BN-08, BN-19, BN-23</td>
+<td>REQ-SET, REQ-PAY, REQ-RPT</td>
+<td>Commission, refunds and payouts reconcile to the ledger</td>
+</tr>
+<tr>
+<td>OBJ-06 Compliance</td>
+<td>BN-13, BN-15, BN-26</td>
+<td>REQ-ACC, REQ-ADM, REQ-NOT</td>
+<td>Consent, terms version, invoices and audit are evidenced</td>
+</tr>
+<tr>
+<td>OBJ-07 Operability</td>
+<td>BN-12, BN-24, BN-27</td>
+<td>REQ-CS, REQ-RPT, REQ-ADM</td>
+<td>A pilot day runs in the system without shadow spreadsheets</td>
+</tr>
+<tr>
+<td>OBJ-08 Scale decision</td>
+<td>BN-28, BN-25</td>
+<td>REQ-RPT</td>
+<td>Month-6 pack shows demand, retention, delivery and contribution</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rules-of-traceability" class="level2">
+<h2>12.2 Rules of traceability</h2>
+<ol type="1">
+<li>Every Must requirement references at least one business need and one
+verification method.</li>
+<li>Every business rule marked Confirmed or Proposed has at least one
+requirement that enforces it or a named manual control.</li>
+<li>Every test case references a requirement ID; a test without a
+requirement is either unnecessary or exposes a missing requirement.</li>
+<li>The traceability matrix is a living file, updated in the same change
+as the requirement.</li>
+<li>No requirement is deleted; it is marked withdrawn with a reason and
+a replacement reference.</li>
+</ol>
+<hr />
+</section>
+</section>
+<section id="verification-and-acceptance" class="level1">
+<h1>13. Verification and acceptance</h1>
+<section id="test-levels" class="level2">
+<h2>13.1 Test levels</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Level</th>
+<th>Scope</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit</td>
+<td>Calculation, state transitions, validation</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>PSP sandbox, carrier adapter stub, messaging, storage</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>End-to-end</td>
+<td>Customer, supplier, operations journeys on staging</td>
+<td>QA and operations</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Authorisation matrix, input handling, callback forgery, dependency
+scan</td>
+<td>Technical lead and reviewer</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Load and soak at pilot targets with headroom</td>
+<td>Engineering</td>
+</tr>
+<tr>
+<td>Accessibility</td>
+<td>WCAG 2.1 AA on critical flows</td>
+<td>Design and QA</td>
+</tr>
+<tr>
+<td>User acceptance</td>
+<td>Real operators run scripted and exploratory pilot days</td>
+<td>Founders and operations</td>
+</tr>
+<tr>
+<td>Pilot acceptance</td>
+<td>Live orders measured against objectives</td>
+<td>Founders</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="entry-and-exit-criteria" class="level2">
+<h2>13.2 Entry and exit criteria</h2>
+<p><strong>Entry to system testing:</strong> requirements baseline
+approved; environments available; PSP sandbox and carrier contract
+confirmed; test data prepared; no open critical defect.</p>
+<p><strong>Exit to pilot:</strong> all Must requirements verified; no
+open critical or high defect; reconciliation proven with seeded
+mismatches; restore drill passed; security review closed; legal memo
+received; supplier cohort and carrier ready; runbooks written.</p>
+</section>
+<section id="acceptance-scenarios" class="level2">
+<h2>13.3 Acceptance scenarios</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Scenario</th>
+<th>Primary requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AT-01</td>
+<td>A three-supplier order is paid, partially rejected, partially
+delivered and partially refunded, and the ledger balances.</td>
+<td>REQ-CHK, REQ-ORD, REQ-PAY, REQ-SET</td>
+</tr>
+<tr>
+<td>AT-02</td>
+<td>A supplier is rejected for a name mismatch, corrects the record and
+is approved without duplication.</td>
+<td>REQ-KYC-004, REQ-KYC-008, REQ-KYC-013</td>
+</tr>
+<tr>
+<td>AT-03</td>
+<td>A fashion listing with size variants is rejected for a missing size
+guide, corrected and published.</td>
+<td>REQ-CAT-002, REQ-CAT-013, REQ-CAT-008</td>
+</tr>
+<tr>
+<td>AT-04</td>
+<td>A payment callback is forged and rejected; the genuine callback is
+verified and the order proceeds once.</td>
+<td>REQ-PAY-002, REQ-PAY-003, REQ-PAY-004</td>
+</tr>
+<tr>
+<td>AT-05</td>
+<td>A delivery fails twice, is returned to the supplier and the customer
+is refunded with the correct delivery treatment.</td>
+<td>REQ-LOG-009, REQ-LOG-010, REQ-RET-008</td>
+</tr>
+<tr>
+<td>AT-06</td>
+<td>A beauty listing is reported as expired; the listing is suspended
+and affected buyers are notified.</td>
+<td>REQ-CAT-009, REQ-NOT-008, REQ-RET-001</td>
+</tr>
+<tr>
+<td>AT-07</td>
+<td>A payout batch prepared by finance cannot be approved by the same
+person.</td>
+<td>REQ-SET-006</td>
+</tr>
+<tr>
+<td>AT-08</td>
+<td>A customer requests deletion; personal fields are anonymised and
+financial records remain.</td>
+<td>REQ-ACC-010</td>
+</tr>
+<tr>
+<td>AT-09</td>
+<td>A support agent resolves a ticket within SLA using only the
+console.</td>
+<td>REQ-CS-001, REQ-CS-002, REQ-CS-004</td>
+</tr>
+<tr>
+<td>AT-10</td>
+<td>The daily reconciliation identifies a seeded amount mismatch and
+queues it.</td>
+<td>REQ-PAY-010, REQ-PAY-011</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</section>
+</section>
+<section id="open-issues" class="level1">
+<h1>14. Open issues</h1>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>ID</th>
+<th>Issue</th>
+<th>Impact</th>
+<th>Owner</th>
+<th>Needed by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D-13</td>
+<td>Exact department tree</td>
+<td>Category configuration and templates</td>
+<td>Founders</td>
+<td>BRD sign-off</td>
+</tr>
+<tr>
+<td>D-14</td>
+<td>Minimum basket or small-order fee</td>
+<td>Checkout validation and conversion</td>
+<td>Founders</td>
+<td>Checkout freeze</td>
+</tr>
+<tr>
+<td>D-15</td>
+<td>Category commission schedule</td>
+<td>Settlement rules and supplier contracts</td>
+<td>Founders and finance</td>
+<td>Supplier contracts</td>
+</tr>
+<tr>
+<td>D-16</td>
+<td>Beauty authenticity evidence</td>
+<td>Listing requirements and moderation</td>
+<td>Category lead</td>
+<td>Beauty go-live</td>
+</tr>
+<tr>
+<td>D-17</td>
+<td>Baby safety declaration</td>
+<td>Listing requirements and liability</td>
+<td>Founders</td>
+<td>Baby go-live</td>
+</tr>
+<tr>
+<td>D-18</td>
+<td>Fashion return policy</td>
+<td>Return eligibility and refunds</td>
+<td>Founders</td>
+<td>Policy publication</td>
+</tr>
+<tr>
+<td>D-19</td>
+<td>Launch supplier cohort</td>
+<td>Launch readiness</td>
+<td>Founders</td>
+<td>Recruitment plan</td>
+</tr>
+<tr>
+<td>D-20</td>
+<td>Timeline fallback</td>
+<td>Roadmap and scope gate</td>
+<td>Founders and CTO</td>
+<td>Roadmap sign-off</td>
+</tr>
+<tr>
+<td>O-03</td>
+<td>PSP selection and contract</td>
+<td>Payment adapter and settlement</td>
+<td>Finance lead</td>
+<td>Before payment build</td>
+</tr>
+<tr>
+<td>O-04</td>
+<td>Carrier selection and terms</td>
+<td>Logistics adapter and rates</td>
+<td>Operations lead</td>
+<td>Before logistics build</td>
+</tr>
+<tr>
+<td>O-09</td>
+<td>Tax treatment, invoicing and withholding</td>
+<td>Receipts, statements, VAT lines</td>
+<td>Accountant and counsel</td>
+<td>Before launch</td>
+</tr>
+<tr>
+<td>O-14</td>
+<td>Hosting region and data location</td>
+<td>Architecture and compliance</td>
+<td>CTO and counsel</td>
+<td>Before architecture sign-off</td>
+</tr>
+<tr>
+<td>O-10</td>
+<td>PDPA registration, DPO, retention and cross-border position</td>
+<td>Deletion, archive and transfer design</td>
+<td>Counsel</td>
+<td>Before launch</td>
+</tr>
+</tbody>
+</table>
+<p>A TBC value in this specification is not a defect. It is a controlled
+unknown that must be resolved before the related requirement is built,
+and the resolution must be recorded in the decision log.</p>
+<hr />
+</section>
+<section id="appendix-a.-requirement-index" class="level1">
+<h1>Appendix A. Requirement index</h1>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Prefix</th>
+<th>Count</th>
+<th>Primary business needs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity and consent</td>
+<td>REQ-ACC</td>
+<td>12</td>
+<td>BN-13, BN-14</td>
+</tr>
+<tr>
+<td>Supplier onboarding</td>
+<td>REQ-KYC</td>
+<td>14</td>
+<td>BN-02, BN-17</td>
+</tr>
+<tr>
+<td>Catalogue and moderation</td>
+<td>REQ-CAT</td>
+<td>16</td>
+<td>BN-03, BN-16, BN-18</td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>REQ-INV</td>
+<td>9</td>
+<td>BN-05</td>
+</tr>
+<tr>
+<td>Discovery</td>
+<td>REQ-DIS</td>
+<td>10</td>
+<td>BN-04, BN-26</td>
+</tr>
+<tr>
+<td>Cart and checkout</td>
+<td>REQ-CHK</td>
+<td>15</td>
+<td>BN-01, BN-06</td>
+</tr>
+<tr>
+<td>Orders</td>
+<td>REQ-ORD</td>
+<td>14</td>
+<td>BN-01, BN-09, BN-11</td>
+</tr>
+<tr>
+<td>Payments</td>
+<td>REQ-PAY</td>
+<td>14</td>
+<td>BN-07, BN-23</td>
+</tr>
+<tr>
+<td>Settlement</td>
+<td>REQ-SET</td>
+<td>12</td>
+<td>BN-08, BN-23</td>
+</tr>
+<tr>
+<td>Logistics</td>
+<td>REQ-LOG</td>
+<td>16</td>
+<td>BN-06, BN-11</td>
+</tr>
+<tr>
+<td>Returns and disputes</td>
+<td>REQ-RET</td>
+<td>14</td>
+<td>BN-09, BN-10</td>
+</tr>
+<tr>
+<td>Support</td>
+<td>REQ-CS</td>
+<td>10</td>
+<td>BN-12</td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td>REQ-NOT</td>
+<td>9</td>
+<td>BN-11, BN-18</td>
+</tr>
+<tr>
+<td>Administration</td>
+<td>REQ-ADM</td>
+<td>12</td>
+<td>BN-14, BN-15</td>
+</tr>
+<tr>
+<td>Reporting</td>
+<td>REQ-RPT</td>
+<td>10</td>
+<td>BN-19, BN-24, BN-28</td>
+</tr>
+<tr>
+<td>Reviews</td>
+<td>REQ-REV</td>
+<td>7</td>
+<td>BN-22</td>
+</tr>
+<tr>
+<td>Promotions</td>
+<td>REQ-PRO</td>
+<td>7</td>
+<td>BN-21</td>
+</tr>
+<tr>
+<td>Brand and franchise</td>
+<td>REQ-FRN</td>
+<td>6</td>
+<td>BN-20</td>
+</tr>
+</tbody>
+</table>
+<p>Total: 207 requirements, of which the Must set forms the launch
+scope.</p>
+</section>
+<section id="appendix-b.-glossary" class="level1">
+<h1>Appendix B. Glossary</h1>
+<p>Terms are as defined in the BRD, with these software additions:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idempotency key</td>
+<td>A client or system reference that makes a repeated operation return
+the original result instead of repeating the effect</td>
+</tr>
+<tr>
+<td>Dead letter</td>
+<td>A failed background job set aside for inspection after retries</td>
+</tr>
+<tr>
+<td>Derived state</td>
+<td>A state computed from events rather than stored as an editable
+field</td>
+</tr>
+<tr>
+<td>Adapter</td>
+<td>An isolated integration component that translates between the
+platform and an external provider</td>
+</tr>
+<tr>
+<td>Tenant scoping</td>
+<td>Restricting every query and action to the organisation a user
+belongs to</td>
+</tr>
+<tr>
+<td>Snapshot</td>
+<td>A stored copy of values at transaction time, unaffected by later
+edits</td>
+</tr>
+<tr>
+<td>Effective dating</td>
+<td>A configuration rule that applies from a date and leaves history
+unchanged</td>
+</tr>
+<tr>
+<td>Break-glass</td>
+<td>Temporary elevated access with a reason, alerting and review</td>
+</tr>
+</tbody>
+</table>
+</section>
+</body>
+</html>
